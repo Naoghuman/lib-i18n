@@ -30,12 +30,21 @@
             <comments>The GNU General Public License is a free, copyleft license for software and other kinds of works.</comments>
         </license>
     </licenses>
+    
+    <organization>
+        <name>Naoghuman's dream</name>
+    </organization>
 
     <scm>
         <connection>scm:git:ssh://github.com:Naoghuman/lib-i18n.git</connection>
         <developerConnection>scm:git:ssh://git@github.com:Naoghuman/lib-i18n.git</developerConnection>
         <url>https://github.com/Naoghuman/lib-i18n.git</url>
     </scm>
+    
+    <ciManagement>
+        <system>Travis</system>
+        <url>https://travis-ci.org/Naoghuman/lib-i18n</url>
+    </ciManagement>
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
