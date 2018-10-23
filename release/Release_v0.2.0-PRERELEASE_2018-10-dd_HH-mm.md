@@ -1,20 +1,16 @@
-Welcome to `Lib-I18n` with the new release `0.1.0-PRERELEASE`.
+Welcome to `Lib-I18n` with the new release `0.2.0-PRERELEASE`.
 
 TODO
 
 
 
 #### Summary
-* Implement basic library structure.
-* Connect the library to Travis CI.
+* ...
+* ...
 
 
 
 #### Feature
-#5 [pom] Tweak the `pom.xml` to fit the necessities from the project.
-#3 [lib] Add badges from img.shield.io to the ReadMe.md.
-#2 [ci] Connect the GitHub project with Travis CI.
-#1 [lib] Create basic library structure.
 
 
 
@@ -27,7 +23,6 @@ TODO
 
 
 #### Documentation
-#4 [doc] Create basic concept for the library.
 
 
 
