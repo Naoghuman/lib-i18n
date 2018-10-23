@@ -1,0 +1,49 @@
+--------------------------------------------------------------------------------
+CONCEPT Basic library idea
+--------------------------------------------------------------------------------
+DESCRIPTION
+This library should contain all functionalities which allowed the developer to 
+bind i18n keys with values (defined in .properties files) to a locale, so the 
+application is ready for multi languages.
+
+--------------------------------------------------------------------------------
+Link
+ - https://www.sothawo.com/2016/09/how-to-implement-a-javafx-ui-where-the-language-can-be-changed-dynamically/
+ - Use as reference
+ - Create prototype like in the article.
+
+--------------------------------------------------------------------------------
+I18nBuilder.create()
+   .properties(StringFileWithPath)
+   .defaultLocale(Locale)
+   .supportedLocales(Locale...)
+   .configure()
+
+I18nBuilder.create()
+   .control(NodeControl)
+   .text(String)
+   .text(String, Object... args)
+   .tooltip(String)//optional
+   .bind(): StringBinding
+
+I18nProvider.getDefaultLocale()
+I18nProvider.getSupportedLocales()
+I18nProvider.getLocale()
+I18nProvider.setLocale(Locale)
+I18nProvider.localeProperty()
+I18nProvider.get(final String key, final Object... args): String
+
+ResourceBundle bundle = ResourceBundle.getBundle("messages", getLocale());
+ - Load only ones per locale.
+ - Cache the loaded resource bundle in map.
+
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
