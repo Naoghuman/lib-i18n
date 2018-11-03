@@ -6,11 +6,12 @@
     <artifactId>lib-i18n</artifactId>
     <version>0.2.0-SNAPSHOT</version> <!-- -PRERELEASE -SNAPSHOT -->
     <packaging>jar</packaging>
-    <name>Lib-I18n</name>
+    <name>Lib-I18N</name>
     <inceptionYear>2018</inceptionYear>
     <url>https://github.com/Naoghuman/lib-i18n.git</url>
     
-    <description>TODO</description>
+    <description>The library `Lib-I18N` allowed the developer to bind easly `.properties` key (values) to a [StringBinding] or [Callable&lt;String&gt;]. So changing the language during runtime won't be a problem anymore.
+Lib-I18N is written in [JavaFX], [Maven] and [NetBeans].</description>
     
     <developers>
         <developer>
@@ -113,6 +114,28 @@
             </plugin>
             -->
         </plugins>
+        <resources>
+            <!--
+                Hint:
+                 - Add here the suffixes from the files with should be included 
+                   into the jar file.
+            -->
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
     
     <dependencies>
