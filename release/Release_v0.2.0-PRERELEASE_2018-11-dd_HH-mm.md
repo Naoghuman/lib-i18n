@@ -14,6 +14,7 @@ Lib-I18N is written in [JavaFX], [Maven] and [NetBeans].
 
 
 #### Feature
+#10 [lib] Move the final content from 'prototype4' from 'App-I18N-Demo' to this library.
 
 
 
