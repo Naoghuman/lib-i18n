@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (C) 2018 Naoghuman's dream
  *
  * This program is free software: you can redistribute it and/or modify
@@ -14,9 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.github.naoghuman.app.i18n.demo.prototype4.internal;
+package com.github.naoghuman.lib.i18n.internal;
 
-import com.github.naoghuman.app.i18n.demo.prototype4.core.I18NResourceBundle4;
+import com.github.naoghuman.lib.i18n.core.I18NResourceBundle;
 import java.text.MessageFormat;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -27,18 +27,23 @@ import javafx.collections.ObservableList;
 
 /**
  *
- * @author PRo
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
  */
-public class DefaultI18NResourceBundle4 implements I18NResourceBundle4 {
+public class DefaultI18NResourceBundle implements I18NResourceBundle {
     
-    /** the current selected Locale. */
     private ObjectProperty<Locale> actualLocaleProperty;
     private ObservableList<Locale> supportedLocales;
     
     private Locale defaultLocale;
     private String baseName;
     
-    public DefaultI18NResourceBundle4() {
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public DefaultI18NResourceBundle() {
         this.init();
     }
     
@@ -49,21 +54,21 @@ public class DefaultI18NResourceBundle4 implements I18NResourceBundle4 {
     }
     
     private String getBaseName() {
-        DefaultI18NValidator4.getDefault().requireNonNullAndNotEmpty(baseName);
+        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(baseName);
         
         return baseName;
     }
 
     @Override
     public void setBaseName(final String baseName) {
-        DefaultI18NValidator4.getDefault().requireNonNullAndNotEmpty(baseName);
+        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(baseName);
         
         this.baseName = baseName;
     }
     
     @Override
     public String getString(final String key) {
-        DefaultI18NValidator4.getDefault().requireNonNullAndNotEmpty(key);
+        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(key);
         
         final ResourceBundle bundle = ResourceBundle.getBundle(this.getBaseName(), this.getActualLocale());
         
@@ -72,8 +77,8 @@ public class DefaultI18NResourceBundle4 implements I18NResourceBundle4 {
     
     @Override
     public String getString(final String key, final Object... args) {
-        DefaultI18NValidator4.getDefault().requireNonNullAndNotEmpty(key);
-        DefaultI18NValidator4.getDefault().requireNonNullAndNotEmpty(args);
+        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(key);
+        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(args);
         
         final ResourceBundle bundle = ResourceBundle.getBundle(this.getBaseName(), this.getActualLocale());
         
@@ -82,14 +87,14 @@ public class DefaultI18NResourceBundle4 implements I18NResourceBundle4 {
     
     @Override
     public ObservableList<Locale> getSupportedLocales() {
-        DefaultI18NValidator4.getDefault().requireNonNull(supportedLocales);
+        DefaultI18NValidator.getDefault().requireNonNull(supportedLocales);
         
         return supportedLocales;
     }
 
     @Override
     public void setSupportedLocales(final ObservableList<Locale> locales) {
-        DefaultI18NValidator4.getDefault().requireNonNullAndNotEmpty(locales);
+        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(locales);
         
         supportedLocales.clear();
         supportedLocales.addAll(locales);
@@ -97,28 +102,28 @@ public class DefaultI18NResourceBundle4 implements I18NResourceBundle4 {
 
     @Override
     public void setDefaultLocale(final Locale locale) {
-        DefaultI18NValidator4.getDefault().requireNonNull(locale);
+        DefaultI18NValidator.getDefault().requireNonNull(locale);
         
         defaultLocale = this.getSupportedLocales().contains(locale) ? locale : Locale.ENGLISH;
     }
 
     @Override
     public Locale getActualLocale() {
-        DefaultI18NValidator4.getDefault().requireNonNull(actualLocaleProperty.get());
+        DefaultI18NValidator.getDefault().requireNonNull(actualLocaleProperty.get());
         
         return actualLocaleProperty.get();
     }
 
     @Override
     public void setActualLocale(final Locale locale) {
-        DefaultI18NValidator4.getDefault().requireNonNull(locale);
+        DefaultI18NValidator.getDefault().requireNonNull(locale);
         
         actualLocaleProperty.set(this.getSupportedLocales().contains(locale) ? locale : defaultLocale);
     }
 
     @Override
     public ObjectProperty<Locale> actualLocaleProperty() {
-        DefaultI18NValidator4.getDefault().requireNonNull(actualLocaleProperty);
+        DefaultI18NValidator.getDefault().requireNonNull(actualLocaleProperty);
         
         return actualLocaleProperty;
     }

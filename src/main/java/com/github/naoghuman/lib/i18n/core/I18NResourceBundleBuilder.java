@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (C) Naoghuman's dream
  *
  * This program is free software: you can redistribute it and/or modify
@@ -14,9 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.github.naoghuman.app.i18n.demo.prototype4.core;
+package com.github.naoghuman.lib.i18n.core;
 
-import com.github.naoghuman.app.i18n.demo.prototype4.internal.DefaultI18NValidator4;
+import com.github.naoghuman.lib.i18n.internal.DefaultI18NValidator;
 import com.github.naoghuman.lib.logger.core.LoggerFacade;
 import java.util.Locale;
 import javafx.beans.property.ObjectProperty;
@@ -41,35 +41,109 @@ import javafx.collections.ObservableMap;
  * @author Naoghuman
  * @since  0.1.0-PRERELEASE
  */
-public final class I18NResourceBundleBuilder4 {
+public final class I18NResourceBundleBuilder {
     
+    /**
+     * 
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public static final FirstStep configure() {
         return new I18NResourceBundleBuilderImpl();
     }
     
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public interface FirstStep {
+        
+        /**
+         * 
+         * @param  baseName
+         * @return 
+         * @since  0.1.0-PRERELEASE
+         * @author Naoghuman
+         */
         public SecondStep baseName(final String baseName);
+        
     }
     
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public interface SecondStep {
+        
+        /**
+         * 
+         * @param  locales
+         * @return 
+         * @since  0.1.0-PRERELEASE
+         * @author Naoghuman
+         */
         public ThirdStep supportedLocales(final ObservableList<Locale> locales);
+    
     }
     
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public interface ThirdStep {
+        
+        /**
+         * 
+         * @param  locale
+         * @return 
+         * @since  0.1.0-PRERELEASE
+         * @author Naoghuman
+         */
         public ForthStep defaultLocale(final Locale locale);
+        
     }
     
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public interface ForthStep {
+        
+        /**
+         * 
+         * @param  locale
+         * @return 
+         * @since  0.1.0-PRERELEASE
+         * @author Naoghuman
+         */
         public LastStep actualLocale(final Locale locale);
+        
     }
     
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public interface LastStep {
+        
+        /**
+         * 
+         * @since  0.1.0-PRERELEASE
+         * @author Naoghuman
+         */
         public void build();
+        
     }
     
     private static final class I18NResourceBundleBuilderImpl implements
-            FirstStep, ForthStep, LastStep, SecondStep,
-            ThirdStep
+            FirstStep,  ForthStep, LastStep, 
+            SecondStep, ThirdStep
     {
         private static final String ATTR__BASENAME          = "baseName"; // NOI18N
         private static final String ATTR__ACTUAL_LOCALE     = "actualLocale";   // NOI18N
@@ -84,7 +158,7 @@ public final class I18NResourceBundleBuilder4 {
         }
 
         private void initialize() {
-            LoggerFacade.getDefault().info(I18NResourceBundleBuilder4.class, "I18NResourceBundleBuilderImpl.initialize()"); // NOI18N
+            LoggerFacade.getDefault().info(I18NResourceBundleBuilder.class, "I18NResourceBundleBuilderImpl.initialize()"); // NOI18N
             
             properties.put(ATTR__BASENAME,          new SimpleStringProperty());
             properties.put(ATTR__ACTUAL_LOCALE,     new SimpleObjectProperty());
@@ -96,7 +170,7 @@ public final class I18NResourceBundleBuilder4 {
         public SecondStep baseName(final String baseName) {
             LoggerFacade.getDefault().debug(this.getClass(), "I18NResourceBundleBuilderImpl.baseName(String)"); // NOI18N
             
-            DefaultI18NValidator4.getDefault().requireNonNullAndNotEmpty(baseName);
+            DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(baseName);
             properties.put(ATTR__BASENAME, new SimpleStringProperty(baseName));
             
             return this;
@@ -106,7 +180,7 @@ public final class I18NResourceBundleBuilder4 {
         public ThirdStep supportedLocales(final ObservableList<Locale> locales) {
             LoggerFacade.getDefault().debug(this.getClass(), "I18NResourceBundleBuilderImpl.supportedLocales(ObservableList<Locale>)"); // NOI18N
             
-            DefaultI18NValidator4.getDefault().requireNonNullAndNotEmpty(locales);
+            DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(locales);
             properties.put(ATTR__SUPPORTED_LOCALES, new SimpleObjectProperty(locales));
             
             return this;
@@ -116,7 +190,7 @@ public final class I18NResourceBundleBuilder4 {
         public ForthStep defaultLocale(final Locale locale) {
             LoggerFacade.getDefault().debug(this.getClass(), "I18NResourceBundleBuilderImpl.defaultLocale(Locale)"); // NOI18N
             
-            DefaultI18NValidator4.getDefault().requireNonNull(locale);
+            DefaultI18NValidator.getDefault().requireNonNull(locale);
             properties.put(ATTR__DEFAULT_LOCALE, new SimpleObjectProperty(locale));
             
             return this;
@@ -126,7 +200,7 @@ public final class I18NResourceBundleBuilder4 {
         public LastStep actualLocale(final Locale locale) {
             LoggerFacade.getDefault().debug(this.getClass(), "I18NResourceBundleBuilderImpl.actualLocale(Locale)"); // NOI18N
             
-            DefaultI18NValidator4.getDefault().requireNonNull(locale);
+            DefaultI18NValidator.getDefault().requireNonNull(locale);
             properties.put(ATTR__ACTUAL_LOCALE, new SimpleObjectProperty(locale));
             
             return this;
@@ -143,10 +217,10 @@ public final class I18NResourceBundleBuilder4 {
             final ObjectProperty actualLocale     = (ObjectProperty) properties.get(ATTR__ACTUAL_LOCALE);
             
             // Configure
-            I18NFacade4.getDefault().setBaseName(baseName.getValue());
-            I18NFacade4.getDefault().setSupportedLocales((ObservableList<Locale>) supportedLocales.getValue());
-            I18NFacade4.getDefault().setDefaultLocale((Locale) defaultLocale.getValue());
-            I18NFacade4.getDefault().setActualLocale((Locale) actualLocale.getValue());
+            I18NFacade.getDefault().setBaseName(baseName.getValue());
+            I18NFacade.getDefault().setSupportedLocales((ObservableList<Locale>) supportedLocales.getValue());
+            I18NFacade.getDefault().setDefaultLocale((Locale) defaultLocale.getValue());
+            I18NFacade.getDefault().setActualLocale((Locale) actualLocale.getValue());
             
             // And reset TODO ?
 //            this.initialize();

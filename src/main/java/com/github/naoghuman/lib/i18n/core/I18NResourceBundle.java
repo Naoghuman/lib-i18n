@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (C) 2018 Naoghuman's dream
  *
  * This program is free software: you can redistribute it and/or modify
@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.github.naoghuman.app.i18n.demo.prototype4.core;
+package com.github.naoghuman.lib.i18n.core;
 
 import java.util.Locale;
 import javafx.beans.property.ObjectProperty;
@@ -22,25 +22,87 @@ import javafx.collections.ObservableList;
 
 /**
  *
- * @author PRo
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
  */
-public interface I18NResourceBundle4 {
+public interface I18NResourceBundle {
     
+    /**
+     * 
+     * @param  baseName 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public void setBaseName(final String baseName);
     
-    // I18NMessageBuilder4
+    /**
+     * 
+     * @param  key
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public String getString(final String key);
-    // I18NMessageBuilder4
+    
+    /**
+     * 
+     * @param  key
+     * @param  args
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public String getString(final String key, final Object... args);
     
+    /**
+     * 
+     * @param  locale 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public void setDefaultLocale(final Locale locale);
+    
+    /**
+     * 
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public Locale getActualLocale();
+    
+    /**
+     * 
+     * @param  locale 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public void setActualLocale(final Locale locale);
+    
+    /**
+     * 
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public ObjectProperty<Locale> actualLocaleProperty();
     
+    /**
+     * 
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public ObservableList<Locale> getSupportedLocales();
+    
+    /**
+     * 
+     * @param  locales 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public void setSupportedLocales(final ObservableList<Locale> locales);
-    // public void setSupportedLocales(final Locale... locales);
+    
+    // TODO public void setSupportedLocales(final Locale... locales);
     // + I18NResourceBundleBuilder4
     
 }

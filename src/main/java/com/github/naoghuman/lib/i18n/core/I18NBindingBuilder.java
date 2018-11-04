@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (C) 2018 Naoghuman's dream
  *
  * This program is free software: you can redistribute it and/or modify
@@ -14,9 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.github.naoghuman.app.i18n.demo.prototype4.core;
+package com.github.naoghuman.lib.i18n.core;
 
-import com.github.naoghuman.app.i18n.demo.prototype4.internal.DefaultI18NValidator4;
+import com.github.naoghuman.lib.i18n.internal.DefaultI18NValidator;
 import com.github.naoghuman.lib.logger.core.LoggerFacade;
 import java.util.Optional;
 import java.util.concurrent.Callable;
@@ -35,30 +35,96 @@ import javafx.collections.ObservableMap;
        .key(String)
        .arguments(Object... args) // optional
        .build()
+
+     // TODO add methods to bind a given StringProperty with the others parameters
 */
 /**
  *
- * @author Naoghuman
  * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
  */
-public final class I18NBindingBuilder4 {
+public final class I18NBindingBuilder {
     
+    /**
+     * 
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public static final FirstStep bind() {
+        
         return new I18NBindingBuilderImpl();
+        
     }
     
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public interface FirstStep {
+        
+        /**
+         * 
+         * @param  callable
+         * @return 
+         * @since  0.1.0-PRERELEASE
+         * @author Naoghuman
+         */
         public LastStep callable(final Callable<String> callable);
+        
+        /**
+         * 
+         * @param  key
+         * @return 
+         * @since  0.1.0-PRERELEASE
+         * @author Naoghuman
+         */
         public SecondStep key(final String key);
+        
     }
     
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public interface SecondStep {
+        
+        /**
+         * 
+         * @return 
+         * @since  0.1.0-PRERELEASE
+         * @author Naoghuman
+         */
         public Optional<StringBinding> build();
+        
+        /**
+         * 
+         * @param  arguments
+         * @return 
+         * @since  0.1.0-PRERELEASE
+         * @author Naoghuman
+         */
         public LastStep arguments(final Object... arguments);
+        
     }
     
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public interface LastStep {
+        
+        /**
+         * 
+         * @return 
+         * @since  0.1.0-PRERELEASE
+         * @author Naoghuman
+         */
         public Optional<StringBinding> build();
+        
     }
     
     private static final class I18NBindingBuilderImpl implements
@@ -91,7 +157,7 @@ public final class I18NBindingBuilder4 {
         public LastStep callable(final Callable<String> callable) {
             LoggerFacade.getDefault().debug(this.getClass(), "I18NBindingBuilderImpl.callable(Callable<String>)"); // NOI18N
             
-            DefaultI18NValidator4.getDefault().requireNonNull(callable);
+            DefaultI18NValidator.getDefault().requireNonNull(callable);
             choosenConfiguration = Configuration.CALLABLE;
             properties.put(ATTR__CALLABLE, new SimpleObjectProperty(callable));
             
@@ -102,7 +168,7 @@ public final class I18NBindingBuilder4 {
         public SecondStep key(final String key) {
             LoggerFacade.getDefault().debug(this.getClass(), "I18NBindingBuilderImpl.key(String)"); // NOI18N
             
-            DefaultI18NValidator4.getDefault().requireNonNullAndNotEmpty(key);
+            DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(key);
             choosenConfiguration = Configuration.KEY_ONLY;
             properties.put(ATTR__KEY, new SimpleStringProperty(key));
             
@@ -113,7 +179,7 @@ public final class I18NBindingBuilder4 {
         public LastStep arguments(final Object... argumtents) {
             LoggerFacade.getDefault().debug(this.getClass(), "I18NBindingBuilderImpl.arguments(Object...)"); // NOI18N
             
-            DefaultI18NValidator4.getDefault().requireNonNullAndNotEmpty(argumtents);
+            DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(argumtents);
             choosenConfiguration = Configuration.KEY_WITH_ARGUMENTS;
             properties.put(ATTR__ARGUMENTS, new SimpleObjectProperty(argumtents));
             
@@ -133,22 +199,19 @@ public final class I18NBindingBuilder4 {
             Optional<StringBinding> stringBinding = Optional.empty();
             switch(choosenConfiguration) {
                 case CALLABLE: {
-                    stringBinding = Optional.ofNullable(I18NFacade4.getDefault().createStringBinding((Callable<String>) callable.get()));
+                    stringBinding = Optional.ofNullable(I18NFacade.getDefault().createStringBinding((Callable<String>) callable.get()));
                     break;
                 }
                 case KEY_ONLY: {
-                    stringBinding = Optional.ofNullable(I18NFacade4.getDefault().createStringBinding(key.get()));
+                    stringBinding = Optional.ofNullable(I18NFacade.getDefault().createStringBinding(key.get()));
                     break;
                 }
                 case KEY_WITH_ARGUMENTS: {
-                    stringBinding = Optional.ofNullable(I18NFacade4.getDefault().createStringBinding(key.get(), (Object[]) arguments.get()));
+                    stringBinding = Optional.ofNullable(I18NFacade.getDefault().createStringBinding(key.get(), (Object[]) arguments.get()));
                     break;
                 }
                 default: { }
             }
-            
-            // And reset TODO ?
-//            this.initialize();
 
             return stringBinding;
         }

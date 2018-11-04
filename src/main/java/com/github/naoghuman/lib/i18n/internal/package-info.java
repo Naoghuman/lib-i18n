@@ -16,7 +16,7 @@
  */
 /**
  * 
- * @author Naoghuman
  * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
  */
 package com.github.naoghuman.lib.i18n.internal;

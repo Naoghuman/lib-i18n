@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (C) 2018 Naoghuman's dream
  *
  * This program is free software: you can redistribute it and/or modify
@@ -14,20 +14,46 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.github.naoghuman.app.i18n.demo.prototype4.core;
+package com.github.naoghuman.lib.i18n.core;
 
 import java.util.concurrent.Callable;
 import javafx.beans.binding.StringBinding;
 
 /**
  *
- * @author PRo
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
  */
-public interface I18NBinding4 {
+public interface I18NBinding {
     
+    /**
+     * creates a String Binding to a localized String that is computed by calling the given function
+     * 
+     * @param  function
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public StringBinding createStringBinding(final Callable<String> function);
-    public StringBinding createStringBinding(final String key);
-    public StringBinding createStringBinding(final String key, final Object... args);
     
-    // TODO add methods to bind a given StringProperty with the others parameters
+    /**
+     * 
+     * @param  key
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public StringBinding createStringBinding(final String key);
+    
+    /**
+     * creates a String binding to a localized String for the given getString bundle key
+     * 
+     * @param  key
+     * @param  arguments
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public StringBinding createStringBinding(final String key, final Object... arguments);
+    
 }

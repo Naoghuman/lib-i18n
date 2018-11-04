@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (C) 2018 Naoghuman's dream
  *
  * This program is free software: you can redistribute it and/or modify
@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.github.naoghuman.app.i18n.demo.prototype4.core;
+package com.github.naoghuman.lib.i18n.core;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -23,10 +23,10 @@ import javafx.collections.ObservableList;
 
 /**
  *
- * @author Naoghuman
  * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
  */
-public interface I18NValidator4 {
+public interface I18NValidator {
     
     /**
      * Delegates to {@link java.util.Objects#isNull(java.lang.Object)}. Returns 
@@ -35,11 +35,11 @@ public interface I18NValidator4 {
      * This method exists to be used as a {@link java.util.function.Predicate}, 
      * {@code filter(Objects::isNull)}.
      * 
-     * @author Naoghuman
-     * @since  0.1.0-PRERELEASE
      * @param  obj a reference which will be checked against {@code NULL}.
      * @return {@code TRUE} if the provided reference is {@code NULL} otherwise
      *         {@code FALSE}.
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
      */
     public default boolean isNull(final Object obj) {
         return Objects.isNull(obj);
@@ -52,11 +52,11 @@ public interface I18NValidator4 {
      * This method exists to be used as a {@link java.util.function.Predicate},
      * {@code filter(Objects::nonNull)}.
      * 
-     * @author Naoghuman
-     * @since  0.1.0-PRERELEASE
      * @param  obj a reference which will be checked against {@code NULL}.
      * @return {@code TRUE} if the provided reference is {@code NON-NULL} otherwise
      *         {@code FALSE}.
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
      */
     public default boolean nonNull(final Object obj) {
         return Objects.nonNull(obj);
@@ -65,10 +65,10 @@ public interface I18NValidator4 {
     /**
      * Validates if the attribute {@code value} isn't {@code NULL}.
      *
-     * @author Naoghuman
-     * @since  0.1.0-PRERELEASE
      * @param  value the attribute which should be validated.
      * @param  <T>   the type of the reference.
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
      * @throws NullPointerException if {@code (value == NULL)}.
      */
     public default <T> void requireNonNull(final T value) throws NullPointerException {
@@ -78,9 +78,9 @@ public interface I18NValidator4 {
     /**
      * Validates if the attribute {@code value} isn't {@code NULL} and not {@code EMPTY}.
      *
-     * @author Naoghuman
-     * @since  0.1.0-PRERELEASE
      * @param  value the attribute which should be validated.
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
      * @throws NullPointerException     if {@code (value        == NULL)}.
      * @throws IllegalArgumentException if {@code (value.trim() == EMPTY)}.
      */
@@ -92,6 +92,14 @@ public interface I18NValidator4 {
         }
     }
     
+    /**
+     * 
+     * @param  elements
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     * @throws NullPointerException
+     * @throws IllegalArgumentException 
+     */
     public default void requireNonNullAndNotEmpty(final Object... elements) throws NullPointerException, IllegalArgumentException {
         Objects.requireNonNull(elements, "The attribute [elements] can't be NULL"); // NOI18N
         
@@ -103,6 +111,15 @@ public interface I18NValidator4 {
         }
     }
     
+    /**
+     * 
+     * @param  <T>
+     * @param  elements
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     * @throws NullPointerException
+     * @throws IllegalArgumentException 
+     */
     public default <T> void requireNonNullAndNotEmpty(final ObservableList<T> elements) throws NullPointerException, IllegalArgumentException {
         Objects.requireNonNull(elements, "The attribute [elements] can't be NULL"); // NOI18N
         

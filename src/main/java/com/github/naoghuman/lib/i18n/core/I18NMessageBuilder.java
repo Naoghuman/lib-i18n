@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (C) Naoghuman's dream
  *
  * This program is free software: you can redistribute it and/or modify
@@ -14,9 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.github.naoghuman.app.i18n.demo.prototype4.core;
+package com.github.naoghuman.lib.i18n.core;
 
-import com.github.naoghuman.app.i18n.demo.prototype4.internal.DefaultI18NValidator4;
+import com.github.naoghuman.lib.i18n.internal.DefaultI18NValidator;
 import com.github.naoghuman.lib.logger.core.LoggerFacade;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.Property;
@@ -37,23 +37,77 @@ import javafx.collections.ObservableMap;
  * @author Naoghuman
  * @since  0.1.0-PRERELEASE
  */
-public final class I18NMessageBuilder4 {
+public final class I18NMessageBuilder {
     
-    public static final FirstStep message() {
+    /**
+     * 
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public static final FirstStep getString() {
         return new I18NMessageBuilderImpl();
     }
     
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public interface FirstStep {
+        
+        /**
+         * 
+         * @param  key
+         * @return 
+         * @since  0.1.0-PRERELEASE
+         * @author Naoghuman
+         */
         public SecondStep key(final String key);
+        
     }
     
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public interface SecondStep {
+        
+        /**
+         * 
+         * @return 
+         * @since  0.1.0-PRERELEASE
+         * @author Naoghuman
+         */
         public String build();
+        
+        /**
+         * 
+         * @param  arguments
+         * @return 
+         * @since  0.1.0-PRERELEASE
+         * @author Naoghuman
+         */
         public LastStep arguments(final Object... arguments);
+        
     }
     
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
     public interface LastStep {
+        
+        /**
+         * 
+         * @return 
+         * @since  0.1.0-PRERELEASE
+         * @author Naoghuman
+         */
         public String build();
+        
     }
     
     private static final class I18NMessageBuilderImpl implements
@@ -84,7 +138,7 @@ public final class I18NMessageBuilder4 {
         public SecondStep key(final String key) {
             LoggerFacade.getDefault().debug(this.getClass(), "I18NMessageBuilderImpl.key(String)"); // NOI18N
             
-            DefaultI18NValidator4.getDefault().requireNonNullAndNotEmpty(key);
+            DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(key);
             
             properties.put(ATTR__KEY, new SimpleStringProperty(key));
             
@@ -95,7 +149,7 @@ public final class I18NMessageBuilder4 {
         public LastStep arguments(final Object... arguments) {
             LoggerFacade.getDefault().debug(this.getClass(), "I18NMessageBuilderImpl.arguments(Object...)"); // NOI18N
             
-            DefaultI18NValidator4.getDefault().requireNonNullAndNotEmpty(arguments);
+            DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(arguments);
             
             messageHasArguments = Boolean.TRUE;
             properties.put(ATTR__ARGUMENTS, new SimpleObjectProperty(arguments));
@@ -114,10 +168,10 @@ public final class I18NMessageBuilder4 {
             // Create
             String message;
             if (!messageHasArguments) {
-                message = I18NFacade4.getDefault().getString(key.getValue());
+                message = I18NFacade.getDefault().getString(key.getValue());
             }
             else {
-                message = I18NFacade4.getDefault().getString(key.getValue(), (Object[]) arguments.getValue());
+                message = I18NFacade.getDefault().getString(key.getValue(), (Object[]) arguments.getValue());
             }
             
             // And reset TODO ?
