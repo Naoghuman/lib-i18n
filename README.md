@@ -16,7 +16,7 @@ Lib-I18N is written in [JavaFX], [Maven] and [NetBeans].
 
 
 [//]: # (Links)
-[Callable<String>]:https://docs.oracle.com/javase/8/docs/api/index.html?java/util/concurrent/Callable.html
+[Callable&lt;String&gt;]:https://docs.oracle.com/javase/8/docs/api/index.html?java/util/concurrent/Callable.html
 [JavaFX]:http://docs.oracle.com/javase/8/javase-clienttechnologies.htm
 [Maven]:http://maven.apache.org/
 [NetBeans]:https://netbeans.org/
