@@ -9,7 +9,7 @@ Intention
 ---
 
 The library `Lib-I18N` allowed the developer to bind easly `.properties` key (values) 
-to a [StringBinding] or [Callable<String>]. So changing the language during runtime 
+to a [StringBinding] or [Callable&lt;String&gt;]. So changing the language during runtime 
 won't be a problem anymore.  
 Lib-I18N is written in [JavaFX], [Maven] and [NetBeans].
 

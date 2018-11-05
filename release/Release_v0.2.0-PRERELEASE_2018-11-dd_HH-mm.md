@@ -24,6 +24,7 @@ Lib-I18N is written in [JavaFX], [Maven] and [NetBeans].
 
 
 #### Bug
+#13 [doc] Update the link for the 'Callable' in the ReadMe.
 
 
 
