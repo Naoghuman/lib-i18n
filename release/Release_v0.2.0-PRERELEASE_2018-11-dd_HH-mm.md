@@ -30,6 +30,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 #### Documentation
 #14 [doc] Update the library description.
+#12 [doc] Add basic chapter structure to the ReadMe.
 #6 [doc] Add topics and description to the GitHub project.
 
 
