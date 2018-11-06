@@ -8,8 +8,8 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Summary
-* ...
-* ...
+* Move the `prototype` content from `App-I18N-Demo` to `Lib-I18N`.
+* Start writing the ReadMe.
 
 
 

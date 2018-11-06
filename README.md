@@ -15,7 +15,7 @@ The library `Lib-I18N` allowed the developer to bind easly `.properties` key
 language during runtime in a [JavaFX] application won't be a problem anymore.  
 Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
-_Image:_ [UML] Lib-Action  
+_Image:_ [UML] Lib-I18N v0.2.0-PRERELEASE  
 TODO
 
 > __Hint__  
