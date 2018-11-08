@@ -29,6 +29,14 @@ public interface I18NResourceBundle {
     
     /**
      * 
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public String getBaseName();
+    
+    /**
+     * 
      * @param  baseName 
      * @since  0.1.0-PRERELEASE
      * @author Naoghuman
@@ -53,6 +61,14 @@ public interface I18NResourceBundle {
      * @author Naoghuman
      */
     public String getString(final String key, final Object... args);
+    
+    /**
+     * 
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public Locale getDefaultLocale();
     
     /**
      * 

@@ -68,6 +68,11 @@ public final class I18NFacade implements I18NBinding, I18NResourceBundle {
         
         i18NResourceBundle4.setSupportedLocales(locales);
     }
+
+    @Override
+    public Locale getDefaultLocale() {
+        return i18NResourceBundle4.getDefaultLocale();
+    }
     
     @Override
     public void setDefaultLocale(final Locale locale) {
@@ -112,6 +117,11 @@ public final class I18NFacade implements I18NBinding, I18NResourceBundle {
         DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(args);
         
         return i18NBinding4.createStringBinding(key, args);
+    }
+
+    @Override
+    public String getBaseName() {
+        return i18NResourceBundle4.getBaseName();
     }
 
     @Override

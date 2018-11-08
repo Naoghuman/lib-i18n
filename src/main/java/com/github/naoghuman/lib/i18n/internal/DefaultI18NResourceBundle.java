@@ -53,7 +53,8 @@ public class DefaultI18NResourceBundle implements I18NResourceBundle {
         supportedLocales     = FXCollections.observableArrayList();
     }
     
-    private String getBaseName() {
+    @Override
+    public String getBaseName() {
         DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(baseName);
         
         return baseName;
@@ -98,6 +99,13 @@ public class DefaultI18NResourceBundle implements I18NResourceBundle {
         
         supportedLocales.clear();
         supportedLocales.addAll(locales);
+    }
+
+    @Override
+    public Locale getDefaultLocale() {
+        DefaultI18NValidator.getDefault().requireNonNull(defaultLocale);
+        
+        return defaultLocale;
     }
 
     @Override
