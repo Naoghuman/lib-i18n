@@ -36,7 +36,7 @@ import static org.junit.Assert.*;
  */
 public class DefaultI18NResourceBundleTest {
     
-    private static final String RESOURCE_BUNDLE = "com.github.naoghuman.lib.i18n.internal.message"; // NOI18N
+    private static final String RESOURCE_BUNDLE = "com.github.naoghuman.lib.i18n.internal.resourcebundle"; // NOI18N
     
     public DefaultI18NResourceBundleTest() {
     }
@@ -91,10 +91,10 @@ public class DefaultI18NResourceBundleTest {
         rb.setSupportedLocales(supportedLocales);
         
         rb.setActualLocale(Locale.ENGLISH);
-        assertEquals("Test title", rb.getString("window.title"));
+        assertEquals("RB: Test title", rb.getString("resourcebundle.title"));
         
         rb.setActualLocale(Locale.GERMAN);
-        assertEquals("Test Titel", rb.getString("window.title"));
+        assertEquals("RB: Test Titel", rb.getString("resourcebundle.title"));
     }
 
     @Test(expected = NullPointerException.class)
@@ -119,10 +119,10 @@ public class DefaultI18NResourceBundleTest {
         rb.setSupportedLocales(supportedLocales);
         
         rb.setActualLocale(Locale.ENGLISH);
-        assertEquals("Text with parameter: 2", rb.getString("label.with.parameter", 2));
+        assertEquals("RB: Text with parameter: 2", rb.getString("resourcebundle.label.with.parameter", 2));
         
         rb.setActualLocale(Locale.GERMAN);
-        assertEquals("Text mit Parameter: 5", rb.getString("label.with.parameter", 5));
+        assertEquals("RB: Text mit Parameter: 5", rb.getString("resourcebundle.label.with.parameter", 5));
     }
 
     @Test(expected = NullPointerException.class)

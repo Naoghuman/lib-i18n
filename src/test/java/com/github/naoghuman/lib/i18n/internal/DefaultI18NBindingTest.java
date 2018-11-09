@@ -16,8 +16,13 @@
  */
 package com.github.naoghuman.lib.i18n.internal;
 
+import com.github.naoghuman.lib.i18n.core.I18NBinding;
+import com.github.naoghuman.lib.i18n.core.I18NFacade;
+import java.util.Locale;
 import java.util.concurrent.Callable;
 import javafx.beans.binding.StringBinding;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -34,6 +39,8 @@ import static org.junit.Assert.*;
  */
 public class DefaultI18NBindingTest {
     
+    private static final String RESOURCE_BUNDLE = "com.github.naoghuman.lib.i18n.internal.binding"; // NOI18N
+    
     public DefaultI18NBindingTest() {
     }
     
@@ -47,36 +54,101 @@ public class DefaultI18NBindingTest {
 
     @Test
     public void createStringBinding_String() {
-//        System.out.println("createStringBinding");
-//        String key = "";
-//        DefaultI18NBinding instance = new DefaultI18NBinding();
-//        StringBinding expResult = null;
-//        StringBinding result = instance.createStringBinding(key);
-//        assertEquals(expResult, result);
-//        fail("The test case is a prototype.");
+        I18NFacade.getDefault().setBaseName(RESOURCE_BUNDLE);
+        
+        ObservableList<Locale> supportedLocales = FXCollections.observableArrayList();
+        supportedLocales.addAll(Locale.ENGLISH, Locale.GERMAN);
+        I18NFacade.getDefault().setSupportedLocales(supportedLocales);
+        
+        I18NBinding b = new DefaultI18NBinding();
+        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
+        StringBinding sb = b.createStringBinding("binding.title");
+        assertNotNull(sb);
+        assertEquals("B: Test title", sb.get());
+        
+        I18NFacade.getDefault().setActualLocale(Locale.GERMAN);
+        sb = b.createStringBinding("binding.title");
+        assertNotNull(sb);
+        assertEquals("B: Test Titel", sb.get());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void createStringBinding_String_ThrowsNullPointerException() {
+        I18NBinding b = new DefaultI18NBinding();
+        String key = null;
+        b.createStringBinding(key);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void createStringBinding_String_ThrowsIllegalArgumentException() {
+        I18NBinding b = new DefaultI18NBinding();
+        b.createStringBinding("");
     }
 
     @Test
     public void createStringBinding_String_ObjectArray() {
-//        System.out.println("createStringBinding");
-//        String key = "";
-//        Object[] args = null;
-//        DefaultI18NBinding instance = new DefaultI18NBinding();
-//        StringBinding expResult = null;
-//        StringBinding result = instance.createStringBinding(key, args);
-//        assertEquals(expResult, result);
-//        fail("The test case is a prototype.");
+        I18NFacade.getDefault().setBaseName(RESOURCE_BUNDLE);
+        
+        ObservableList<Locale> supportedLocales = FXCollections.observableArrayList();
+        supportedLocales.addAll(Locale.ENGLISH, Locale.GERMAN);
+        I18NFacade.getDefault().setSupportedLocales(supportedLocales);
+        
+        I18NBinding b = new DefaultI18NBinding();
+        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
+        StringBinding sb = b.createStringBinding("binding.label.with.parameter", 2);
+        assertNotNull(sb);
+        assertEquals("B: Text with parameter: 2", sb.get());
+        
+        I18NFacade.getDefault().setActualLocale(Locale.GERMAN);
+        sb = b.createStringBinding("binding.label.with.parameter", 5);
+        assertNotNull(sb);
+        assertEquals("B: Text mit Parameter: 5", sb.get());
     }
+
+    @Test(expected = NullPointerException.class)
+    public void createStringBinding_String_ObjectArr_StringThrowsNullPointerException() {
+        I18NBinding b = new DefaultI18NBinding();
+        b.createStringBinding(null, "hello");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void createStringBinding_String_ObjectArr_StringThrowsIllegalArgumentException() {
+        I18NBinding b = new DefaultI18NBinding();
+        b.createStringBinding("", "hello");
+    }
+
+//    @Test(expected = NullPointerException.class)
+//    public void createStringBinding_String_ObjectArr_ObjectArrThrowsNullPointerException() {
+//        I18NBinding b = new DefaultI18NBinding();
+//        String parameter = null;
+//        b.createStringBinding("hello", parameter);
+//    }
 
     @Test
     public void createStringBinding_Callable() {
-//        System.out.println("createStringBinding");
-//        Callable<String> function = null;
-//        DefaultI18NBinding instance = new DefaultI18NBinding();
-//        StringBinding expResult = null;
-//        StringBinding result = instance.createStringBinding(function);
-//        assertEquals(expResult, result);
-//        fail("The test case is a prototype.");
+        I18NFacade.getDefault().setBaseName(RESOURCE_BUNDLE);
+        
+        ObservableList<Locale> supportedLocales = FXCollections.observableArrayList();
+        supportedLocales.addAll(Locale.ENGLISH, Locale.GERMAN);
+        I18NFacade.getDefault().setSupportedLocales(supportedLocales);
+        
+        I18NBinding b = new DefaultI18NBinding();
+        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
+        StringBinding sb = b.createStringBinding(() -> I18NFacade.getDefault().getString("binding.label.with.parameter", 1));
+        assertNotNull(sb);
+        assertEquals("B: Text with parameter: 1", sb.get());
+        
+        I18NFacade.getDefault().setActualLocale(Locale.GERMAN);
+        sb = b.createStringBinding(() -> I18NFacade.getDefault().getString("binding.label.with.parameter", 3));
+        assertNotNull(sb);
+        assertEquals("B: Text mit Parameter: 3", sb.get());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void createStringBinding_Callable_ThrowsNullPointerException() {
+        I18NBinding b = new DefaultI18NBinding();
+        Callable<String> function = null;
+        b.createStringBinding(function);
     }
     
 }

@@ -77,13 +77,13 @@ public class DefaultI18NResourceBundle implements I18NResourceBundle {
     }
     
     @Override
-    public String getString(final String key, final Object... args) {
+    public String getString(final String key, final Object... arguments) {
         DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(key);
-        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(args);
+        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(arguments);
         
         final ResourceBundle bundle = ResourceBundle.getBundle(this.getBaseName(), this.getActualLocale());
         
-        return MessageFormat.format(bundle.getString(key), args);
+        return MessageFormat.format(bundle.getString(key), arguments);
     }
     
     @Override

@@ -14,6 +14,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Feature
+#16 [test] Add 'UnitTests' for the classes in 'internal' package.
 
 
 
