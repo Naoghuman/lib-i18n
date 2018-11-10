@@ -27,7 +27,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableMap;
 
 /*
-    I18NMessageBuilder.getString()
+    I18NResourceBundleMessageBuilder.getString()
        .key(String)
        .arguments(Object...) // optional
        .build()
@@ -37,7 +37,7 @@ import javafx.collections.ObservableMap;
  * @author Naoghuman
  * @since  0.1.0-PRERELEASE
  */
-public final class I18NMessageBuilder {
+public final class I18NResourceBundleMessageBuilder {
     
     /**
      * 
@@ -46,7 +46,7 @@ public final class I18NMessageBuilder {
      * @author Naoghuman
      */
     public static final FirstStep getString() {
-        return new I18NMessageBuilderImpl();
+        return new I18NResourceBundleMessageBuilderImpl();
     }
     
     /**
@@ -110,7 +110,7 @@ public final class I18NMessageBuilder {
         
     }
     
-    private static final class I18NMessageBuilderImpl implements
+    private static final class I18NResourceBundleMessageBuilderImpl implements
             FirstStep, LastStep, SecondStep
     {
         private static final String ATTR__ARGUMENTS = "arguments"; // NOI18N
@@ -121,12 +121,12 @@ public final class I18NMessageBuilder {
         
         private boolean messageHasArguments = Boolean.FALSE;
         
-        private I18NMessageBuilderImpl() {
+        private I18NResourceBundleMessageBuilderImpl() {
             this.initialize();
         }
 
         private void initialize() {
-            LoggerFacade.getDefault().info(this.getClass(), "I18NMessageBuilderImpl.initialize()"); // NOI18N
+            LoggerFacade.getDefault().info(this.getClass(), "I18NResourceBundleMessageBuilderImpl.initialize()"); // NOI18N
             
             messageHasArguments = Boolean.FALSE;
             
@@ -136,7 +136,7 @@ public final class I18NMessageBuilder {
 
         @Override
         public SecondStep key(final String key) {
-            LoggerFacade.getDefault().debug(this.getClass(), "I18NMessageBuilderImpl.key(String)"); // NOI18N
+            LoggerFacade.getDefault().debug(this.getClass(), "I18NResourceBundleMessageBuilderImpl.key(String)"); // NOI18N
             
             DefaultI18NValidator.requireNonNullAndNotEmpty(key);
             
@@ -147,7 +147,7 @@ public final class I18NMessageBuilder {
 
         @Override
         public LastStep arguments(final Object... arguments) {
-            LoggerFacade.getDefault().debug(this.getClass(), "I18NMessageBuilderImpl.arguments(Object...)"); // NOI18N
+            LoggerFacade.getDefault().debug(this.getClass(), "I18NResourceBundleMessageBuilderImpl.arguments(Object...)"); // NOI18N
             
             DefaultI18NValidator.requireNonNullAndNotEmpty(arguments);
             
@@ -159,7 +159,7 @@ public final class I18NMessageBuilder {
 
         @Override
         public String build() {
-            LoggerFacade.getDefault().debug(this.getClass(), "I18NMessageBuilderImpl.build()"); // NOI18N
+            LoggerFacade.getDefault().debug(this.getClass(), "I18NResourceBundleMessageBuilderImpl.build()"); // NOI18N
             
             // Catch data
             final ObjectProperty arguments = (ObjectProperty) properties.get(ATTR__ARGUMENTS);

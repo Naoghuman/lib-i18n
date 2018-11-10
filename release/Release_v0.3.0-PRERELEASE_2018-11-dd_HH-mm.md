@@ -32,6 +32,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 #### Refactoring
 #20 [api] Remove the interface I18NValidator.
+#19 [api] Rename I18NMessageBuilder to I18NResourceBundleMessageBuilder.
 
 
 
