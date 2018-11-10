@@ -157,7 +157,8 @@ public final class I18NBindingBuilder {
         public LastStep callable(final Callable<String> callable) {
             LoggerFacade.getDefault().debug(this.getClass(), "I18NBindingBuilderImpl.callable(Callable<String>)"); // NOI18N
             
-            DefaultI18NValidator.getDefault().requireNonNull(callable);
+            DefaultI18NValidator.requireNonNull(callable);
+            
             choosenConfiguration = Configuration.CALLABLE;
             properties.put(ATTR__CALLABLE, new SimpleObjectProperty(callable));
             
@@ -168,7 +169,8 @@ public final class I18NBindingBuilder {
         public SecondStep key(final String key) {
             LoggerFacade.getDefault().debug(this.getClass(), "I18NBindingBuilderImpl.key(String)"); // NOI18N
             
-            DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(key);
+            DefaultI18NValidator.requireNonNullAndNotEmpty(key);
+            
             choosenConfiguration = Configuration.KEY_ONLY;
             properties.put(ATTR__KEY, new SimpleStringProperty(key));
             
@@ -179,7 +181,8 @@ public final class I18NBindingBuilder {
         public LastStep arguments(final Object... argumtents) {
             LoggerFacade.getDefault().debug(this.getClass(), "I18NBindingBuilderImpl.arguments(Object...)"); // NOI18N
             
-            DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(argumtents);
+            DefaultI18NValidator.requireNonNullAndNotEmpty(argumtents);
+            
             choosenConfiguration = Configuration.KEY_WITH_ARGUMENTS;
             properties.put(ATTR__ARGUMENTS, new SimpleObjectProperty(argumtents));
             

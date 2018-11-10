@@ -31,22 +31,22 @@ public class DefaultI18NBinding implements I18NBinding {
     
     @Override
     public StringBinding createStringBinding(final String key) {
-        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(key);
+        DefaultI18NValidator.requireNonNullAndNotEmpty(key);
         
         return Bindings.createStringBinding(() -> I18NFacade.getDefault().getString(key), I18NFacade.getDefault().actualLocaleProperty());
     }
     
     @Override
     public StringBinding createStringBinding(final String key, Object... arguments) {
-        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(key);
-        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(arguments);
+        DefaultI18NValidator.requireNonNullAndNotEmpty(key);
+        DefaultI18NValidator.requireNonNullAndNotEmpty(arguments);
         
         return Bindings.createStringBinding(() -> I18NFacade.getDefault().getString(key, arguments), I18NFacade.getDefault().actualLocaleProperty());
     }
     
     @Override
     public StringBinding createStringBinding(Callable<String> function) {
-        DefaultI18NValidator.getDefault().requireNonNull(function);
+        DefaultI18NValidator.requireNonNull(function);
         
         return Bindings.createStringBinding(function, I18NFacade.getDefault().actualLocaleProperty());
     }

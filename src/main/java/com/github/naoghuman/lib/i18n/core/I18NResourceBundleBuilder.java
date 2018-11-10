@@ -170,7 +170,7 @@ public final class I18NResourceBundleBuilder {
         public SecondStep baseName(final String baseName) {
             LoggerFacade.getDefault().debug(this.getClass(), "I18NResourceBundleBuilderImpl.baseName(String)"); // NOI18N
             
-            DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(baseName);
+            DefaultI18NValidator.requireNonNullAndNotEmpty(baseName);
             properties.put(ATTR__BASENAME, new SimpleStringProperty(baseName));
             
             return this;
@@ -180,7 +180,7 @@ public final class I18NResourceBundleBuilder {
         public ThirdStep supportedLocales(final ObservableList<Locale> locales) {
             LoggerFacade.getDefault().debug(this.getClass(), "I18NResourceBundleBuilderImpl.supportedLocales(ObservableList<Locale>)"); // NOI18N
             
-            DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(locales);
+            DefaultI18NValidator.requireNonNullAndNotEmpty(locales);
             properties.put(ATTR__SUPPORTED_LOCALES, new SimpleObjectProperty(locales));
             
             return this;
@@ -190,7 +190,7 @@ public final class I18NResourceBundleBuilder {
         public ForthStep defaultLocale(final Locale locale) {
             LoggerFacade.getDefault().debug(this.getClass(), "I18NResourceBundleBuilderImpl.defaultLocale(Locale)"); // NOI18N
             
-            DefaultI18NValidator.getDefault().requireNonNull(locale);
+            DefaultI18NValidator.requireNonNull(locale);
             properties.put(ATTR__DEFAULT_LOCALE, new SimpleObjectProperty(locale));
             
             return this;
@@ -200,7 +200,7 @@ public final class I18NResourceBundleBuilder {
         public LastStep actualLocale(final Locale locale) {
             LoggerFacade.getDefault().debug(this.getClass(), "I18NResourceBundleBuilderImpl.actualLocale(Locale)"); // NOI18N
             
-            DefaultI18NValidator.getDefault().requireNonNull(locale);
+            DefaultI18NValidator.requireNonNull(locale);
             properties.put(ATTR__ACTUAL_LOCALE, new SimpleObjectProperty(locale));
             
             return this;

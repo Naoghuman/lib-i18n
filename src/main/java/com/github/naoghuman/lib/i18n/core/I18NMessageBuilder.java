@@ -138,7 +138,7 @@ public final class I18NMessageBuilder {
         public SecondStep key(final String key) {
             LoggerFacade.getDefault().debug(this.getClass(), "I18NMessageBuilderImpl.key(String)"); // NOI18N
             
-            DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(key);
+            DefaultI18NValidator.requireNonNullAndNotEmpty(key);
             
             properties.put(ATTR__KEY, new SimpleStringProperty(key));
             
@@ -149,7 +149,7 @@ public final class I18NMessageBuilder {
         public LastStep arguments(final Object... arguments) {
             LoggerFacade.getDefault().debug(this.getClass(), "I18NMessageBuilderImpl.arguments(Object...)"); // NOI18N
             
-            DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(arguments);
+            DefaultI18NValidator.requireNonNullAndNotEmpty(arguments);
             
             messageHasArguments = Boolean.TRUE;
             properties.put(ATTR__ARGUMENTS, new SimpleObjectProperty(arguments));

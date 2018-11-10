@@ -64,7 +64,7 @@ public final class I18NFacade implements I18NBinding, I18NResourceBundle {
 
     @Override
     public void setSupportedLocales(final ObservableList<Locale> locales) {
-        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(locales);
+        DefaultI18NValidator.requireNonNullAndNotEmpty(locales);
         
         i18NResourceBundle4.setSupportedLocales(locales);
     }
@@ -76,7 +76,7 @@ public final class I18NFacade implements I18NBinding, I18NResourceBundle {
     
     @Override
     public void setDefaultLocale(final Locale locale) {
-        DefaultI18NValidator.getDefault().requireNonNull(locale);
+        DefaultI18NValidator.requireNonNull(locale);
         
         i18NResourceBundle4.setDefaultLocale(locale);
     }
@@ -88,7 +88,7 @@ public final class I18NFacade implements I18NBinding, I18NResourceBundle {
 
     @Override
     public void setActualLocale(final Locale locale) {
-        DefaultI18NValidator.getDefault().requireNonNull(locale);
+        DefaultI18NValidator.requireNonNull(locale);
         
         i18NResourceBundle4.setActualLocale(locale);
     }
@@ -100,21 +100,21 @@ public final class I18NFacade implements I18NBinding, I18NResourceBundle {
     
     @Override
     public StringBinding createStringBinding(final Callable<String> function) {
-        DefaultI18NValidator.getDefault().requireNonNull(function);
+        DefaultI18NValidator.requireNonNull(function);
         
         return i18NBinding4.createStringBinding(function);
     }
     @Override
     public StringBinding createStringBinding(final String key) {
-        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(key);
+        DefaultI18NValidator.requireNonNullAndNotEmpty(key);
         
         return i18NBinding4.createStringBinding(key);
     }
     
     @Override
     public StringBinding createStringBinding(final String key, Object... args) {
-        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(key);
-        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(args);
+        DefaultI18NValidator.requireNonNullAndNotEmpty(key);
+        DefaultI18NValidator.requireNonNullAndNotEmpty(args);
         
         return i18NBinding4.createStringBinding(key, args);
     }
@@ -126,22 +126,22 @@ public final class I18NFacade implements I18NBinding, I18NResourceBundle {
 
     @Override
     public void setBaseName(final String baseName) {
-        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(baseName);
+        DefaultI18NValidator.requireNonNullAndNotEmpty(baseName);
         
         i18NResourceBundle4.setBaseName(baseName);
     }
     
     @Override
     public String getString(final String key) {
-        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(key);
+        DefaultI18NValidator.requireNonNullAndNotEmpty(key);
         
         return i18NResourceBundle4.getString(key);
     }
 
     @Override
     public String getString(final String key, final Object... args) {
-        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(key);
-        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(args);
+        DefaultI18NValidator.requireNonNullAndNotEmpty(key);
+        DefaultI18NValidator.requireNonNullAndNotEmpty(args);
         
         return i18NResourceBundle4.getString(key, args);
     }

@@ -44,88 +44,83 @@ public class DefaultI18NValidatorTest {
     @After
     public void tearDown() {
     }
-
-    @Test
-    public void getDefault() {
-        assertNotNull(DefaultI18NValidator.getDefault());
-    }
     
     @Test
     public void isNullTrue() {
         String hello = null;
-        assertTrue(DefaultI18NValidator.getDefault().isNull(hello));
+        assertTrue(DefaultI18NValidator.isNull(hello));
     }
     
     @Test
     public void isNullFalse() {
         String hello = "hello";
-        assertFalse(DefaultI18NValidator.getDefault().isNull(hello));
+        assertFalse(DefaultI18NValidator.isNull(hello));
     }
     
     @Test
     public void nonNullTrue() {
         String hello = "hello";
-        assertTrue(DefaultI18NValidator.getDefault().nonNull(hello));
+        assertTrue(DefaultI18NValidator.nonNull(hello));
     }
     
     @Test
     public void nonNullFalse() {
         String hello = null;
-        assertFalse(DefaultI18NValidator.getDefault().nonNull(hello));
+        assertFalse(DefaultI18NValidator.nonNull(hello));
     }
     
     @Test
     public void requireNonNull() {
         String hello = "hello";
-        DefaultI18NValidator.getDefault().requireNonNull(hello);
+        DefaultI18NValidator.requireNonNull(hello);
     }
     
     @Test(expected = NullPointerException.class)
     public void requireNonNullThrowsNullPointerException() {
         String hello = null;
-        DefaultI18NValidator.getDefault().requireNonNull(hello);
+        DefaultI18NValidator.requireNonNull(hello);
     }
     
     @Test
     public void requireNonNullAndNotEmptyString() {
         String hello = "hello";
-        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(hello);
+        DefaultI18NValidator.requireNonNullAndNotEmpty(hello);
     }
     
     @Test(expected = NullPointerException.class)
     public void requireNonNullAndNotEmptyStringThrowsNullPointerException() {
         String hello = null;
-        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(hello);
+        DefaultI18NValidator.requireNonNullAndNotEmpty(hello);
     }
     
     @Test(expected = IllegalArgumentException.class)
     public void requireNonNullAndNotEmptyStringThrowsIllegalArgumentException() {
         String hello = "";
-        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(hello);
+        DefaultI18NValidator.requireNonNullAndNotEmpty(hello);
     }
     
     @Test
     public void requireNonNullAndNotEmptyObjectArray() {
-        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty("hello", "hi");
+        DefaultI18NValidator.requireNonNullAndNotEmpty("hello", "hi");
     }
     
     @Test
     public void requireNonNullAndNotEmptyObservableList() {
         ObservableList<String> list = FXCollections.observableArrayList();
         list.addAll("hello", "hi");
-        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(list);
+        DefaultI18NValidator.requireNonNullAndNotEmpty(list);
     }
     
     @Test(expected = NullPointerException.class)
     public void requireNonNullAndNotEmptyObservableListThrowsNullPointerException() {
         ObservableList<String> list = null;
-        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(list);
+        DefaultI18NValidator.requireNonNullAndNotEmpty(list);
     }
     
     @Test(expected = IllegalArgumentException.class)
     public void requireNonNullAndNotEmptyObservableListThrowsIllegalArgumentException() {
         ObservableList<String> list = FXCollections.observableArrayList();
-        DefaultI18NValidator.getDefault().requireNonNullAndNotEmpty(list);
+        DefaultI18NValidator.requireNonNullAndNotEmpty(list);
     }
     
 }
