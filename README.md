@@ -25,8 +25,12 @@ Content
     - [How to use the builder 'I18NBindingBuilder'](#HoToUsBiBu)
     - [How to use the builder 'I18NResourceBundleMessageBuilder'](#HoToUsReBuBuMe)
 * [API](#API)
-    - [API 1 _(not yet implemented)_](#API1)
-    - [API 2 _(not yet implemented)_](#API2)
+    - [com.github.naoghuman.lib.i18n.core.I18NBinding](#I18nBi)
+    - [com.github.naoghuman.lib.i18n.core.I18NBindingBuilder](#I18nBiBu)
+    - [com.github.naoghuman.lib.i18n.core.I18NFacade](#I18nFa)
+    - [com.github.naoghuman.lib.i18n.core.I18NResourceBundle](#I18nReBu)
+    - [com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder](#I18nReBuBu)
+    - [com.github.naoghuman.lib.i18n.core.I18NResourceBundleMessageBuilder](#I18nReBuMeBu)
 * [Download](#Download)
 * [Requirements](#Requirements)
 * [Installation](#Installation)
@@ -87,13 +91,499 @@ in [I18NResourceBundleBuilder] the developer can use the builder [I18NResourceBu
 API<a name="API" />
 ---
 
-### API 1 _(not yet implemented)_<a name="API1" />
+### com.github.naoghuman.lib.i18n.core.I18NBinding<a name="I18nBi" />
 
-TODO
+```java
+/**
+ *
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public interface I18NBinding
+```
 
-### API 2 _(not yet implemented)_<a name="API2" />
+```java
+/**
+ * 
+ * @param  function
+ * @return 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public StringBinding createStringBinding(final Callable<String> function);
+```
 
-TODO
+```java
+/**
+ * 
+ * @param  key
+ * @return 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public StringBinding createStringBinding(final String key);
+```
+
+```java
+/**
+ * 
+ * @param  key
+ * @param  arguments
+ * @return 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public StringBinding createStringBinding(final String key, final Object... arguments);
+```
+
+### com.github.naoghuman.lib.i18n.core.I18NBindingBuilder<a name="I18nBiBu" />
+
+```java
+/**
+ *
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public final class I18NBindingBuilder
+```
+
+```java
+/**
+ * 
+ * @return 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public static final FirstStep bind()
+```
+
+```java
+/**
+ * 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public interface FirstStep {
+    
+    /**
+     * 
+     * @param  callable
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public LastStep callable(final Callable<String> callable);
+    
+    /**
+     * 
+     * @param  key
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public SecondStep key(final String key);
+    
+}
+```
+
+```java
+/**
+ * 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public interface SecondStep {
+    
+    /**
+     * 
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public Optional<StringBinding> build();
+    
+    /**
+     * 
+     * @param  arguments
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public LastStep arguments(final Object... arguments);
+    
+}
+```
+
+```java
+/**
+ * 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public interface LastStep {
+    
+    /**
+     * 
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public Optional<StringBinding> build();
+    
+}
+```
+
+### com.github.naoghuman.lib.i18n.core.I18NFacade<a name="I18nFa" />
+
+```java
+/**
+ * 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public final class I18NFacade implements I18NBinding, I18NResourceBundle
+```
+
+```java
+/**
+ * 
+ * @return 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public static I18NFacade getDefault()
+```
+
+### com.github.naoghuman.lib.i18n.core.I18NResourceBundle<a name="I18nReBu" />
+
+```java
+/**
+ *
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public interface I18NResourceBundle
+```
+
+```java
+/**
+ * 
+ * @return 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public String getBaseName();
+```
+
+```java
+/**
+ * 
+ * @param  baseName 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public void setBaseName(final String baseName);
+```
+
+```java
+/**
+ * 
+ * @param  key
+ * @return 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public String getString(final String key);
+```
+
+```java
+/**
+ * 
+ * @param  key
+ * @param  arguments
+ * @return 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public String getString(final String key, final Object... arguments);
+```
+
+```java
+/**
+ * 
+ * @return 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public Locale getDefaultLocale();
+```
+
+```java
+/**
+ * 
+ * @param  locale 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public void setDefaultLocale(final Locale locale);
+```
+
+```java
+/**
+ * 
+ * @return 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public Locale getActualLocale();
+```
+
+```java
+/**
+ * 
+ * @param  locale 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public void setActualLocale(final Locale locale);
+```
+
+```java
+/**
+ * 
+ * @return 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public ObjectProperty<Locale> actualLocaleProperty();
+```
+
+```java
+/**
+ * 
+ * @return 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public ObservableList<Locale> getSupportedLocales();
+```
+
+```java
+/**
+ * 
+ * @param  locales 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public void setSupportedLocales(final ObservableList<Locale> locales);
+```
+
+### com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder<a name="I18nReBuBu" />
+
+```java
+/**
+ *
+ * @author Naoghuman
+ * @since  0.1.0-PRERELEASE
+ */
+public final class I18NResourceBundleBuilder
+```
+
+```java
+/**
+ * 
+ * @return 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public static final FirstStep configure()
+```
+
+```java
+/**
+ * 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public interface FirstStep {
+    
+    /**
+     * 
+     * @param  baseName
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public SecondStep baseName(final String baseName);
+    
+}
+```
+
+```java
+/**
+ * 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public interface SecondStep {
+    
+    /**
+     * 
+     * @param  locales
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public ThirdStep supportedLocales(final ObservableList<Locale> locales);
+
+}
+```
+
+```java
+/**
+ * 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public interface ThirdStep {
+    
+    /**
+     * 
+     * @param  locale
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public ForthStep defaultLocale(final Locale locale);
+   
+}
+```
+
+```java
+/**
+ * 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public interface ForthStep {
+    
+    /**
+     * 
+     * @param  locale
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public LastStep actualLocale(final Locale locale);
+    
+}
+```
+
+```java
+/**
+ * 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public interface LastStep {
+    
+    /**
+     * 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public void build();
+    
+}
+```
+
+### com.github.naoghuman.lib.i18n.core.I18NResourceBundleMessageBuilder<a name="I18nReBuMeBu" />
+
+```java
+/**
+ *
+ * @author Naoghuman
+ * @since  0.1.0-PRERELEASE
+ */
+public final class I18NResourceBundleMessageBuilder
+```
+
+```java
+/**
+ * 
+ * @return 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public static final FirstStep getString()
+```
+
+```java
+/**
+ * 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public interface FirstStep {
+    
+    /**
+     * 
+     * @param  key
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public SecondStep key(final String key);
+    
+}
+```
+
+```java
+/**
+ * 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public interface SecondStep {
+    
+    /**
+     * 
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public String build();
+    
+    /**
+     * 
+     * @param  arguments
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public LastStep arguments(final Object... arguments);
+    
+}
+```
+
+```java
+/**
+ * 
+ * @since  0.1.0-PRERELEASE
+ * @author Naoghuman
+ */
+public interface LastStep {
+    
+    /**
+     * 
+     * @return 
+     * @since  0.1.0-PRERELEASE
+     * @author Naoghuman
+     */
+    public String build();
+   
+}
+```
 
 
 

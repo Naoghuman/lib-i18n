@@ -26,6 +26,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Documentation
+#22 [doc] Write basic sub-sections for the core classes.
 
 
 
