@@ -27,6 +27,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Documentation
+#15 [doc] Remove UML section in chapter Intention.
 
 
 

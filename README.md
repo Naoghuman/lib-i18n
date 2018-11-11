@@ -15,12 +15,6 @@ The library `Lib-I18N` allowed the developer to bind easly `.properties` key
 language during runtime in a [JavaFX] application won't be a problem anymore.  
 Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
-_Image:_ [UML] Lib-I18N v0.2.0-PRERELEASE  
-TODO
-
-> __Hint__  
-> The `UML` diagram is created with the `Online Modeling Platform` [GenMyModel].
-
 
 
 Content
@@ -162,7 +156,6 @@ You can reach me under <peter.rogge@yahoo.de>.
 [Eclipse]:https://www.eclipse.org/
 [FXML]:http://docs.oracle.com/javafx/2/fxml_get_started/jfxpub-fxml_get_started.htm
 [General Public License 3.0]:http://www.gnu.org/licenses/gpl-3.0.en.html
-[GenMyModel]:https://www.genmymodel.com/
 [IntelliJ IDEA]:http://www.jetbrains.com/idea/
 [Issue]:https://github.com/Naoghuman/lib-i18n/issues
 [JavaDoc]:http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html
