@@ -21,11 +21,12 @@ Content
 ---
 
 * [Examples](#Examples)
-    - [Example 1](#Example1)
-    - [Example 2](#Example2)
+    - [How to use the builder 'I18NResourceBundleBuilder'](#HoToUsReBuBu)
+    - [How to use the builder 'I18NBindingBuilder'](#HoToUsBiBu)
+    - [How to use the builder 'I18NResourceBundleMessageBuilder'](#HoToUsReBuBuMe)
 * [API](#API)
-    - [API 1](#API1)
-    - [API 2](#API2)
+    - [API 1 _(not yet implemented)_](#API1)
+    - [API 2 _(not yet implemented)_](#API2)
 * [Download](#Download)
 * [Requirements](#Requirements)
 * [Installation](#Installation)
@@ -40,24 +41,57 @@ Content
 Examples<a name="Examples" />
 ---
 
-### Example 1<a name="Example1" />
+### How to use the builder 'I18NResourceBundleBuilder'<a name="HoToUsReBuBu" />
 
-TODO
+With the builder [I18NResourceBundleBuilder] the developer can configure the 
+[ResourceBundle] which contains the `key - value` terms which will then be bind 
+to a [Locale].
+```java
+I18NResourceBundleBuilder.configure()
+        .baseName(String)
+        .defaultLocale(Locale)
+        .actualLocale(Locale)
+        .supportedLocales(Locale...)
+        .build()
+```
 
-### Example 2<a name="Example2" />
+### How to use the builder 'I18NBindingBuilder'<a name="HoToUsBiBu" />
 
-TODO
+The builder [I18NBindingBuilder] let the developer create a [StringBinding] with 
+a function from type [Callable&lt;String&gt;] or a .properties `key` with optional 
+`arguments`.
+```java
+I18NBindingBuilder.bind()
+       .callable(Callable<String>)
+       .build()
+
+I18NBindingBuilder.bind()
+       .key(String)
+       .arguments(Object... args) // optional
+       .build()
+```
+
+### How to use the builder 'I18NResourceBundleMessageBuilder'<a name="HoToUsReBuBuMe" />
+
+To load a .properties `key` with optional `arguments` from the predefined [ResourceBundle] 
+in [I18NResourceBundleBuilder] the developer can use the builder [I18NResourceBundleMessageBuilder].
+```java
+    I18NResourceBundleMessageBuilder.getString()
+           .key(String)
+           .arguments(Object...) // optional
+           .build()
+```
 
 
 
 API<a name="API" />
 ---
 
-### API 1<a name="API1" />
+### API 1 _(not yet implemented)_<a name="API1" />
 
 TODO
 
-### API 2<a name="API2" />
+### API 2 _(not yet implemented)_<a name="API2" />
 
 TODO
 
@@ -156,6 +190,9 @@ You can reach me under <peter.rogge@yahoo.de>.
 [Eclipse]:https://www.eclipse.org/
 [FXML]:http://docs.oracle.com/javafx/2/fxml_get_started/jfxpub-fxml_get_started.htm
 [General Public License 3.0]:http://www.gnu.org/licenses/gpl-3.0.en.html
+[I18NBindingBuilder]:https://github.com/Naoghuman/lib-i18n/blob/master/src/main/java/com/github/naoghuman/lib/i18n/core/I18NBindingBuilder.java
+[I18NResourceBundleBuilder]:https://github.com/Naoghuman/lib-i18n/blob/master/src/main/java/com/github/naoghuman/lib/i18n/core/I18NResourceBundleBuilder.java
+[I18NResourceBundleMessageBuilder]:https://github.com/Naoghuman/lib-i18n/blob/master/src/main/java/com/github/naoghuman/lib/i18n/core/I18NResourceBundleMessageBuilder.java
 [IntelliJ IDEA]:http://www.jetbrains.com/idea/
 [Issue]:https://github.com/Naoghuman/lib-i18n/issues
 [JavaDoc]:http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html
@@ -163,12 +200,14 @@ You can reach me under <peter.rogge@yahoo.de>.
 [JDK 8]:http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [JRE 8]:http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html
 [Lib-Logger]:https://github.com/Naoghuman/lib-logger
+[Locale]:https://docs.oracle.com/javase/8/docs/api/java/util/Locale.html
 [log4j-api-2.10.0.jar]:https://logging.apache.org/log4j/2.0/log4j-web/dependencies.html
 [log4j-core-2.10.0.jar]:https://logging.apache.org/log4j/2.0/log4j-web/dependencies.html
 [Maven]:http://maven.apache.org/
 [NetBeans]:https://netbeans.org/
 [Overview]:https://github.com/Naoghuman/lib-i18n/releases
 [Pull Request]:https://help.github.com/articles/using-pull-requests
+[ResourceBundle]:https://docs.oracle.com/javase/8/docs/api/java/util/ResourceBundle.html
 [Scene Builder]:https://gluonhq.com/products/scene-builder/
 [StringBinding]:https://docs.oracle.com/javase/8/javafx/api/javafx/beans/binding/StringBinding.html
 [UML]:https://en.wikipedia.org/wiki/Unified_Modeling_Language

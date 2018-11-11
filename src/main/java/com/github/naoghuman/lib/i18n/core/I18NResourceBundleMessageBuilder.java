@@ -28,9 +28,9 @@ import javafx.collections.ObservableMap;
 
 /*
     I18NResourceBundleMessageBuilder.getString()
-       .key(String)
-       .arguments(Object...) // optional
-       .build()
+           .key(String)
+           .arguments(Object...) // optional
+           .build()
 */
 /**
  *
