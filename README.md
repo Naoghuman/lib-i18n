@@ -49,41 +49,67 @@ Examples<a name="Examples" />
 
 With the builder [I18NResourceBundleBuilder] the developer can configure the 
 [ResourceBundle] which contains the `key - value` terms which will then be bind 
-to a [Locale].
+to a [Locale]. That means switching the `actual` Locale update all binded textes 
+with the specific value from the corresponding language `.properties` file.
 ```java
-I18NResourceBundleBuilder.configure()
-        .baseName(String)
-        .defaultLocale(Locale)
-        .actualLocale(Locale)
-        .supportedLocales(Locale...)
-        .build()
+/**
+ * 1) Starts the configuration process.
+ * 2) Defines the path and name from the .properties file.
+ * 3) Sets the default Locale.
+ * 4) Sets the actual Locale.
+ * 5) Sets all supported Locales.
+ * 6) Completes the configuration process.
+ */
+I18NResourceBundleBuilder.configure() // 1
+        .baseName(String)             // 2
+        .defaultLocale(Locale)        // 3
+        .actualLocale(Locale)         // 4
+        .supportedLocales(ObservableList<Locale>) // 5
+        .build();                     // 6
 ```
 
 ### How to use the builder 'I18NBindingBuilder'<a name="HoToUsBiBu" />
 
-The builder [I18NBindingBuilder] let the developer create a [StringBinding] with 
-a function from type [Callable&lt;String&gt;] or a .properties `key` with optional 
-`arguments`.
+The builder [I18NBindingBuilder] let the developer create a [StringBinding]. The 
+StringBinding can created with a function from type [Callable&lt;String&gt;] or 
+with a .properties `key` and optional `arguments`.
 ```java
-I18NBindingBuilder.bind()
-       .callable(Callable<String>)
-       .build()
+/**
+ * 1) Starts the binding process.
+ * 2) Use the given function to create a StringBinding.
+ * 3) Completes the binding process and returns the StringBinding.
+ */
+I18NBindingBuilder.bind()          // 1
+       .callable(Callable<String>) // 2
+       .build();                   // 3
 
-I18NBindingBuilder.bind()
-       .key(String)
-       .arguments(Object... args) // optional
-       .build()
+/**
+ * 1) Starts the binding process.
+ * 2) Defines the key which value will be bind to the StringBinding.
+ * 3) Optional arguments for the value from the given key.
+ * 4) Completes the binding process and returns the StringBinding.
+ */
+I18NBindingBuilder.bind()         // 1
+       .key(String)               // 2
+       .arguments(Object... args) // 3
+       .build();                  // 4
 ```
 
 ### How to use the builder 'I18NResourceBundleMessageBuilder'<a name="HoToUsReBuBuMe" />
 
-To load a .properties `key` with optional `arguments` from the predefined [ResourceBundle] 
-in [I18NResourceBundleBuilder] the developer can use the builder [I18NResourceBundleMessageBuilder].
+To load a .properties `key` with optional `arguments` from the configured [ResourceBundle] 
+throw the [I18NResourceBundleBuilder] the developer can use the builder [I18NResourceBundleMessageBuilder].
 ```java
-    I18NResourceBundleMessageBuilder.getString()
-           .key(String)
-           .arguments(Object...) // optional
-           .build()
+/**
+ * 1) Starts the message process.
+ * 2) Defines the key which value will be loaded.
+ * 3) Optional arguments for the value from the given key.
+ * 4) Completes the message process and returns a String.
+ */
+I18NResourceBundleMessageBuilder.getString() // 1
+        .key(String)                         // 2
+        .arguments(Object...)                // 3
+        .build();                            // 4
 ```
 
 
