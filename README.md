@@ -106,10 +106,10 @@ throw the [I18NResourceBundleBuilder] the developer can use the builder [I18NRes
  * 3) Optional arguments for the value from the given key.
  * 4) Completes the message process and returns a String.
  */
-I18NResourceBundleMessageBuilder.getString() // 1
-        .key(String)                         // 2
-        .arguments(Object...)                // 3
-        .build();                            // 4
+I18NResourceBundleMessageBuilder.message() // 1
+        .key(String)                       // 2
+        .arguments(Object...)              // 3
+        .build();                          // 4
 ```
 
 

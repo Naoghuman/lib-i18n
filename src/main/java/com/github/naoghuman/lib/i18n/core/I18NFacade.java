@@ -132,18 +132,18 @@ public final class I18NFacade implements I18NBinding, I18NResourceBundle {
     }
     
     @Override
-    public String getString(final String key) {
+    public String getMessage(final String key) {
         DefaultI18NValidator.requireNonNullAndNotEmpty(key);
         
-        return i18NResourceBundle4.getString(key);
+        return i18NResourceBundle4.getMessage(key);
     }
 
     @Override
-    public String getString(final String key, final Object... args) {
+    public String getMessage(final String key, final Object... args) {
         DefaultI18NValidator.requireNonNullAndNotEmpty(key);
         DefaultI18NValidator.requireNonNullAndNotEmpty(args);
         
-        return i18NResourceBundle4.getString(key, args);
+        return i18NResourceBundle4.getMessage(key, args);
     }
 
 }

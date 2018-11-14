@@ -47,20 +47,20 @@ public interface I18NResourceBundle {
      * 
      * @param  key
      * @return 
-     * @since  0.1.0-PRERELEASE
+     * @since  0.1.0-PRERELEASE, 0.4.0-PRERELEASE
      * @author Naoghuman
      */
-    public String getString(final String key);
+    public String getMessage(final String key);
     
     /**
      * 
      * @param  key
      * @param  arguments
      * @return 
-     * @since  0.1.0-PRERELEASE
+     * @since  0.1.0-PRERELEASE, 0.4.0-PRERELEASE
      * @author Naoghuman
      */
-    public String getString(final String key, final Object... arguments);
+    public String getMessage(final String key, final Object... arguments);
     
     /**
      * 

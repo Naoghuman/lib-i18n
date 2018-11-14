@@ -33,6 +33,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Refactoring
+#24 [api] Refactore the 'getString()' methods to 'message()' from the interface I18NResourceBundle.
 
 
 

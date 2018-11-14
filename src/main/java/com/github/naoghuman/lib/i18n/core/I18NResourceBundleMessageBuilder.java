@@ -27,7 +27,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableMap;
 
 /*
-    I18NResourceBundleMessageBuilder.getString()
+    I18NResourceBundleMessageBuilder.message()
            .key(String)
            .arguments(Object...) // optional
            .build()
@@ -42,10 +42,10 @@ public final class I18NResourceBundleMessageBuilder {
     /**
      * 
      * @return 
-     * @since  0.1.0-PRERELEASE
+     * @since  0.1.0-PRERELEASE, 0.4.0-PRERELEASE
      * @author Naoghuman
      */
-    public static final FirstStep getString() {
+    public static final FirstStep message() {
         return new I18NResourceBundleMessageBuilderImpl();
     }
     
@@ -168,10 +168,10 @@ public final class I18NResourceBundleMessageBuilder {
             // Create
             String message;
             if (!messageHasArguments) {
-                message = I18NFacade.getDefault().getString(key.getValue());
+                message = I18NFacade.getDefault().getMessage(key.getValue());
             }
             else {
-                message = I18NFacade.getDefault().getString(key.getValue(), (Object[]) arguments.getValue());
+                message = I18NFacade.getDefault().getMessage(key.getValue(), (Object[]) arguments.getValue());
             }
             
             // And reset TODO ?

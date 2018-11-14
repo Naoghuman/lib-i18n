@@ -33,7 +33,7 @@ public class DefaultI18NBinding implements I18NBinding {
     public StringBinding createStringBinding(final String key) {
         DefaultI18NValidator.requireNonNullAndNotEmpty(key);
         
-        return Bindings.createStringBinding(() -> I18NFacade.getDefault().getString(key), I18NFacade.getDefault().actualLocaleProperty());
+        return Bindings.createStringBinding(() -> I18NFacade.getDefault().getMessage(key), I18NFacade.getDefault().actualLocaleProperty());
     }
     
     @Override
@@ -41,7 +41,7 @@ public class DefaultI18NBinding implements I18NBinding {
         DefaultI18NValidator.requireNonNullAndNotEmpty(key);
         DefaultI18NValidator.requireNonNullAndNotEmpty(arguments);
         
-        return Bindings.createStringBinding(() -> I18NFacade.getDefault().getString(key, arguments), I18NFacade.getDefault().actualLocaleProperty());
+        return Bindings.createStringBinding(() -> I18NFacade.getDefault().getMessage(key, arguments), I18NFacade.getDefault().actualLocaleProperty());
     }
     
     @Override

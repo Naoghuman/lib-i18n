@@ -134,12 +134,12 @@ public class DefaultI18NBindingTest {
         
         I18NBinding b = new DefaultI18NBinding();
         I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
-        StringBinding sb = b.createStringBinding(() -> I18NFacade.getDefault().getString("binding.label.with.parameter", 1));
+        StringBinding sb = b.createStringBinding(() -> I18NFacade.getDefault().getMessage("binding.label.with.parameter", 1));
         assertNotNull(sb);
         assertEquals("B: Text with parameter: 1", sb.get());
         
         I18NFacade.getDefault().setActualLocale(Locale.GERMAN);
-        sb = b.createStringBinding(() -> I18NFacade.getDefault().getString("binding.label.with.parameter", 3));
+        sb = b.createStringBinding(() -> I18NFacade.getDefault().getMessage("binding.label.with.parameter", 3));
         assertNotNull(sb);
         assertEquals("B: Text mit Parameter: 3", sb.get());
     }

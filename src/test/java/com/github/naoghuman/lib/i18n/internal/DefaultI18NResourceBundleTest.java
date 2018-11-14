@@ -82,7 +82,7 @@ public class DefaultI18NResourceBundleTest {
     }
 
     @Test
-    public void getString_String() {
+    public void getMessage_String() {
         I18NResourceBundle rb = new DefaultI18NResourceBundle();
         rb.setBaseName(RESOURCE_BUNDLE);
         
@@ -91,26 +91,26 @@ public class DefaultI18NResourceBundleTest {
         rb.setSupportedLocales(supportedLocales);
         
         rb.setActualLocale(Locale.ENGLISH);
-        assertEquals("RB: Test title", rb.getString("resourcebundle.title"));
+        assertEquals("RB: Test title", rb.getMessage("resourcebundle.title"));
         
         rb.setActualLocale(Locale.GERMAN);
-        assertEquals("RB: Test Titel", rb.getString("resourcebundle.title"));
+        assertEquals("RB: Test Titel", rb.getMessage("resourcebundle.title"));
     }
 
     @Test(expected = NullPointerException.class)
-    public void getString_String_ThrowsNullPointerException() {
+    public void getMessage_String_ThrowsNullPointerException() {
         I18NResourceBundle rb = new DefaultI18NResourceBundle();
-        rb.getString(null);
+        rb.getMessage(null);
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void getString_String_ThrowsIllegalArgumentException() {
+    public void getMessage_String_ThrowsIllegalArgumentException() {
         I18NResourceBundle rb = new DefaultI18NResourceBundle();
-        rb.getString("");
+        rb.getMessage("");
     }
 
     @Test
-    public void testGetString_String_ObjectArr() {
+    public void getMessage_String_ObjectArr() {
         I18NResourceBundle rb = new DefaultI18NResourceBundle();
         rb.setBaseName(RESOURCE_BUNDLE);
         
@@ -119,29 +119,29 @@ public class DefaultI18NResourceBundleTest {
         rb.setSupportedLocales(supportedLocales);
         
         rb.setActualLocale(Locale.ENGLISH);
-        assertEquals("RB: Text with parameter: 2", rb.getString("resourcebundle.label.with.parameter", 2));
+        assertEquals("RB: Text with parameter: 2", rb.getMessage("resourcebundle.label.with.parameter", 2));
         
         rb.setActualLocale(Locale.GERMAN);
-        assertEquals("RB: Text mit Parameter: 5", rb.getString("resourcebundle.label.with.parameter", 5));
+        assertEquals("RB: Text mit Parameter: 5", rb.getMessage("resourcebundle.label.with.parameter", 5));
     }
 
     @Test(expected = NullPointerException.class)
-    public void testGetString_String_ObjectArr_StringThrowsNullPointerException() {
+    public void getMessage_String_ObjectArr_StringThrowsNullPointerException() {
         I18NResourceBundle rb = new DefaultI18NResourceBundle();
-        rb.getString(null, "hello");
+        rb.getMessage(null, "hello");
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void testGetString_String_ObjectArr_StringThrowsIllegalArgumentException() {
+    public void getMessage_String_ObjectArr_StringThrowsIllegalArgumentException() {
         I18NResourceBundle rb = new DefaultI18NResourceBundle();
-        rb.getString("", "hello");
+        rb.getMessage("", "hello");
     }
 
     @Test(expected = NullPointerException.class)
-    public void testGetString_String_ObjectArr_ObjectArrThrowsNullPointerException() {
+    public void getMessage_String_ObjectArr_ObjectArrThrowsNullPointerException() {
         I18NResourceBundle rb = new DefaultI18NResourceBundle();
         String parameter = null;
-        rb.getString("key", parameter);
+        rb.getMessage("key", parameter);
     }
 
     @Test
