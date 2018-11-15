@@ -8,8 +8,8 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Summary
-* ...
-* ...
+* Add 'UnitTests' for the class 'I18NFacade'.
+* Update the ReadMe.
 
 
 
