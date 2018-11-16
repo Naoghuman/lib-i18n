@@ -26,6 +26,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Documentation
+#27 [doc] Write the JavaDoc for the interface I18NResourceBundle.
 #26 [doc] Write the JavaDoc for the interface I18NBinding.
 
 

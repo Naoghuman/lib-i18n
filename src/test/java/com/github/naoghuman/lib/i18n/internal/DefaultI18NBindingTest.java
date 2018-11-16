@@ -54,7 +54,7 @@ public class DefaultI18NBindingTest {
 
     @Test
     public void createStringBinding_String() {
-        I18NFacade.getDefault().setBaseName(RESOURCE_BUNDLE);
+        I18NFacade.getDefault().setBaseBundleName(RESOURCE_BUNDLE);
         
         ObservableList<Locale> supportedLocales = FXCollections.observableArrayList();
         supportedLocales.addAll(Locale.ENGLISH, Locale.GERMAN);
@@ -87,7 +87,7 @@ public class DefaultI18NBindingTest {
 
     @Test
     public void createStringBinding_String_ObjectArray() {
-        I18NFacade.getDefault().setBaseName(RESOURCE_BUNDLE);
+        I18NFacade.getDefault().setBaseBundleName(RESOURCE_BUNDLE);
         
         ObservableList<Locale> supportedLocales = FXCollections.observableArrayList();
         supportedLocales.addAll(Locale.ENGLISH, Locale.GERMAN);
@@ -126,7 +126,7 @@ public class DefaultI18NBindingTest {
 
     @Test
     public void createStringBinding_Callable() {
-        I18NFacade.getDefault().setBaseName(RESOURCE_BUNDLE);
+        I18NFacade.getDefault().setBaseBundleName(RESOURCE_BUNDLE);
         
         ObservableList<Locale> supportedLocales = FXCollections.observableArrayList();
         supportedLocales.addAll(Locale.ENGLISH, Locale.GERMAN);

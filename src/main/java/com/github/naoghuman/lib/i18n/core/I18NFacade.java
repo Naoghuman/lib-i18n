@@ -106,13 +106,13 @@ public final class I18NFacade implements I18NBinding, I18NResourceBundle {
     }
 
     @Override
-    public String getBaseName() {
-        return i18NResourceBundle4.getBaseName();
+    public String getBaseBundleName() {
+        return i18NResourceBundle4.getBaseBundleName();
     }
 
     @Override
-    public void setBaseName(final String baseName) {
-        i18NResourceBundle4.setBaseName(baseName);
+    public void setBaseBundleName(final String baseName) {
+        i18NResourceBundle4.setBaseBundleName(baseName);
     }
     
     @Override

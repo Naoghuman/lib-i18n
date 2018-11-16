@@ -50,41 +50,41 @@ public class DefaultI18NResourceBundleTest {
     }
 
     @Test
-    public void getBaseName() {
+    public void getBaseBundleName() {
         I18NResourceBundle rb = new DefaultI18NResourceBundle();
-        rb.setBaseName(RESOURCE_BUNDLE);
+        rb.setBaseBundleName(RESOURCE_BUNDLE);
         
-        assertEquals(RESOURCE_BUNDLE, rb.getBaseName());
+        assertEquals(RESOURCE_BUNDLE, rb.getBaseBundleName());
     }
 
     @Test(expected = NullPointerException.class)
-    public void getBaseNameThrowsNullPointerException() {
+    public void getBaseBundleNameThrowsNullPointerException() {
         I18NResourceBundle rb = new DefaultI18NResourceBundle();
-        rb.getBaseName();
+        rb.getBaseBundleName();
     }
 
     @Test
-    public void setBaseName() {
+    public void setBaseBundleName() {
         I18NResourceBundle rb = new DefaultI18NResourceBundle();
-        rb.setBaseName(RESOURCE_BUNDLE);
+        rb.setBaseBundleName(RESOURCE_BUNDLE);
     }
 
     @Test(expected = NullPointerException.class)
-    public void setBaseNameThrowsNullPointerException() {
+    public void setBaseBundleNameThrowsNullPointerException() {
         I18NResourceBundle rb = new DefaultI18NResourceBundle();
-        rb.setBaseName(null);
+        rb.setBaseBundleName(null);
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void setBaseNameThrowsIllegalArgumentException() {
+    public void setBaseBundleNameThrowsIllegalArgumentException() {
         I18NResourceBundle rb = new DefaultI18NResourceBundle();
-        rb.setBaseName("");
+        rb.setBaseBundleName("");
     }
 
     @Test
     public void getMessage_String() {
         I18NResourceBundle rb = new DefaultI18NResourceBundle();
-        rb.setBaseName(RESOURCE_BUNDLE);
+        rb.setBaseBundleName(RESOURCE_BUNDLE);
         
         ObservableList<Locale> supportedLocales = FXCollections.observableArrayList();
         supportedLocales.addAll(Locale.ENGLISH, Locale.GERMAN);
@@ -112,7 +112,7 @@ public class DefaultI18NResourceBundleTest {
     @Test
     public void getMessage_String_ObjectArr() {
         I18NResourceBundle rb = new DefaultI18NResourceBundle();
-        rb.setBaseName(RESOURCE_BUNDLE);
+        rb.setBaseBundleName(RESOURCE_BUNDLE);
         
         ObservableList<Locale> supportedLocales = FXCollections.observableArrayList();
         supportedLocales.addAll(Locale.ENGLISH, Locale.GERMAN);

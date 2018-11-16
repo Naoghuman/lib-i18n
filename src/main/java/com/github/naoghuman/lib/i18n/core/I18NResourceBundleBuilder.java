@@ -30,7 +30,7 @@ import javafx.collections.ObservableMap;
 
 /*
     I18NResourceBundleBuilder.configure()
-        .baseName(String)
+        .baseBundleName(String)
         .defaultLocale(Locale)
         .actualLocale(Locale)
         .supportedLocales(Locale...)
@@ -62,12 +62,12 @@ public final class I18NResourceBundleBuilder {
         
         /**
          * 
-         * @param  baseName
+         * @param  baseBundleName
          * @return 
          * @since  0.1.0-PRERELEASE
          * @author Naoghuman
          */
-        public SecondStep baseName(final String baseName);
+        public SecondStep baseBundleName(final String baseBundleName);
         
     }
     
@@ -145,9 +145,9 @@ public final class I18NResourceBundleBuilder {
             FirstStep,  ForthStep, LastStep, 
             SecondStep, ThirdStep
     {
-        private static final String ATTR__BASENAME          = "baseName"; // NOI18N
-        private static final String ATTR__ACTUAL_LOCALE     = "actualLocale";   // NOI18N
-        private static final String ATTR__DEFAULT_LOCALE    = "defaultLocale";   // NOI18N
+        private static final String ATTR__BASE_BUNDLE_NAME  = "baseBundleName";   // NOI18N
+        private static final String ATTR__ACTUAL_LOCALE     = "actualLocale";     // NOI18N
+        private static final String ATTR__DEFAULT_LOCALE    = "defaultLocale";    // NOI18N
         private static final String ATTR__SUPPORTED_LOCALES = "supportedLocales"; // NOI18N
     
         @SuppressWarnings("rawtypes")
@@ -160,18 +160,18 @@ public final class I18NResourceBundleBuilder {
         private void initialize() {
             LoggerFacade.getDefault().info(I18NResourceBundleBuilder.class, "I18NResourceBundleBuilderImpl.initialize()"); // NOI18N
             
-            properties.put(ATTR__BASENAME,          new SimpleStringProperty());
+            properties.put(ATTR__BASE_BUNDLE_NAME,  new SimpleStringProperty());
             properties.put(ATTR__ACTUAL_LOCALE,     new SimpleObjectProperty());
             properties.put(ATTR__DEFAULT_LOCALE,    new SimpleObjectProperty());
             properties.put(ATTR__SUPPORTED_LOCALES, new SimpleObjectProperty());
         }
 
         @Override
-        public SecondStep baseName(final String baseName) {
-            LoggerFacade.getDefault().debug(this.getClass(), "I18NResourceBundleBuilderImpl.baseName(String)"); // NOI18N
+        public SecondStep baseBundleName(final String baseBundleName) {
+            LoggerFacade.getDefault().debug(this.getClass(), "I18NResourceBundleBuilderImpl.baseBundleName(String)"); // NOI18N
             
-            DefaultI18NValidator.requireNonNullAndNotEmpty(baseName);
-            properties.put(ATTR__BASENAME, new SimpleStringProperty(baseName));
+            DefaultI18NValidator.requireNonNullAndNotEmpty(baseBundleName);
+            properties.put(ATTR__BASE_BUNDLE_NAME, new SimpleStringProperty(baseBundleName));
             
             return this;
         }
@@ -211,13 +211,13 @@ public final class I18NResourceBundleBuilder {
             LoggerFacade.getDefault().debug(this.getClass(), "I18NResourceBundleBuilderImpl.build()"); // NOI18N
             
             // Catch data
-            final StringProperty baseName         = (StringProperty) properties.get(ATTR__BASENAME);
+            final StringProperty baseBundleName   = (StringProperty) properties.get(ATTR__BASE_BUNDLE_NAME);
             final ObjectProperty supportedLocales = (ObjectProperty) properties.get(ATTR__SUPPORTED_LOCALES);
             final ObjectProperty defaultLocale    = (ObjectProperty) properties.get(ATTR__DEFAULT_LOCALE);
             final ObjectProperty actualLocale     = (ObjectProperty) properties.get(ATTR__ACTUAL_LOCALE);
             
             // Configure
-            I18NFacade.getDefault().setBaseName(baseName.getValue());
+            I18NFacade.getDefault().setBaseBundleName(baseBundleName.getValue());
             I18NFacade.getDefault().setSupportedLocales((ObservableList<Locale>) supportedLocales.getValue());
             I18NFacade.getDefault().setDefaultLocale((Locale) defaultLocale.getValue());
             I18NFacade.getDefault().setActualLocale((Locale) actualLocale.getValue());

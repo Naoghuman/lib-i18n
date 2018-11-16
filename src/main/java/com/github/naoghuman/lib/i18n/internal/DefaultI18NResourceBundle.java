@@ -36,7 +36,7 @@ public class DefaultI18NResourceBundle implements I18NResourceBundle {
     private ObservableList<Locale> supportedLocales;
     
     private Locale defaultLocale;
-    private String baseName;
+    private String baseBundleName;
     
     /**
      * 
@@ -54,24 +54,24 @@ public class DefaultI18NResourceBundle implements I18NResourceBundle {
     }
     
     @Override
-    public String getBaseName() {
-        DefaultI18NValidator.requireNonNullAndNotEmpty(baseName);
+    public String getBaseBundleName() {
+        DefaultI18NValidator.requireNonNullAndNotEmpty(baseBundleName);
         
-        return baseName;
+        return baseBundleName;
     }
 
     @Override
-    public void setBaseName(final String baseName) {
-        DefaultI18NValidator.requireNonNullAndNotEmpty(baseName);
+    public void setBaseBundleName(final String baseBundleName) {
+        DefaultI18NValidator.requireNonNullAndNotEmpty(baseBundleName);
         
-        this.baseName = baseName;
+        this.baseBundleName = baseBundleName;
     }
     
     @Override
     public String getMessage(final String key) {
         DefaultI18NValidator.requireNonNullAndNotEmpty(key);
         
-        final ResourceBundle bundle = ResourceBundle.getBundle(this.getBaseName(), this.getActualLocale());
+        final ResourceBundle bundle = ResourceBundle.getBundle(this.getBaseBundleName(), this.getActualLocale());
         
         return bundle.getString(key);
     }
@@ -81,7 +81,7 @@ public class DefaultI18NResourceBundle implements I18NResourceBundle {
         DefaultI18NValidator.requireNonNullAndNotEmpty(key);
         DefaultI18NValidator.requireNonNullAndNotEmpty(arguments);
         
-        final ResourceBundle bundle = ResourceBundle.getBundle(this.getBaseName(), this.getActualLocale());
+        final ResourceBundle bundle = ResourceBundle.getBundle(this.getBaseBundleName(), this.getActualLocale());
         
         return MessageFormat.format(bundle.getString(key), arguments);
     }

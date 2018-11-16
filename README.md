@@ -344,122 +344,220 @@ public static I18NFacade getDefault()
 
 ```java
 /**
+ * This {@code Interface} allowed the developer to managed following tasks:<br>
+ * Configuration from the {@link java.util.ResourceBundle}:
+ * <ul>
+ * <li>Setting the {@code base bundle name} for the {@code ResourceBundle}.</li>
+ * <li>Setting the {@code supported} {@link java.util.Locale}s.</li>
+ * <li>Setting the {@code default} {@code Locale}.</li>
+ * <li>and last setting the {@code actual} {@code Locale}.</li>
+ * </ul>
+ * Access to the {@code ResourceBundle}:
+ * <ul>
+ * <li>Return directly the {@code value} from a given {@code key} as {@link java.lang.String}.</li>
+ * <li>or inject additional {@code arguments} into the message with 
+ *     {@link java.text.MessageFormat#format(java.lang.String, java.lang.Object...)}.</li>
+ * </ul>
  *
- * @since  0.1.0-PRERELEASE
- * @author Naoghuman
+ * @since   0.1.0-PRERELEASE
+ * @version 0.5.0
+ * @author  Naoghuman
+ * @see     java.lang.Object
+ * @see     java.lang.String
+ * @see     java.text.MessageFormat#format(java.lang.String, java.lang.Object...)
+ * @see     java.util.Locale
+ * @see     java.util.ResourceBundle
  */
 public interface I18NResourceBundle
 ```
 
 ```java
 /**
+ * Returns the {@code baseBundleName} from the associated {@link java.util.ResourceBundle}.
  * 
- * @return 
- * @since  0.1.0-PRERELEASE
- * @author Naoghuman
+ * @return  the {@code baseName} from the {@code ResourceBundle}.
+ * @since   0.1.0-PRERELEASE
+ * @version 0.5.0
+ * @author  Naoghuman
+ * @see     java.util.ResourceBundle
  */
-public String getBaseName();
+public String getBaseBundleName();
 ```
 
 ```java
 /**
+ * Sets the {@code baseBundleName} which will be used to load the associated 
+ * {@link java.util.ResourceBundle}.
+ * <p>
+ * Format from the {@code baseBundleName} should be:<br>
+ * <ul>
+ * <li>Package name to the bundle,  '.' (point) separated.</li>
+ * <li>Base name from the bundles.</li>
+ * </ul>
+ * Example:
+ * <ul>
+ * <li>Package: com.github.naoghuman.app.i18n.demo</li>
+ * <li>Bundles: message_de.properties, message_en.properties</li>
+ * <li>Base bundle name: com.github.naoghuman.app.i18n.demo.message</li>
+ * </ul>
  * 
- * @param  baseName 
- * @since  0.1.0-PRERELEASE
- * @author Naoghuman
+ * @param   baseBundleName 
+ * @throws  NullPointerException     if {@code baseBundleName} is NULL.
+ * @throws  IllegalArgumentException if {@code baseBundleName} is EMPTY.
+ * @since   0.1.0-PRERELEASE
+ * @version 0.5.0
+ * @author  Naoghuman
  */
-public void setBaseName(final String baseName);
+public void setBaseBundleName(final String baseBundleName);
 ```
 
 ```java
 /**
+ * Returns the associated {@code value} from the given {@code key} depending 
+ * from the {@code actual} {@link java.util.Locale}.
  * 
- * @param  key
- * @return 
- * @since  0.1.0-PRERELEASE
- * @author Naoghuman
+ * @param   key which {@code value} should be loaded.
+ * @return  the associated {@code value}.
+ * @throws  NullPointerException     if {@code key} is NULL.
+ * @throws  IllegalArgumentException if {@code key} is EMPTY.
+ * @since   0.1.0-PRERELEASE
+ * @version 0.5.0
+ * @author  Naoghuman
+ * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
+ * @see     java.util.Locale
  */
-public String getString(final String key);
+public String getMessage(final String key);
 ```
 
 ```java
 /**
+ * Returns the associated {@code value} (with the injected {@code arguments}) 
+ * from the given {@code key} depending from the {@code actual} {@link java.util.Locale}.
+ * <p>
+ * Internal {@link java.text.MessageFormat#format(java.lang.String, java.lang.Object...) } 
+ * will be used to format the {@code message}.
  * 
- * @param  key
- * @param  arguments
- * @return 
- * @since  0.1.0-PRERELEASE
- * @author Naoghuman
+ * @param   key which {@code value} should be loaded.
+ * @param   arguments  which should be injected into the associated {@value}.
+ * @return  the associated {@code value}.
+ * @throws  NullPointerException     if ({@code key} || {@code arguments}) is NULL.
+ * @throws  IllegalArgumentException if ({@code key} || {@code arguments}) is EMPTY.
+ * @since   0.1.0-PRERELEASE
+ * @version 0.5.0
+ * @author  Naoghuman
+ * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
+ * @see     java.text.MessageFormat#format(java.lang.String, java.lang.Object...)
+ * @see     java.util.Locale
  */
-public String getString(final String key, final Object... arguments);
+public String getMessage(final String key, final Object... arguments);
 ```
 
 ```java
 /**
+ * Returns the {@code default} {@link java.util.Locale}.
  * 
- * @return 
- * @since  0.1.0-PRERELEASE
- * @author Naoghuman
+ * @return  the {@code default} {@code Locale}.
+ * @since   0.1.0-PRERELEASE
+ * @version 0.5.0
+ * @author  Naoghuman
+ * @see     java.util.Locale
  */
 public Locale getDefaultLocale();
 ```
 
 ```java
 /**
+ * Sets the {@code default} {@link java.util.Locale}.
+ * <p>
+ * If the {@code supported} Locales doesn't contained the {@code Locale} then 
+ * {@link java.util.Locale#ENGLISH} will be used instead.
  * 
- * @param  locale 
- * @since  0.1.0-PRERELEASE
- * @author Naoghuman
+ * @param   locale the new {@code default} {@code Locale}.
+ * @throws  NullPointerException     if {@code locale} is NULL.
+ * @throws  IllegalArgumentException if {@code locale} is EMPTY.
+ * @since   0.1.0-PRERELEASE
+ * @version 0.5.0
+ * @author  Naoghuman
+ * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#setSupportedLocales(javafx.collections.ObservableList) 
+ * @see     java.util.Locale
+ * @see     java.util.Locale#ENGLISH
  */
 public void setDefaultLocale(final Locale locale);
 ```
 
 ```java
 /**
+ * Returns the {@code actual} {@link java.util.Locale}.
  * 
- * @return 
- * @since  0.1.0-PRERELEASE
- * @author Naoghuman
+ * @return  the {@code actual} {@code Locale}.
+ * @since   0.1.0-PRERELEASE
+ * @version 0.5.0
+ * @author  Naoghuman
+ * @see     java.util.Locale
  */
 public Locale getActualLocale();
 ```
 
 ```java
 /**
+ * Sets the {@code actual} {@link java.util.Locale}.
+ * <p>
+ * If the {@code supported} Locales doesn't contained the {@code Locale} then 
+ * {@code default} {@code Locale} will be used instead.
  * 
- * @param  locale 
- * @since  0.1.0-PRERELEASE
- * @author Naoghuman
+ * @param   locale the new {@code actual} {@code Locale}.
+ * @throws  NullPointerException     if {@code locale} is NULL.
+ * @throws  IllegalArgumentException if {@code locale} is EMPTY.
+ * @since   0.1.0-PRERELEASE
+ * @version 0.5.0
+ * @author  Naoghuman
+ * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#getDefaultLocale() 
+ * @see     java.util.Locale
  */
 public void setActualLocale(final Locale locale);
 ```
 
 ```java
 /**
+ * Returns the {@code actual} {@link java.util.Locale} as a {@link javafx.beans.property.ObjectProperty}.
+ * <p>
+ * The {@code ObjectProperty} allowed during the update from the {@code actual} 
+ * {@code Locale} that all binded texts will be automatically updated.
  * 
- * @return 
- * @since  0.1.0-PRERELEASE
- * @author Naoghuman
+ * @return  
+ * @since   0.1.0-PRERELEASE
+ * @version 0.5.0
+ * @author  Naoghuman
+ * @see     java.util.Locale
+ * @see     javafx.beans.property.ObjectProperty
  */
 public ObjectProperty<Locale> actualLocaleProperty();
 ```
 
 ```java
 /**
+ * Returns all {@code supported} {@code java.util.Locale}s as a {@code observable} list.
  * 
- * @return 
- * @since  0.1.0-PRERELEASE
- * @author Naoghuman
+ * @return  all {@code supported} {@code Locales} as a {@code observable} list.
+ * @since   0.1.0-PRERELEASE
+ * @version 0.5.0
+ * @author  Naoghuman
+ * @see     java.util.Locale
  */
 public ObservableList<Locale> getSupportedLocales();
 ```
 
 ```java
 /**
+ * Sets the {@code supported} {@code java.util.Locale}s.
  * 
- * @param  locales 
- * @since  0.1.0-PRERELEASE
- * @author Naoghuman
+ * @param   locales 
+ * @throws  NullPointerException     if {@code locales} is NULL.
+ * @throws  IllegalArgumentException if {@code locales} is EMPTY.
+ * @since   0.1.0-PRERELEASE
+ * @version 0.5.0
+ * @author  Naoghuman
+ * @see     java.util.Locale
  */
 public void setSupportedLocales(final ObservableList<Locale> locales);
 ```
