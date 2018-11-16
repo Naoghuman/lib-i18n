@@ -323,19 +323,43 @@ public interface LastStep {
 
 ```java
 /**
+ * Over the facade {@code I18NFacade} the developer have access to all methods 
+ * from the interfaces {@link com.github.naoghuman.lib.i18n.core.I18NBinding} 
+ * and {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundle}.
+ * <p>
+ * The usage from the builders
+ * <ul>
+ * <li>{@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder}: 
+ *     Allowed the developer to configure the {@link java.util.ResourceBundle}.</li>
+ * <li>{@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleMessageBuilder}: 
+ *     Allowed the developer to access the messages from the bundle.</li>
+ * <li>{@link com.github.naoghuman.lib.i18n.core.I18NBindingBuilder}: 
+ *     Allowed the developer to create a {@link javafx.beans.binding.StringBinding}.</li>
+ * </ul>
+ * is preferred.
  * 
- * @since  0.1.0-PRERELEASE
- * @author Naoghuman
+ * @since   0.1.0-PRERELEASE
+ * @version 0.5.0
+ * @author  Naoghuman
+ * @see     com.github.naoghuman.lib.i18n.core.I18NBinding
+ * @see     com.github.naoghuman.lib.i18n.core.I18NBindingBuilder
+ * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle
+ * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder
+ * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleMessageBuilder
+ * @see     java.util.ResourceBundle
+ * @see     javafx.beans.binding.StringBinding
  */
 public final class I18NFacade implements I18NBinding, I18NResourceBundle
 ```
 
 ```java
 /**
+ * Returns a {@code singleton} instance from this facade.
  * 
- * @return 
- * @since  0.1.0-PRERELEASE
- * @author Naoghuman
+ * @return  a {@code singleton} instance from this facade.
+ * @since   0.1.0-PRERELEASE
+ * @version 0.5.0
+ * @author  Naoghuman
  */
 public static I18NFacade getDefault()
 ```
