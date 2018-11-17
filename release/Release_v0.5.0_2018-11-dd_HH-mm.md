@@ -28,6 +28,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 #### Documentation
 #32 [doc] Write the JavaDoc for the 'package-info' from the 'core' package.
 #31 [doc] Write the JavaDoc for the facade I18NFacade.
+#29 [doc] Write the JavaDoc for the builder I18NResourceBundleBuilder.
 #28 [doc] Write the JavaDoc for the builder I18NBindingBuilder.
 #27 [doc] Write the JavaDoc for the interface I18NResourceBundle.
 #26 [doc] Write the JavaDoc for the interface I18NBinding.

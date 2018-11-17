@@ -29,113 +29,235 @@ import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
 
 /*
-    I18NResourceBundleBuilder.configure()
-        .baseBundleName(String)
-        .defaultLocale(Locale)
-        .actualLocale(Locale)
-        .supportedLocales(Locale...)
-        .build()
+ * Examples 'Usage from I18NResourceBundleBuilder'
+ *
+ * 1) Starts the configuration process.
+ * 2) Defines the path and name from the .properties file.
+ * 3) Sets all supported Locales.
+ * 4) Sets the default Locale.
+ * 5) Sets the actual Locale.
+ * 6) Completes the configuration process.
+ * I18NResourceBundleBuilder.configure() // 1
+ *        .baseName(String)              // 2
+ *        .supportedLocales(ObservableList<Locale>) // 3
+ *        .defaultLocale(Locale)         // 4
+ *        .actualLocale(Locale)          // 5
+ *        .build();                      // 6
 */
 /**
+ * With the fluent builder {@code I18NResourceBundleBuilder} the developer can easily configure 
+ * the {@link java.util.ResourceBundle} and the different relevant {@link java.util.Locale}s.
+ * <p>
+ * All steps in this fluent builder are mandory so simple follow the way :) .
  *
- * @author Naoghuman
- * @since  0.1.0-PRERELEASE
+ * @since   0.1.0-PRERELEASE
+ * @version 0.5.0
+ * @author  Naoghuman
+ * @see     java.util.Locale
+ * @see     java.util.ResourceBundle
  */
 public final class I18NResourceBundleBuilder {
     
     /**
+     * Starting point from this fluent builder to configure a {@link java.util.ResourceBundle} 
+     * which {@code key/value} pairs will be bind to a {@link java.util.Locale}.
      * 
-     * @return 
-     * @since  0.1.0-PRERELEASE
-     * @author Naoghuman
+     * @return  the first step to configure the {@code ResourceBundle}.
+     * @since   0.1.0-PRERELEASE
+     * @version 0.5.0
+     * @author  Naoghuman
+     * @see     java.util.Locale
+     * @see     java.util.ResourceBundle
      */
     public static final FirstStep configure() {
+        
         return new I18NResourceBundleBuilderImpl();
+        
     }
     
     /**
+     * First mandory step to configure the {@link java.util.ResourceBundle}.
      * 
-     * @since  0.1.0-PRERELEASE
-     * @author Naoghuman
+     * @since   0.1.0-PRERELEASE
+     * @version 0.5.0
+     * @author  Naoghuman
+     * @see     java.util.ResourceBundle
      */
     public interface FirstStep {
         
         /**
+         * Setter for the {@code path} and {@code base} name from the {@link java.util.ResourceBundle}.
+         * <p>
+         * The format from {@code baseBundleName} is the package name and the base 
+         * name from the bundle {@code point} ('.') separated.<br>
+         * For example:
+         * <ul>
+         * <li>com.github.naoghuman.app.i18n.demo.message</li>
+         * </ul>
+         * where {@code com.github.naoghuman.app.i18n.demo} is the package and 
+         * {@code message} the base bundle name.
          * 
-         * @param  baseBundleName
-         * @return 
-         * @since  0.1.0-PRERELEASE
-         * @author Naoghuman
+         * @param   baseBundleName which defines the path and base name from the {@code ResourceBundle}.
+         * @return  the second step in this fluent builder
+         * @throws  NullPointerException     if {@code baseBundleName} is NULL.
+         * @throws  IllegalArgumentException if {@code baseBundleName} is EMPTY.
+         * @since   0.1.0-PRERELEASE
+         * @version 0.5.0
+         * @author  Naoghuman
+         * @see     java.util.ResourceBundle
          */
         public SecondStep baseBundleName(final String baseBundleName);
         
     }
     
     /**
+     * Second mandory step to configure the {@link java.util.ResourceBundle}.
+     * <p>
+     * In this step all {@code supported} {@link java.util.Locale}s from the 
+     * {@code ResourceBundle} will be set.
+     * <p>
+     * Supported {@code Locale}s means that the list should contains for every 
+     * supported language (language_xy.properties) the corresponding {@code Locale}.
      * 
-     * @since  0.1.0-PRERELEASE
-     * @author Naoghuman
+     * @since   0.1.0-PRERELEASE
+     * @version 0.5.0
+     * @author  Naoghuman
+     * @see     java.util.Locale
+     * @see     java.util.ResourceBundle
      */
     public interface SecondStep {
         
         /**
+         * Setter for all {@code supported} {@link java.util.Locale}s from the 
+         * {@link java.util.ResourceBundle}.
+         * <p>
+         * Supported {@code Locale}s means that the list should contains for every 
+         * supported language (language_xy.properties) the corresponding {@code Locale}.
          * 
-         * @param  locales
-         * @return 
-         * @since  0.1.0-PRERELEASE
-         * @author Naoghuman
+         * @param   locales
+         * @return  the third step in this fluent builder.
+         * @throws  NullPointerException     if {@code locales} is NULL.
+         * @throws  IllegalArgumentException if {@code locales} is EMPTY.
+         * @since   0.1.0-PRERELEASE
+         * @version 0.5.0
+         * @author  Naoghuman
+         * @see     java.util.Locale
+         * @see     java.util.ResourceBundle
          */
         public ThirdStep supportedLocales(final ObservableList<Locale> locales);
     
     }
     
     /**
+     * Third mandory step to configure the {@link java.util.ResourceBundle}.
+     * <p>
+     * In this step the {@code default} {@link java.util.Locale} from the 
+     * {@code ResourceBundle} will be set.
+     * <p>
+     * Default {@code Locale} means that this Locale should be used if the 
+     * {@code actual} Locale aren't in the list of supported Locales.<br>
+     * If the default Locale isn't in the list of supported Locales then 
+     * {@link java.util.Locale#ENGLISH} will be used instead.
      * 
-     * @since  0.1.0-PRERELEASE
-     * @author Naoghuman
+     * @since   0.1.0-PRERELEASE
+     * @version 0.5.0
+     * @author  Naoghuman
+     * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#setActualLocale(java.util.Locale) 
+     * @see     java.util.Locale
+     * @see     java.util.ResourceBundle
      */
     public interface ThirdStep {
         
         /**
+         * Setter for the {@code default} {@link java.util.Locale} from the 
+         * {@link java.util.ResourceBundle}.
+         * <p>
+         * Default {@code Locale} means that this Locale should be used if the 
+         * {@code actual} Locale aren't in the list of supported Locales.<br>
+         * If the default Locale isn't in the list of supported Locales then 
+         * {@link java.util.Locale#ENGLISH} will be used instead.
          * 
-         * @param  locale
-         * @return 
-         * @since  0.1.0-PRERELEASE
-         * @author Naoghuman
+         * @param   locale
+         * @return  the forth step in this fluent builder.
+         * @throws  NullPointerException if {@code locale} is NULL.
+         * @since   0.1.0-PRERELEASE
+         * @version 0.5.0
+         * @author  Naoghuman
+         * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#setActualLocale(java.util.Locale) 
+         * @see     java.util.Locale
+         * @see     java.util.ResourceBundle
          */
         public ForthStep defaultLocale(final Locale locale);
         
     }
     
     /**
+     * Forth mandory step to configure the {@link java.util.ResourceBundle}.
+     * <p>
+     * In this step the {@code actual} {@link java.util.Locale} from the 
+     * {@code ResourceBundle} will be set.
+     * <p>
+     * Actual {@code Locale} means that this Locale should used for the message 
+     * loading from the {@link java.util.ResourceBundle}.<br>
+     * If the actual Locale isn't in the list of supported Locales then the 
+     * {@code default} Locale will be used instead.
      * 
-     * @since  0.1.0-PRERELEASE
-     * @author Naoghuman
+     * @since   0.1.0-PRERELEASE
+     * @version 0.5.0
+     * @author  Naoghuman
+     * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#setDefaultLocale(java.util.Locale) 
+     * @see     java.util.Locale
+     * @see     java.util.ResourceBundle
      */
     public interface ForthStep {
         
         /**
+         * Setter for the {@code actual} {@link java.util.Locale} from the 
+         * {@link java.util.ResourceBundle}.
+         * <p>
+         * Actual {@code Locale} means that this Locale should used for the message 
+         * loading from the {@link java.util.ResourceBundle}.<br>
+         * If the actual Locale isn't in the list of supported Locales then the 
+         * {@code default} Locale will be used instead.
          * 
-         * @param  locale
-         * @return 
-         * @since  0.1.0-PRERELEASE
-         * @author Naoghuman
+         * @param   locale
+         * @return  the last step in this fluent builder.
+         * @throws  NullPointerException if {@code locale} is NULL.
+         * @since   0.1.0-PRERELEASE
+         * @version 0.5.0
+         * @author  Naoghuman
+         * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#setDefaultLocale(java.util.Locale) 
+         * @see     java.util.Locale
+         * @see     java.util.ResourceBundle
          */
         public LastStep actualLocale(final Locale locale);
         
     }
     
     /**
+     * The last step in this fluent builder.
+     * <p>
+     * With the option {@code build()} the developer completes the previsous 
+     * configuration steps from the {@link java.util.ResourceBundle} and the 
+     * different {@link java.util.Locale}s.
      * 
-     * @since  0.1.0-PRERELEASE
-     * @author Naoghuman
+     * @since   0.1.0-PRERELEASE
+     * @version 0.5.0
+     * @author  Naoghuman
+     * @see     java.util.Locale
+     * @see     java.util.ResourceBundle
      */
     public interface LastStep {
         
         /**
+         * Completes the previous configuration steps from the {@link java.util.ResourceBundle} 
+         * and the different {@link java.util.Locale}s in this fluent builder.
          * 
-         * @since  0.1.0-PRERELEASE
-         * @author Naoghuman
+         * @since   0.1.0-PRERELEASE
+         * @version 0.5.0
+         * @author  Naoghuman
+         * @see     java.util.Locale
+         * @see     java.util.ResourceBundle
          */
         public void build();
         

@@ -204,7 +204,7 @@ public final class I18NBindingBuilder {
     /**
      * The last step in this fluent builder.
      * <p>
-     * With the option {@code build()} the developer can complete the previsous 
+     * With the option {@code build()} the developer completes the previsous 
      * definition steps and create therewith the {@link javafx.beans.binding.StringBinding}.
      * 
      * @since   0.1.0-PRERELEASE
