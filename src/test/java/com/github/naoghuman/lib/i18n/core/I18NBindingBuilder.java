@@ -18,7 +18,6 @@ package com.github.naoghuman.lib.i18n.core;
 
 import com.github.naoghuman.lib.logger.core.LoggerFacade;
 import java.util.concurrent.Callable;
-import javafx.beans.binding.StringBinding;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleObjectProperty;
