@@ -15,8 +15,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 /**
+ * The {@code core} package from the library {@code Lib-I18N} contains all functionalities 
+ * to register a {@link java.util.ResourceBundle}, access the {@code values} from the 
+ * bundle over the {@code key} (with optional {@code arguments}) and bind them through 
+ * a {@link javafx.beans.binding.StringBinding} to a {@link javafx.beans.property.StringProperty}.
+ * <p>
+ * That means switching the {@code actual} {@code Locale} (see 
+ * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty() } 
+ * for more information) will update automatically all binded {@code key/value} pairs.
  * 
- * @since  0.1.0-PRERELEASE
- * @author Naoghuman
+ * @since   0.1.0-PRERELEASE
+ * @version 0.5.0
+ * @author  Naoghuman
+ * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
+ * @see     java.util.Locale
+ * @see     java.util.ResourceBundle
+ * @see     javafx.beans.binding.StringBinding
+ * @see     javafx.beans.property.StringProperty
  */
 package com.github.naoghuman.lib.i18n.core;
