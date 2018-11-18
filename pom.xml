@@ -95,7 +95,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].</description>
                     </execution>
                 </executions>
             </plugin>
-            <!-- for RELEASE 
+            <!-- for RELEASE -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
@@ -110,7 +110,6 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].</description>
                     </execution>
                 </executions>
             </plugin>
-            -->
         </plugins>
         <resources>
             <!--
