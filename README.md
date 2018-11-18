@@ -15,6 +15,9 @@ to a [StringBinding]. So changing the language during runtime in a [JavaFX] appl
 won't be a problem anymore.  
 Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
+A demo application which shows the features from this library can be found under 
+[App-I18N-Demo] (which is currently under development).
+* TODO Add screenshoot.
 
 
 Content
@@ -1166,6 +1169,7 @@ You can reach me under <peter.rogge@yahoo.de>.
 
 
 [//]: # (Links)
+[App-I18N-Demo]:https://github.com/Naoghuman/app-i18n-demo
 [Callable&lt;String&gt;]:https://docs.oracle.com/javase/8/docs/api/index.html?java/util/concurrent/Callable.html
 [Eclipse]:https://www.eclipse.org/
 [FXML]:http://docs.oracle.com/javafx/2/fxml_get_started/jfxpub-fxml_get_started.htm
