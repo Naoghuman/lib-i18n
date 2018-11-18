@@ -8,8 +8,8 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Summary
-* ...
-* ...
+* Main point in this update is writing the JavaDoc for the package 'core'.
+* Update the 'api' section in the ReadMe.
 
 
 
@@ -27,6 +27,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 #### Documentation
 #38 [doc] Add hint to the 'App-I18N-Demo' project into the section 'Intention'.
+#35 [doc] Update 'download' section in ReadMe.
 #32 [doc] Write the JavaDoc for the 'package-info' from the 'core' package.
 #31 [doc] Write the JavaDoc for the facade I18NFacade.
 #30 [doc] Write the JavaDoc for the builder I18NResourceBundleMessageBuilder.

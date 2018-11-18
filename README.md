@@ -1083,16 +1083,24 @@ public interface LastStep {
 Download<a name="Download" />
 ---
 
-TODO
+Current `version` is `0.5.0`. Main points in this release are:
+* Main point in this update is writing the JavaDoc for the package 'core'.
+* Update the 'api' section in the ReadMe.
 
 **Maven coordinates**  
 In context from a [Maven] project you can use following maven coordinates: 
 ```xml
-TODO
+<dependencies>
+    <dependency>
+        <groupId>com.github.naoghuman</groupId>
+        <artifactId>lib-i18n</artifactId>
+        <version>0.5.0</version>
+    </dependency>
+</dependencies>
 ```
 
 Download:
-* TODO
+* [Release v0.5.0 (11.18.2018 / MM.dd.yyyy)]
 
 An overview about all existings releases can be found here:
 * [Overview] from all releases in `Lib-I18N`.
@@ -1103,7 +1111,7 @@ Requirements<a name="Requirements" />
 ---
 
 * On your system you need [JRE 8] or [JDK 8] installed.
-* TODO
+* The library [lib-i18n-0.5.0.jar](#Installation).
 
 In the library are following libraries registered as dependencies:
 * The library [lib-logger-0.6.0.jar](#Installation).
@@ -1191,6 +1199,7 @@ You can reach me under <peter.rogge@yahoo.de>.
 [NetBeans]:https://netbeans.org/
 [Overview]:https://github.com/Naoghuman/lib-i18n/releases
 [Pull Request]:https://help.github.com/articles/using-pull-requests
+[Release v0.5.0 (11.18.2018 / MM.dd.yyyy)]https://github.com/Naoghuman/lib-i18n/releases/tag/v0.5.0
 [ResourceBundle]:https://docs.oracle.com/javase/8/docs/api/java/util/ResourceBundle.html
 [Scene Builder]:https://gluonhq.com/products/scene-builder/
 [StringBinding]:https://docs.oracle.com/javase/8/javafx/api/javafx/beans/binding/StringBinding.html
