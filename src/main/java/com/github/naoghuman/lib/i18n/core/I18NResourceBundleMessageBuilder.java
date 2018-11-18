@@ -27,84 +27,171 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableMap;
 
 /*
-    I18NResourceBundleMessageBuilder.message()
-           .key(String)
-           .arguments(Object...) // optional
-           .build()
-*/
-/**
+ * Examples 'Usage from I18NResourceBundleMessageBuilder'
  *
- * @author Naoghuman
- * @since  0.1.0-PRERELEASE
+ * 1) Starts the message process.
+ * 2) Defines the key which value will be loaded.
+ * 3) Optional arguments for the value from the given key.
+ * 4) Completes the message process and returns a String.
+ * I18NResourceBundleMessageBuilder.message() // 1
+ *        .key(String)                        // 2
+ *        .arguments(Object...)               // 3
+ *        .build();                           // 4
+ */
+/**
+ * With the fluent builder {@code I18NResourceBundleMessageBuilder} the developer can 
+ * easily receive the message from the previous defined {@link java.util.ResourceBundle} 
+ * in {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder} in association 
+ * to the {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()}.
+ * 
+ * @since   0.1.0-PRERELEASE
+ * @version 0.5.0
+ * @author  Naoghuman
+ * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
+ * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder
+ * @see     java.util.ResourceBundle
  */
 public final class I18NResourceBundleMessageBuilder {
     
     /**
+     * Starting point from this fluent builder to received a message (associated {@code value}) 
+     * from the previous configure {@link java.util.ResourceBundle} in 
+     * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder} in dependency from 
+     * the {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()}.
      * 
-     * @return 
-     * @since  0.1.0-PRERELEASE, 0.4.0-PRERELEASE
-     * @author Naoghuman
+     * @return  the first step to received a message.
+     * @since   0.1.0-PRERELEASE
+     * @version 0.5.0
+     * @author  Naoghuman
+     * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
+     * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder
+     * @see     java.util.ResourceBundle
      */
     public static final FirstStep message() {
+        
         return new I18NResourceBundleMessageBuilderImpl();
+        
     }
     
     /**
+     * First mandory step to received a message (associated {@code value}) 
+     * from the previous configure {@link java.util.ResourceBundle} in 
+     * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder} in dependency from 
+     * the {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()}.
      * 
-     * @since  0.1.0-PRERELEASE
-     * @author Naoghuman
+     * @since   0.1.0-PRERELEASE
+     * @version 0.5.0
+     * @author  Naoghuman
+     * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
+     * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder
+     * @see     java.util.ResourceBundle
      */
     public interface FirstStep {
         
         /**
+         * Setter for the {@code key} which {@code value} will be loaded from the previous configure 
+         * {@link java.util.ResourceBundle} in {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder} 
+         * in dependency from the {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()}.
          * 
-         * @param  key
-         * @return 
-         * @since  0.1.0-PRERELEASE
-         * @author Naoghuman
+         * @param   key which {@code value} should be loaded.
+         * @return  the second step in this fluent builder.
+         * @throws  NullPointerException     if {@code key} is NULL.
+         * @throws  IllegalArgumentException if {@code key} is EMPTY.
+         * @since   0.1.0-PRERELEASE
+         * @version 0.5.0
+         * @author  Naoghuman
+         * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
+         * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder
+         * @see     java.util.ResourceBundle
          */
         public SecondStep key(final String key);
         
     }
     
     /**
+     * Second optional step in this fluent builder.
+     * <p>
+     * The developer have 2 possibilities in this step:
+     * <ul>
+     * <li>First complete the message process with the method {@code build()} which 
+     *     will then return the {@code value} and</li>
+     * <li>second add additional {@code arguments} which will then injected into the 
+     *     {@code value} from the key.</li>
+     * </ul>
      * 
-     * @since  0.1.0-PRERELEASE
-     * @author Naoghuman
+     * @since   0.1.0-PRERELEASE
+     * @version 0.5.0
+     * @author  Naoghuman
      */
     public interface SecondStep {
         
         /**
+         * Completes the previous configuration steps and returned the corresponding {@code value}.
+         * <p>
+         * Hint:<br>
+         * The {@code value} will be loaded in dependency from the 
+         * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()}
+         * from the previous configure {@link java.util.ResourceBundle} in 
+         * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder}.
          * 
-         * @return 
-         * @since  0.1.0-PRERELEASE
-         * @author Naoghuman
+         * @return  the loaded value.
+         * @since   0.1.0-PRERELEASE
+         * @version 0.5.0
+         * @author  Naoghuman
+         * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
+         * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder
          */
         public String build();
         
         /**
+         * Setter for additional {@code arguments} which will injected into the 
+         * {@code value} from the previous definet {@code key}.
          * 
-         * @param  arguments
-         * @return 
-         * @since  0.1.0-PRERELEASE
-         * @author Naoghuman
+         * @param   arguments which should be injected into the {@code value}.
+         * @return  The last step in this fluent builder.
+         * @throws  NullPointerException     if {@code arguments} is NULL.
+         * @throws  IllegalArgumentException if {@code arguments} is EMPTY.
+         * @since   0.1.0-PRERELEASE
+         * @version 0.5.0
+         * @author  Naoghuman
          */
         public LastStep arguments(final Object... arguments);
         
     }
     
     /**
+     * The last step in this fluent builder which completes the previous configuration 
+     * steps and returned the corresponding {@code value}.
+     * <p>
+     * Hint:<br>
+     * The {@code value} will be loaded in dependency from the 
+     * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()}
+     * from the previous configure {@link java.util.ResourceBundle} in 
+     * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder}.
      * 
-     * @since  0.1.0-PRERELEASE
-     * @author Naoghuman
+     * @since   0.1.0-PRERELEASE
+     * @version 0.5.0
+     * @author  Naoghuman
+     * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
+     * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder
      */
     public interface LastStep {
         
         /**
+         * Completes the previous configuration steps and returned the corresponding {@code value}.
+         * <p>
+         * Hint:<br>
+         * The {@code value} will be loaded in dependency from the 
+         * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()}
+         * from the previous configure {@link java.util.ResourceBundle} in 
+         * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder}.
          * 
-         * @return 
-         * @since  0.1.0-PRERELEASE
-         * @author Naoghuman
+         * @return  the loaded value.
+         * @since   0.1.0-PRERELEASE
+         * @version 0.5.0
+         * @author  Naoghuman
+         * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
+         * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder
          */
         public String build();
         

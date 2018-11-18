@@ -43,7 +43,7 @@ import javafx.collections.ObservableMap;
  *        .defaultLocale(Locale)         // 4
  *        .actualLocale(Locale)          // 5
  *        .build();                      // 6
-*/
+ */
 /**
  * With the fluent builder {@code I18NResourceBundleBuilder} the developer can easily configure 
  * the {@link java.util.ResourceBundle} and the different relevant {@link java.util.Locale}s.
@@ -98,7 +98,7 @@ public final class I18NResourceBundleBuilder {
          * {@code message} the base bundle name.
          * 
          * @param   baseBundleName which defines the path and base name from the {@code ResourceBundle}.
-         * @return  the second step in this fluent builder
+         * @return  the second step in this fluent builder.
          * @throws  NullPointerException     if {@code baseBundleName} is NULL.
          * @throws  IllegalArgumentException if {@code baseBundleName} is EMPTY.
          * @since   0.1.0-PRERELEASE
