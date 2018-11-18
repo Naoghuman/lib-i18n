@@ -74,7 +74,7 @@ public interface I18NResourceBundle {
      * <li>Base bundle name: com.github.naoghuman.app.i18n.demo.message</li>
      * </ul>
      * 
-     * @param   baseBundleName 
+     * @param   baseBundleName the base bundle name.
      * @throws  NullPointerException     if {@code baseBundleName} is NULL.
      * @throws  IllegalArgumentException if {@code baseBundleName} is EMPTY.
      * @since   0.1.0-PRERELEASE
@@ -107,7 +107,7 @@ public interface I18NResourceBundle {
      * will be used to format the {@code message}.
      * 
      * @param   key which {@code value} should be loaded.
-     * @param   arguments  which should be injected into the associated {@value}.
+     * @param   arguments  which should be injected into the associated {@code value}.
      * @return  the associated {@code value}.
      * @throws  NullPointerException     if ({@code key} || {@code arguments}) is NULL.
      * @throws  IllegalArgumentException if ({@code key} || {@code arguments}) is EMPTY.
@@ -183,7 +183,7 @@ public interface I18NResourceBundle {
      * The {@code ObjectProperty} allowed during the update from the {@code actual} 
      * {@code Locale} that all binded texts will be automatically updated.
      * 
-     * @return  
+     * @return  the {@code actual} Locale as a {@code ObjectProperty}.
      * @since   0.1.0-PRERELEASE
      * @version 0.5.0
      * @author  Naoghuman
@@ -193,7 +193,7 @@ public interface I18NResourceBundle {
     public ObjectProperty<Locale> actualLocaleProperty();
     
     /**
-     * Returns all {@code supported} {@code java.util.Locale}s as a {@code observable} list.
+     * Returns all {@code supported} {@link java.util.Locale}s as a {@code observable} list.
      * 
      * @return  all {@code supported} {@code Locales} as a {@code observable} list.
      * @since   0.1.0-PRERELEASE
@@ -204,9 +204,9 @@ public interface I18NResourceBundle {
     public ObservableList<Locale> getSupportedLocales();
     
     /**
-     * Sets the {@code supported} {@code java.util.Locale}s.
+     * Sets the {@code supported} {@link java.util.Locale}s.
      * 
-     * @param   locales 
+     * @param   locales contains all {@code supported} {@code Locale}s.
      * @throws  NullPointerException     if {@code locales} is NULL.
      * @throws  IllegalArgumentException if {@code locales} is EMPTY.
      * @since   0.1.0-PRERELEASE

@@ -75,7 +75,7 @@ public interface I18NBinding {
      * {@link javafx.beans.binding.Bindings#createStringBinding(java.util.concurrent.Callable, javafx.beans.Observable...) } 
      * where the {@code Observable} is {@link com.github.naoghuman.lib.i18n.core.I18NFacade#actualLocaleProperty() }.
      * 
-     * @param   key which should be used to load the associated {@value}.
+     * @param   key which should be used to load the associated {@code value}.
      * @return  the created {@code StringBinding}.
      * @throws  NullPointerException     if {@code key} is NULL.
      * @throws  IllegalArgumentException if {@code key} is EMPTY.
@@ -98,8 +98,8 @@ public interface I18NBinding {
      * {@link javafx.beans.binding.Bindings#createStringBinding(java.util.concurrent.Callable, javafx.beans.Observable...) } 
      * where the {@code Observable} is {@link com.github.naoghuman.lib.i18n.core.I18NFacade#actualLocaleProperty() }.
      * 
-     * @param   key       which should be used to load the associated {@value}.
-     * @param   arguments which should be injected into the associated {@value}.
+     * @param   key       which should be used to load the associated {code value}.
+     * @param   arguments which should be injected into the associated {code value}.
      * @return  the created {@code StringBinding}.
      * @throws  NullPointerException     if ({@code key} || {@code arguments}) is NULL.
      * @throws  IllegalArgumentException if ({@code key} || {@code arguments}) is EMPTY.

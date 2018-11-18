@@ -134,7 +134,7 @@ public final class I18NResourceBundleBuilder {
          * Supported {@code Locale}s means that the list should contains for every 
          * supported language (language_xy.properties) the corresponding {@code Locale}.
          * 
-         * @param   locales
+         * @param   locales contains all {@code supported} {@code Locale}s.
          * @return  the third step in this fluent builder.
          * @throws  NullPointerException     if {@code locales} is NULL.
          * @throws  IllegalArgumentException if {@code locales} is EMPTY.
@@ -177,7 +177,7 @@ public final class I18NResourceBundleBuilder {
          * If the default Locale isn't in the list of supported Locales then 
          * {@link java.util.Locale#ENGLISH} will be used instead.
          * 
-         * @param   locale
+         * @param   locale the {@code default} {@code Locale}.
          * @return  the forth step in this fluent builder.
          * @throws  NullPointerException if {@code locale} is NULL.
          * @since   0.1.0-PRERELEASE
@@ -220,7 +220,7 @@ public final class I18NResourceBundleBuilder {
          * If the actual Locale isn't in the list of supported Locales then the 
          * {@code default} Locale will be used instead.
          * 
-         * @param   locale
+         * @param   locale the {@code actual} {@code Locale}.
          * @return  the last step in this fluent builder.
          * @throws  NullPointerException if {@code locale} is NULL.
          * @since   0.1.0-PRERELEASE

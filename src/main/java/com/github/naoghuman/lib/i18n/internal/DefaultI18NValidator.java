@@ -23,12 +23,11 @@ import javafx.collections.ObservableList;
 
 
 /**
- * An implementation from the {@code Interface} 
- * {@link com.github.naoghuman.lib.i18n.core.I18NValidator} for the validation.
+ * An implementation from different validation methods.
  *
- * @since  0.1.0-PRERELEASE
- * @author Naoghuman
- * @see    com.github.naoghuman.lib.i18n.core.I18NValidator
+ * @since   0.1.0-PRERELEASE
+ * @version 0.5.0
+ * @author  Naoghuman
  */
 public final class DefaultI18NValidator {
     
