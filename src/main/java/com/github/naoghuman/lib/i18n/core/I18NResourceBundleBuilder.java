@@ -18,6 +18,8 @@ package com.github.naoghuman.lib.i18n.core;
 
 import com.github.naoghuman.lib.i18n.internal.DefaultI18NValidator;
 import com.github.naoghuman.lib.logger.core.LoggerFacade;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.Property;
@@ -33,16 +35,18 @@ import javafx.collections.ObservableMap;
  *
  * 1) Starts the configuration process.
  * 2) Defines the path and name from the .properties file.
- * 3) Sets all supported Locales.
- * 4) Sets the default Locale.
- * 5) Sets the actual Locale.
- * 6) Completes the configuration process.
+ * 3) Sets all supported Locales with [].
+ * 4) Sets all supported Locales with ObservableList.
+ * 5) Sets the default Locale.
+ * 6) Sets the actual Locale.
+ * 7) Completes the configuration process.
  * I18NResourceBundleBuilder.configure() // 1
  *        .baseName(String)              // 2
- *        .supportedLocales(ObservableList<Locale>) // 3
- *        .defaultLocale(Locale)         // 4
- *        .actualLocale(Locale)          // 5
- *        .build();                      // 6
+ *        .supportedLocales(Locale...)   // 3
+ *        .supportedLocales(ObservableList<Locale>) // 4
+ *        .defaultLocale(Locale)         // 5
+ *        .actualLocale(Locale)          // 6
+ *        .build();                      // 7
  */
 /**
  * With the fluent builder {@code I18NResourceBundleBuilder} the developer can easily configure 
@@ -126,6 +130,25 @@ public final class I18NResourceBundleBuilder {
      * @see     java.util.ResourceBundle
      */
     public interface SecondStep {
+        
+        /**
+         * Setter for all {@code supported} {@link java.util.Locale}s from the 
+         * {@link java.util.ResourceBundle}.
+         * <p>
+         * Supported {@code Locale}s means that the list should contains for every 
+         * supported language (language_xy.properties) the corresponding {@code Locale}.
+         * 
+         * @param   locales contains all {@code supported} {@code Locale}s.
+         * @return  the third step in this fluent builder.
+         * @throws  NullPointerException     if {@code locales} is NULL.
+         * @throws  IllegalArgumentException if {@code locales} is EMPTY.
+         * @since   0.1.0-PRERELEASE
+         * @version 0.5.0
+         * @author  Naoghuman
+         * @see     java.util.Locale
+         * @see     java.util.ResourceBundle
+         */
+        public ThirdStep supportedLocales(final Locale... locales);
         
         /**
          * Setter for all {@code supported} {@link java.util.Locale}s from the 
@@ -294,6 +317,20 @@ public final class I18NResourceBundleBuilder {
             
             DefaultI18NValidator.requireNonNullAndNotEmpty(baseBundleName);
             properties.put(ATTR__BASE_BUNDLE_NAME, new SimpleStringProperty(baseBundleName));
+            
+            return this;
+        }
+
+        @Override
+        public ThirdStep supportedLocales(final Locale... locales) {
+            LoggerFacade.getDefault().debug(this.getClass(), "I18NResourceBundleBuilderImpl.supportedLocales(Locale...)"); // NOI18N
+            
+            final List<Locale> list = Arrays.asList(locales);
+            DefaultI18NValidator.requireNonNullAndNotEmpty(list);
+            
+            final ObservableList<Locale> observableList = FXCollections.observableArrayList();
+            observableList.addAll(list);
+            properties.put(ATTR__SUPPORTED_LOCALES, new SimpleObjectProperty(observableList));
             
             return this;
         }

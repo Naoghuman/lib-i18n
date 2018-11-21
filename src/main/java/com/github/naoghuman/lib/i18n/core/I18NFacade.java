@@ -91,6 +91,11 @@ public final class I18NFacade implements I18NBinding, I18NResourceBundle {
     }
 
     @Override
+    public void setSupportedLocales(final Locale... locales) {
+        i18NResourceBundle.setSupportedLocales(locales);
+    }
+
+    @Override
     public Locale getDefaultLocale() {
         return i18NResourceBundle.getDefaultLocale();
     }

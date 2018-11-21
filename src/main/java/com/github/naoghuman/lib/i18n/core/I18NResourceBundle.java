@@ -214,6 +214,19 @@ public interface I18NResourceBundle {
      * @author  Naoghuman
      * @see     java.util.Locale
      */
+    public void setSupportedLocales(final Locale... locales);
+    
+    /**
+     * Sets the {@code supported} {@link java.util.Locale}s.
+     * 
+     * @param   locales contains all {@code supported} {@code Locale}s.
+     * @throws  NullPointerException     if {@code locales} is NULL.
+     * @throws  IllegalArgumentException if {@code locales} is EMPTY.
+     * @since   0.1.0-PRERELEASE
+     * @version 0.5.0
+     * @author  Naoghuman
+     * @see     java.util.Locale
+     */
     public void setSupportedLocales(final ObservableList<Locale> locales);
     
 }

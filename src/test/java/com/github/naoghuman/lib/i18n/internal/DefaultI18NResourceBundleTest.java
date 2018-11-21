@@ -172,9 +172,17 @@ public class DefaultI18NResourceBundleTest {
     }
 
     @Test(expected = NullPointerException.class)
-    public void setSupportedLocalesThrowsNullPointerException() {
+    public void setSupportedLocalesThrowsNullPointerExceptionWithArray() {
         I18NResourceBundle rb = new DefaultI18NResourceBundle();
-        rb.setSupportedLocales(null);
+        final Locale[] locales = null;
+        rb.setSupportedLocales(locales);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void setSupportedLocalesThrowsNullPointerExceptionWithObservableList() {
+        I18NResourceBundle rb = new DefaultI18NResourceBundle();
+        final ObservableList<Locale> locales = null;
+        rb.setSupportedLocales(locales);
     }
 
     @Test(expected = IllegalArgumentException.class)

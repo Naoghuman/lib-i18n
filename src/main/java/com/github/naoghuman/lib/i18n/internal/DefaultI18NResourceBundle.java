@@ -18,6 +18,8 @@ package com.github.naoghuman.lib.i18n.internal;
 
 import com.github.naoghuman.lib.i18n.core.I18NResourceBundle;
 import java.text.MessageFormat;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.beans.property.ObjectProperty;
@@ -99,6 +101,15 @@ public class DefaultI18NResourceBundle implements I18NResourceBundle {
         
         supportedLocales.clear();
         supportedLocales.addAll(locales);
+    }
+
+    @Override
+    public void setSupportedLocales(final Locale... locales) {
+        final List<Locale> list = Arrays.asList(locales);
+        DefaultI18NValidator.requireNonNullAndNotEmpty(list);
+        
+        supportedLocales.clear();
+        supportedLocales.addAll(list);
     }
 
     @Override

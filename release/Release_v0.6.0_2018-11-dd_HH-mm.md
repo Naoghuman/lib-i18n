@@ -18,6 +18,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Enhancement
+#33 [api] Add new method 'setSupportedLocales(Locale...) to I18NResourceBundle.
 
 
 

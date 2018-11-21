@@ -677,6 +677,21 @@ public ObservableList<Locale> getSupportedLocales();
  * @author  Naoghuman
  * @see     java.util.Locale
  */
+public void setSupportedLocales(final Locale... locales);
+```
+
+```java
+/**
+ * Sets the {@code supported} {@code java.util.Locale}s.
+ * 
+ * @param   locales 
+ * @throws  NullPointerException     if {@code locales} is NULL.
+ * @throws  IllegalArgumentException if {@code locales} is EMPTY.
+ * @since   0.1.0-PRERELEASE
+ * @version 0.5.0
+ * @author  Naoghuman
+ * @see     java.util.Locale
+ */
 public void setSupportedLocales(final ObservableList<Locale> locales);
 ```
 
@@ -767,6 +782,25 @@ public interface FirstStep {
  * @see     java.util.ResourceBundle
  */
 public interface SecondStep {
+
+    /**
+     * Setter for all {@code supported} {@link java.util.Locale}s from the 
+     * {@link java.util.ResourceBundle}.
+     * <p>
+     * Supported {@code Locale}s means that the list should contains for every 
+     * supported language (language_xy.properties) the corresponding {@code Locale}.
+     * 
+     * @param   locales
+     * @return  the third step in this fluent builder.
+     * @throws  NullPointerException     if {@code locales} is NULL.
+     * @throws  IllegalArgumentException if {@code locales} is EMPTY.
+     * @since   0.1.0-PRERELEASE
+     * @version 0.5.0
+     * @author  Naoghuman
+     * @see     java.util.Locale
+     * @see     java.util.ResourceBundle
+     */
+    public ThirdStep supportedLocales(final Locale... locales);
 
     /**
      * Setter for all {@code supported} {@link java.util.Locale}s from the 
