@@ -121,7 +121,6 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].</description>
                 <directory>src/main/java</directory>
                 <includes>
                     <include>**/*.properties</include>
-                    <include>**/*.xml</include>
                 </includes>
             </resource>
             <resource>
@@ -129,7 +128,6 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].</description>
                 <filtering>true</filtering>
                 <includes>
                     <include>**/*.properties</include>
-                    <include>**/*.xml</include>
                 </includes>
             </resource>
         </resources>

@@ -32,6 +32,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Refactoring
+#39 [pom] Test if '.xml' is needed into the section 'resources'.
 
 
 
