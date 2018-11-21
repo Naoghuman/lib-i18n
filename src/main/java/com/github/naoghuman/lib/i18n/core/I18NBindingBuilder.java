@@ -46,7 +46,7 @@ import javafx.collections.ObservableMap;
  * I18NBindingBuilder.bind()         // 1
  *        .key(String)               // 2
  *        .arguments(Object... args) // 3
- *        .build();
+ *        .build();                  // 4
  */
 /**
  * With the fluent builder {@code I18NBindingBuilder} the developer can easily create 
@@ -83,7 +83,7 @@ public final class I18NBindingBuilder {
      * <li>and second with the usage from a {@code key} with optional {@code arguments}.</li>
      * </ul>
      * 
-     * @return  the first step to generate a {@code StringBinding}.
+     * @return  the first step in this fluent builder.
      * @since   0.1.0-PRERELEASE
      * @version 0.5.0
      * @author  Naoghuman

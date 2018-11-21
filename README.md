@@ -718,7 +718,7 @@ public final class I18NResourceBundleBuilder
  * Starting point from this fluent builder to configure a {@link java.util.ResourceBundle} 
  * which {@code key/value} pairs will be bind to a {@link java.util.Locale}.
  * 
- * @return  the first step to configure the {@code ResourceBundle}.
+ * @return  the first step in this fluent builder.
  * @since   0.1.0-PRERELEASE
  * @version 0.5.0
  * @author  Naoghuman
@@ -971,7 +971,7 @@ public final class I18NMessageBuilder
  * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder} in dependency from 
  * the {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()}.
  * 
- * @return  the first step to received a message.
+ * @return  the first step in this fluent builder.
  * @since   0.1.0-PRERELEASE
  * @version 0.5.0
  * @author  Naoghuman
@@ -1046,7 +1046,7 @@ public interface SecondStep {
      * from the previous configure {@link java.util.ResourceBundle} in 
      * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder}.
      * 
-     * @return  the loaded value.
+     * @return  the loaded {@code value}.
      * @since   0.1.0-PRERELEASE
      * @version 0.5.0
      * @author  Naoghuman
@@ -1100,7 +1100,7 @@ public interface LastStep {
      * from the previous configure {@link java.util.ResourceBundle} in 
      * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder}.
      * 
-     * @return  the loaded value.
+     * @return  the loaded {@code value}.
      * @since   0.1.0-PRERELEASE
      * @version 0.5.0
      * @author  Naoghuman

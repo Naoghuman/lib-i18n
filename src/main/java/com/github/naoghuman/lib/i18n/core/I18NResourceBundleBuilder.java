@@ -66,7 +66,7 @@ public final class I18NResourceBundleBuilder {
      * Starting point from this fluent builder to configure a {@link java.util.ResourceBundle} 
      * which {@code key/value} pairs will be bind to a {@link java.util.Locale}.
      * 
-     * @return  the first step to configure the {@code ResourceBundle}.
+     * @return  the first step in this fluent builder.
      * @since   0.1.0-PRERELEASE
      * @version 0.5.0
      * @author  Naoghuman

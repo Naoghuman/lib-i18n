@@ -59,7 +59,7 @@ public final class I18NMessageBuilder {
      * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder} in dependency from 
      * the {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()}.
      * 
-     * @return  the first step to received a message.
+     * @return  the first step in this fluent builder.
      * @since   0.1.0-PRERELEASE
      * @version 0.5.0
      * @author  Naoghuman
@@ -134,7 +134,7 @@ public final class I18NMessageBuilder {
          * from the previous configure {@link java.util.ResourceBundle} in 
          * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder}.
          * 
-         * @return  the loaded value.
+         * @return  the loaded {@code value}.
          * @since   0.1.0-PRERELEASE
          * @version 0.5.0
          * @author  Naoghuman
@@ -186,7 +186,7 @@ public final class I18NMessageBuilder {
          * from the previous configure {@link java.util.ResourceBundle} in 
          * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder}.
          * 
-         * @return  the loaded value.
+         * @return  the loaded {@code value}.
          * @since   0.1.0-PRERELEASE
          * @version 0.5.0
          * @author  Naoghuman
