@@ -27,21 +27,21 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableMap;
 
 /*
- * Examples 'Usage from I18NResourceBundleMessageBuilder'
+ * Examples 'Usage from I18NMessageBuilder'
  *
  * 1) Starts the message process.
  * 2) Defines the key which value will be loaded.
  * 3) Optional arguments for the value from the given key.
  * 4) Completes the message process and returns a String.
- * I18NResourceBundleMessageBuilder.message() // 1
- *        .key(String)                        // 2
- *        .arguments(Object...)               // 3
- *        .build();                           // 4
+ * I18NMessageBuilder.message() // 1
+ *        .key(String)          // 2
+ *        .arguments(Object...) // 3
+ *        .build();             // 4
  */
 /**
- * With the fluent builder {@code I18NResourceBundleMessageBuilder} the developer can 
- * easily receive the message from the previous defined {@link java.util.ResourceBundle} 
- * in {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder} in association 
+ * With the fluent builder {@code I18NMessageBuilder} the developer can easily receive 
+ * the message from the previous defined {@link java.util.ResourceBundle} in 
+ * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder} in association 
  * to the {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()}.
  * 
  * @since   0.1.0-PRERELEASE
@@ -51,7 +51,7 @@ import javafx.collections.ObservableMap;
  * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder
  * @see     java.util.ResourceBundle
  */
-public final class I18NResourceBundleMessageBuilder {
+public final class I18NMessageBuilder {
     
     /**
      * Starting point from this fluent builder to received a message (associated {@code value}) 
@@ -69,7 +69,7 @@ public final class I18NResourceBundleMessageBuilder {
      */
     public static final FirstStep message() {
         
-        return new I18NResourceBundleMessageBuilderImpl();
+        return new I18NMessageBuilderImpl();
         
     }
     
@@ -197,7 +197,7 @@ public final class I18NResourceBundleMessageBuilder {
         
     }
     
-    private static final class I18NResourceBundleMessageBuilderImpl implements
+    private static final class I18NMessageBuilderImpl implements
             FirstStep, LastStep, SecondStep
     {
         private static final String ATTR__ARGUMENTS = "arguments"; // NOI18N
@@ -208,12 +208,12 @@ public final class I18NResourceBundleMessageBuilder {
         
         private boolean messageHasArguments = Boolean.FALSE;
         
-        private I18NResourceBundleMessageBuilderImpl() {
+        private I18NMessageBuilderImpl() {
             this.initialize();
         }
 
         private void initialize() {
-            LoggerFacade.getDefault().info(this.getClass(), "I18NResourceBundleMessageBuilderImpl.initialize()"); // NOI18N
+            LoggerFacade.getDefault().info(this.getClass(), "I18NMessageBuilderImpl.initialize()"); // NOI18N
             
             messageHasArguments = Boolean.FALSE;
             
@@ -223,7 +223,7 @@ public final class I18NResourceBundleMessageBuilder {
 
         @Override
         public SecondStep key(final String key) {
-            LoggerFacade.getDefault().debug(this.getClass(), "I18NResourceBundleMessageBuilderImpl.key(String)"); // NOI18N
+            LoggerFacade.getDefault().debug(this.getClass(), "I18NMessageBuilderImpl.key(String)"); // NOI18N
             
             DefaultI18NValidator.requireNonNullAndNotEmpty(key);
             
@@ -234,7 +234,7 @@ public final class I18NResourceBundleMessageBuilder {
 
         @Override
         public LastStep arguments(final Object... arguments) {
-            LoggerFacade.getDefault().debug(this.getClass(), "I18NResourceBundleMessageBuilderImpl.arguments(Object...)"); // NOI18N
+            LoggerFacade.getDefault().debug(this.getClass(), "I18NMessageBuilderImpl.arguments(Object...)"); // NOI18N
             
             DefaultI18NValidator.requireNonNullAndNotEmpty(arguments);
             
@@ -246,7 +246,7 @@ public final class I18NResourceBundleMessageBuilder {
 
         @Override
         public String build() {
-            LoggerFacade.getDefault().debug(this.getClass(), "I18NResourceBundleMessageBuilderImpl.build()"); // NOI18N
+            LoggerFacade.getDefault().debug(this.getClass(), "I18NMessageBuilderImpl.build()"); // NOI18N
             
             // Catch data
             final ObjectProperty arguments = (ObjectProperty) properties.get(ATTR__ARGUMENTS);
@@ -260,9 +260,6 @@ public final class I18NResourceBundleMessageBuilder {
             else {
                 message = I18NFacade.getDefault().getMessage(key.getValue(), (Object[]) arguments.getValue());
             }
-            
-            // And reset TODO ?
-//            this.initialize();
             
             return message;
         }

@@ -26,14 +26,14 @@ Content
 * [Examples](#Examples)
     - [How to use the builder 'I18NResourceBundleBuilder'](#HoToUsReBuBu)
     - [How to use the builder 'I18NBindingBuilder'](#HoToUsBiBu)
-    - [How to use the builder 'I18NResourceBundleMessageBuilder'](#HoToUsReBuBuMe)
+    - [How to use the builder 'I18NMessageBuilder'](#HoToUsMeBu)
 * [API](#API)
     - [com.github.naoghuman.lib.i18n.core.I18NBinding](#I18nBi)
     - [com.github.naoghuman.lib.i18n.core.I18NBindingBuilder](#I18nBiBu)
     - [com.github.naoghuman.lib.i18n.core.I18NFacade](#I18nFa)
     - [com.github.naoghuman.lib.i18n.core.I18NResourceBundle](#I18nReBu)
     - [com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder](#I18nReBuBu)
-    - [com.github.naoghuman.lib.i18n.core.I18NResourceBundleMessageBuilder](#I18nReBuMeBu)
+    - [com.github.naoghuman.lib.i18n.core.I18NMessageBuilder](#I18nMeBu)
 * [Download](#Download)
 * [Requirements](#Requirements)
 * [Installation](#Installation)
@@ -98,10 +98,10 @@ I18NBindingBuilder.bind()         // 1
        .build();                  // 4
 ```
 
-### How to use the builder 'I18NResourceBundleMessageBuilder'<a name="HoToUsReBuBuMe" />
+### How to use the builder 'I18NMessageBuilder'<a name="HoToUsMeBu" />
 
 To load a .properties `key` with optional `arguments` from the configured [ResourceBundle] 
-throw the [I18NResourceBundleBuilder] the developer can use the builder [I18NResourceBundleMessageBuilder].
+throw the [I18NResourceBundleBuilder] the developer can use the builder [I18NMessageBuilder].
 ```java
 /**
  * 1) Starts the message process.
@@ -109,10 +109,10 @@ throw the [I18NResourceBundleBuilder] the developer can use the builder [I18NRes
  * 3) Optional arguments for the value from the given key.
  * 4) Completes the message process and returns a String.
  */
-I18NResourceBundleMessageBuilder.message() // 1
-        .key(String)                       // 2
-        .arguments(Object...)              // 3
-        .build();                          // 4
+I18NMessageBuilder.message()  // 1
+        .key(String)          // 2
+        .arguments(Object...) // 3
+        .build();             // 4
 ```
 
 
@@ -945,13 +945,13 @@ public interface LastStep {
 }
 ```
 
-### com.github.naoghuman.lib.i18n.core.I18NResourceBundleMessageBuilder<a name="I18nReBuMeBu" />
+### com.github.naoghuman.lib.i18n.core.I18NMessageBuilder<a name="I18nMeBu" />
 
 ```java
 /**
- * With the fluent builder {@code I18NResourceBundleMessageBuilder} the developer can 
- * easily receive the message from the previous defined {@link java.util.ResourceBundle} 
- * in {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder} in association 
+ * With the fluent builder {@code I18NMessageBuilder} the developer can easily receive 
+ * the message from the previous defined {@link java.util.ResourceBundle} in 
+ * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder} in association 
  * to the {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()}.
  * 
  * @since   0.1.0-PRERELEASE
@@ -961,7 +961,7 @@ public interface LastStep {
  * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder
  * @see     java.util.ResourceBundle
  */
-public final class I18NResourceBundleMessageBuilder
+public final class I18NMessageBuilder
 ```
 
 ```java
@@ -1217,8 +1217,8 @@ You can reach me under <peter.rogge@yahoo.de>.
 [FXML]:http://docs.oracle.com/javafx/2/fxml_get_started/jfxpub-fxml_get_started.htm
 [General Public License 3.0]:http://www.gnu.org/licenses/gpl-3.0.en.html
 [I18NBindingBuilder]:https://github.com/Naoghuman/lib-i18n/blob/master/src/main/java/com/github/naoghuman/lib/i18n/core/I18NBindingBuilder.java
+[I18NMessageBuilder]:https://github.com/Naoghuman/lib-i18n/blob/master/src/main/java/com/github/naoghuman/lib/i18n/core/I18NMessageBuilder.java
 [I18NResourceBundleBuilder]:https://github.com/Naoghuman/lib-i18n/blob/master/src/main/java/com/github/naoghuman/lib/i18n/core/I18NResourceBundleBuilder.java
-[I18NResourceBundleMessageBuilder]:https://github.com/Naoghuman/lib-i18n/blob/master/src/main/java/com/github/naoghuman/lib/i18n/core/I18NResourceBundleMessageBuilder.java
 [IntelliJ IDEA]:http://www.jetbrains.com/idea/
 [Issue]:https://github.com/Naoghuman/lib-i18n/issues
 [JavaDoc]:http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html

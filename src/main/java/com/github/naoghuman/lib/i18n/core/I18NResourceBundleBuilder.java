@@ -380,9 +380,6 @@ public final class I18NResourceBundleBuilder {
             I18NFacade.getDefault().setSupportedLocales((ObservableList<Locale>) supportedLocales.getValue());
             I18NFacade.getDefault().setDefaultLocale((Locale) defaultLocale.getValue());
             I18NFacade.getDefault().setActualLocale((Locale) actualLocale.getValue());
-            
-            // And reset TODO ?
-//            this.initialize();
         }
         
     }

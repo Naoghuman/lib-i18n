@@ -33,6 +33,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 #### Refactoring
 #39 [pom] Test if '.xml' is needed into the section 'resources'.
+#37 [api] Rename I18NResourceBundleMessageBuilder to I18NMessageBuilder.
 
 
 
