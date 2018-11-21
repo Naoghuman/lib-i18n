@@ -14,6 +14,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Feature
+#18 [test] Add 'UnitTests' for the 'XyBuilders' in 'core' package.
 
 
 
