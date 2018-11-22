@@ -131,7 +131,7 @@ public class I18NResourceBundleBuilderTest {
     }
 
     @Test
-    public void lastSTep() {
+    public void lastStep() {
         I18NResourceBundleBuilder.configure()
                 .baseBundleName(RESOURCE_BUNDLE)
                 .supportedLocales(Locale.ITALY, Locale.CANADA)
