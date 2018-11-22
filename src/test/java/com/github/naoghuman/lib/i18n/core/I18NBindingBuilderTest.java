@@ -17,21 +17,23 @@
 package com.github.naoghuman.lib.i18n.core;
 
 import java.util.Locale;
+import java.util.Optional;
+import javafx.beans.binding.StringBinding;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * UnitTests to test the fluent builder {@link com.github.naoghuman.lib.i18n.core.I18NMessageBuilder}.
+ * UnitTests to test the fluent builder {@link com.github.naoghuman.lib.i18n.core.I18NBindingBuilder}.
  * 
  * @since  0.6.0
  * @author Naoghuman
- * @see    com.github.naoghuman.lib.i18n.core.I18NMessageBuilder
+ * @see    com.github.naoghuman.lib.i18n.core.I18NBindingBuilder
  */
-public class I18NMessageBuilderTest {
+public class I18NBindingBuilderTest {
     
-    public I18NMessageBuilderTest() {
+    public I18NBindingBuilderTest() {
     }
     
     @Before
@@ -41,41 +43,48 @@ public class I18NMessageBuilderTest {
     @After
     public void tearDown() {
     }
-
+    
     @Test(expected = NullPointerException.class)
-    public void firstStepThrowsNullPointerException() {
-        I18NMessageBuilder.message()
+    public void firstStepCallableThrowsNullPointerException() {
+        I18NBindingBuilder.bind()
+                .callable(null)
+                .build();
+    }
+    
+    @Test(expected = NullPointerException.class)
+    public void firstStepKeyThrowsNullPointerException() {
+        I18NBindingBuilder.bind()
                 .key(null)
                 .build();
     }
-
+    
     @Test(expected = IllegalArgumentException.class)
-    public void firstStepThrowsIllegalArgumentException() {
-        I18NMessageBuilder.message()
+    public void firstStepKeyThrowsIllegalArgumentException() {
+        I18NBindingBuilder.bind()
                 .key("")
                 .build();
     }
 
     @Test(expected = NullPointerException.class)
-    public void secondStepArrayThrowsNullPointerException() {
+    public void secondStepArgumentsThrowsNullPointerException() {
         final Object[] objects = null;
-        I18NMessageBuilder.message()
+        I18NBindingBuilder.bind()
                 .key("imaginary.key")
                 .arguments(objects)
                 .build();
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void secondStepArrayThrowsIllegalArgumentException() {
+    public void secondStepArgumentsThrowsIllegalArgumentException() {
         final Object[] objects = {};
-        I18NMessageBuilder.message()
+        I18NBindingBuilder.bind()
                 .key("imaginary.key")
                 .arguments(objects)
                 .build();
     }
     
     @Test
-    public void lastStepWithoutArguments() {
+    public void lastStepCallable() {
         I18NResourceBundleBuilder.configure()
                 .baseBundleName("com.github.naoghuman.lib.i18n.internal.resourcebundle")
                 .supportedLocales(Locale.ENGLISH, Locale.GERMAN)
@@ -83,20 +92,14 @@ public class I18NMessageBuilderTest {
                 .actualLocale(Locale.GERMAN)
                 .build();
         
-        String result = I18NMessageBuilder.message()
-                .key("resourcebundle.title")
+        Optional<StringBinding> result = I18NBindingBuilder.bind()
+                .callable(() -> "hallo")
                 .build();
-        assertEquals("RB: Test Titel", result);
-        
-        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
-        result = I18NMessageBuilder.message()
-                .key("resourcebundle.title")
-                .build();
-        assertEquals("RB: Test title", result);
+        assertTrue(result.isPresent());
     }
     
     @Test
-    public void lastStepWithArguments() {
+    public void lastStepKeyWithoutArguments() {
         I18NResourceBundleBuilder.configure()
                 .baseBundleName("com.github.naoghuman.lib.i18n.internal.resourcebundle")
                 .supportedLocales(Locale.ENGLISH, Locale.GERMAN)
@@ -104,18 +107,26 @@ public class I18NMessageBuilderTest {
                 .actualLocale(Locale.GERMAN)
                 .build();
         
-        String result = I18NMessageBuilder.message()
-                .key("resourcebundle.label.with.parameter")
-                .arguments(2)
+        Optional<StringBinding> result = I18NBindingBuilder.bind()
+                .key("resourcebundle.title")
                 .build();
-        assertEquals("RB: Text mit Parameter: 2", result);
+        assertTrue(result.isPresent());
+    }
+    
+    @Test
+    public void lastStepKeyWithArguments() {
+        I18NResourceBundleBuilder.configure()
+                .baseBundleName("com.github.naoghuman.lib.i18n.internal.resourcebundle")
+                .supportedLocales(Locale.ENGLISH, Locale.GERMAN)
+                .defaultLocale(Locale.ENGLISH)
+                .actualLocale(Locale.GERMAN)
+                .build();
         
-        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
-        result = I18NMessageBuilder.message()
+        Optional<StringBinding> result = I18NBindingBuilder.bind()
                 .key("resourcebundle.label.with.parameter")
-                .arguments(123)
+                .arguments(1234)
                 .build();
-        assertEquals("RB: Text with parameter: 123", result);
+        assertTrue(result.isPresent());
     }
     
 }

@@ -33,8 +33,6 @@ import static org.junit.Assert.*;
  */
 public class I18NResourceBundleBuilderTest {
     
-    private static final String RESOURCE_BUNDLE = "com.github.naoghuman.lib.i18n.internal.resourcebundle"; // NOI18N
-    
     public I18NResourceBundleBuilderTest() {
     }
     
@@ -50,9 +48,9 @@ public class I18NResourceBundleBuilderTest {
     public void firstStepThrowsNullPointerException() {
         I18NResourceBundleBuilder.configure()
                 .baseBundleName(null)
-                .supportedLocales(Locale.ITALY)
-                .defaultLocale(Locale.ITALY)
-                .actualLocale(Locale.ITALY)
+                .supportedLocales(Locale.ITALIAN)
+                .defaultLocale(Locale.ITALIAN)
+                .actualLocale(Locale.ITALIAN)
                 .build();
     }
 
@@ -60,9 +58,9 @@ public class I18NResourceBundleBuilderTest {
     public void firstStepThrowsIllegalArgumentException() {
         I18NResourceBundleBuilder.configure()
                 .baseBundleName("")
-                .supportedLocales(Locale.ITALY)
-                .defaultLocale(Locale.ITALY)
-                .actualLocale(Locale.ITALY)
+                .supportedLocales(Locale.ITALIAN)
+                .defaultLocale(Locale.ITALIAN)
+                .actualLocale(Locale.ITALIAN)
                 .build();
     }
 
@@ -70,10 +68,10 @@ public class I18NResourceBundleBuilderTest {
     public void secondStepArrayThrowsNullPointerException() {
         final Locale[] locales = null;
         I18NResourceBundleBuilder.configure()
-                .baseBundleName(RESOURCE_BUNDLE)
+                .baseBundleName("com.github.naoghuman.lib.i18n.internal.resourcebundle")
                 .supportedLocales(locales)
-                .defaultLocale(Locale.ITALY)
-                .actualLocale(Locale.ITALY)
+                .defaultLocale(Locale.ITALIAN)
+                .actualLocale(Locale.ITALIAN)
                 .build();
     }
 
@@ -81,10 +79,10 @@ public class I18NResourceBundleBuilderTest {
     public void secondStepArrayThrowsIllegalArgumentException() {
         final Locale[] locales = {};
         I18NResourceBundleBuilder.configure()
-                .baseBundleName(RESOURCE_BUNDLE)
+                .baseBundleName("com.github.naoghuman.lib.i18n.internal.resourcebundle")
                 .supportedLocales(locales)
-                .defaultLocale(Locale.ITALY)
-                .actualLocale(Locale.ITALY)
+                .defaultLocale(Locale.ITALIAN)
+                .actualLocale(Locale.ITALIAN)
                 .build();
     }
 
@@ -92,10 +90,10 @@ public class I18NResourceBundleBuilderTest {
     public void secondStepObservableListThrowsNullPointerException() {
         final ObservableList<Locale> locales = null;
         I18NResourceBundleBuilder.configure()
-                .baseBundleName(RESOURCE_BUNDLE)
+                .baseBundleName("com.github.naoghuman.lib.i18n.internal.resourcebundle")
                 .supportedLocales(locales)
-                .defaultLocale(Locale.ITALY)
-                .actualLocale(Locale.ITALY)
+                .defaultLocale(Locale.ITALIAN)
+                .actualLocale(Locale.ITALIAN)
                 .build();
     }
 
@@ -103,46 +101,65 @@ public class I18NResourceBundleBuilderTest {
     public void secondStepObservableListThrowsIllegalArgumentException() {
         final ObservableList<Locale> locales = FXCollections.observableArrayList();
         I18NResourceBundleBuilder.configure()
-                .baseBundleName(RESOURCE_BUNDLE)
+                .baseBundleName("com.github.naoghuman.lib.i18n.internal.resourcebundle")
                 .supportedLocales(locales)
-                .defaultLocale(Locale.ITALY)
-                .actualLocale(Locale.ITALY)
+                .defaultLocale(Locale.ITALIAN)
+                .actualLocale(Locale.ITALIAN)
                 .build();
     }
 
     @Test(expected = NullPointerException.class)
     public void thirdStepThrowsNullPointerException() {
         I18NResourceBundleBuilder.configure()
-                .baseBundleName(RESOURCE_BUNDLE)
-                .supportedLocales(Locale.ITALY, Locale.CANADA)
+                .baseBundleName("com.github.naoghuman.lib.i18n.internal.resourcebundle")
+                .supportedLocales(Locale.ITALIAN, Locale.JAPANESE)
                 .defaultLocale(null)
-                .actualLocale(Locale.ITALY)
+                .actualLocale(Locale.ITALIAN)
                 .build();
     }
 
     @Test(expected = NullPointerException.class)
     public void forthStepThrowsNullPointerException() {
         I18NResourceBundleBuilder.configure()
-                .baseBundleName(RESOURCE_BUNDLE)
-                .supportedLocales(Locale.ITALY, Locale.CANADA)
-                .defaultLocale(Locale.ITALY)
+                .baseBundleName("com.github.naoghuman.lib.i18n.internal.resourcebundle")
+                .supportedLocales(Locale.ITALIAN, Locale.JAPANESE)
+                .defaultLocale(Locale.ITALIAN)
                 .actualLocale(null)
                 .build();
     }
 
     @Test
-    public void lastStep() {
+    public void lastStepWithSupportedLocalesAsArray() {
+        String resourcbundle = "com.github.naoghuman.lib.i18n.internal.resourcebundle";
         I18NResourceBundleBuilder.configure()
-                .baseBundleName(RESOURCE_BUNDLE)
-                .supportedLocales(Locale.ITALY, Locale.CANADA)
-                .defaultLocale(Locale.ITALY)
-                .actualLocale(Locale.CANADA)
+                .baseBundleName(resourcbundle)
+                .supportedLocales(Locale.ITALIAN, Locale.JAPANESE)
+                .defaultLocale(Locale.ITALIAN)
+                .actualLocale(Locale.JAPANESE)
                 .build();
         
-        assertEquals(RESOURCE_BUNDLE, I18NFacade.getDefault().getBaseBundleName());
-        assertEquals(Locale.ITALY,    I18NFacade.getDefault().getDefaultLocale());
-        assertEquals(Locale.CANADA,   I18NFacade.getDefault().getActualLocale());
+        assertEquals(resourcbundle,   I18NFacade.getDefault().getBaseBundleName());
+        assertEquals(Locale.ITALIAN,  I18NFacade.getDefault().getDefaultLocale());
+        assertEquals(Locale.JAPANESE, I18NFacade.getDefault().getActualLocale());
         assertEquals(2,               I18NFacade.getDefault().getSupportedLocales().size());
+    }
+
+    @Test
+    public void lastStepWithSupportedLocalesAsObservableList() {
+        String resourcbundle = "com.github.naoghuman.lib.i18n.internal.resourcebundle";
+        final ObservableList<Locale> locales = FXCollections.observableArrayList();
+        locales.addAll(Locale.ITALIAN, Locale.JAPANESE, Locale.FRENCH);
+        I18NResourceBundleBuilder.configure()
+                .baseBundleName(resourcbundle)
+                .supportedLocales(locales)
+                .defaultLocale(Locale.ITALIAN)
+                .actualLocale(Locale.JAPANESE)
+                .build();
+        
+        assertEquals(resourcbundle,  I18NFacade.getDefault().getBaseBundleName());
+        assertEquals(Locale.ITALIAN, I18NFacade.getDefault().getDefaultLocale());
+        assertEquals(Locale.JAPANESE,I18NFacade.getDefault().getActualLocale());
+        assertEquals(3,              I18NFacade.getDefault().getSupportedLocales().size());
     }
     
 }
