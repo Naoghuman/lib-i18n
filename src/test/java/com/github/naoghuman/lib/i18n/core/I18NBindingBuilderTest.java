@@ -93,9 +93,16 @@ public class I18NBindingBuilderTest {
                 .build();
         
         Optional<StringBinding> result = I18NBindingBuilder.bind()
-                .callable(() -> "hallo")
+                .callable(() -> I18NMessageBuilder.message()
+                        .key("resourcebundle.title")
+                        .build()
+                )
                 .build();
         assertTrue(result.isPresent());
+        assertEquals("RB: Test Titel", result.get().get());
+        
+        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
+        assertEquals("RB: Test title", result.get().get());
     }
     
     @Test
@@ -111,6 +118,10 @@ public class I18NBindingBuilderTest {
                 .key("resourcebundle.title")
                 .build();
         assertTrue(result.isPresent());
+        assertEquals("RB: Test Titel", result.get().get());
+        
+        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
+        assertEquals("RB: Test title", result.get().get());
     }
     
     @Test
@@ -124,9 +135,13 @@ public class I18NBindingBuilderTest {
         
         Optional<StringBinding> result = I18NBindingBuilder.bind()
                 .key("resourcebundle.label.with.parameter")
-                .arguments(1234)
+                .arguments(123)
                 .build();
         assertTrue(result.isPresent());
+        assertEquals("RB: Text mit Parameter: 123", result.get().get());
+        
+        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
+        assertEquals("RB: Text with parameter: 123", result.get().get());
     }
     
 }

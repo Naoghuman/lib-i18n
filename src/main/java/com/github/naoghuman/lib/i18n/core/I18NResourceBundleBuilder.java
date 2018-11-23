@@ -35,8 +35,8 @@ import javafx.collections.ObservableMap;
  *
  * 1) Starts the configuration process.
  * 2) Defines the path and name from the .properties file.
- * 3) Sets all supported Locales with [].
- * 4) Sets all supported Locales with ObservableList.
+ * 3) Sets all supported Locales with an [].
+ * 4) Sets all supported Locales with an ObservableList.
  * 5) Sets the default Locale.
  * 6) Sets the actual Locale.
  * 7) Completes the configuration process.

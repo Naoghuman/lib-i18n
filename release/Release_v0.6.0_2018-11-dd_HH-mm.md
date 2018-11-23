@@ -29,6 +29,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Documentation
+#41 [doc] Update the 'how to use' chapters mit Unittests examples.
 
 
 

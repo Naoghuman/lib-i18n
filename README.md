@@ -55,20 +55,56 @@ With the builder [I18NResourceBundleBuilder] the developer can configure the
 to a [Locale]. That means switching the `actual` Locale update all binded textes 
 with the specific value from the corresponding language `.properties` file.
 ```java
-/**
- * 1) Starts the configuration process.
- * 2) Defines the path and name from the .properties file.
- * 3) Sets all supported Locales.
- * 4) Sets the default Locale.
- * 5) Sets the actual Locale.
- * 6) Completes the configuration process.
- */
-I18NResourceBundleBuilder.configure() // 1
-        .baseName(String)             // 2
-        .supportedLocales(ObservableList<Locale>) // 3
-        .defaultLocale(Locale)        // 4
-        .actualLocale(Locale)         // 5
-        .build();                     // 6
+    /**
+     * 1) Starts the configuration process.
+     * 2) Defines the path and name from the .properties file.
+     * 3) Sets all supported Locales with an [].
+     * 4) Sets all supported Locales with an ObservableList.
+     * 5) Sets the default Locale.
+     * 6) Sets the actual Locale.
+     * 7) Completes the configuration process.
+     */
+    I18NResourceBundleBuilder.configure() // 1
+            .baseName(String)             // 2
+            .supportedLocales(Locale...)  // 3
+            .supportedLocales(ObservableList<Locale>) // 4
+            .defaultLocale(Locale)        // 5
+            .actualLocale(Locale)         // 6
+            .build();                     // 7
+
+    @Test
+    public void lastStepWithSupportedLocalesAsArray() {
+        String resourcbundle = "com.github.naoghuman.lib.i18n.internal.resourcebundle";
+        I18NResourceBundleBuilder.configure()
+                .baseBundleName(resourcbundle)
+                .supportedLocales(Locale.ITALIAN, Locale.JAPANESE)
+                .defaultLocale(Locale.ITALIAN)
+                .actualLocale(Locale.JAPANESE)
+                .build();
+        
+        assertEquals(resourcbundle,   I18NFacade.getDefault().getBaseBundleName());
+        assertEquals(Locale.ITALIAN,  I18NFacade.getDefault().getDefaultLocale());
+        assertEquals(Locale.JAPANESE, I18NFacade.getDefault().getActualLocale());
+        assertEquals(2,               I18NFacade.getDefault().getSupportedLocales().size());
+    }
+
+    @Test
+    public void lastStepWithSupportedLocalesAsObservableList() {
+        String resourcbundle = "com.github.naoghuman.lib.i18n.internal.resourcebundle";
+        final ObservableList<Locale> locales = FXCollections.observableArrayList();
+        locales.addAll(Locale.ITALIAN, Locale.JAPANESE, Locale.FRENCH);
+        I18NResourceBundleBuilder.configure()
+                .baseBundleName(resourcbundle)
+                .supportedLocales(locales)
+                .defaultLocale(Locale.ITALIAN)
+                .actualLocale(Locale.JAPANESE)
+                .build();
+        
+        assertEquals(resourcbundle,  I18NFacade.getDefault().getBaseBundleName());
+        assertEquals(Locale.ITALIAN, I18NFacade.getDefault().getDefaultLocale());
+        assertEquals(Locale.JAPANESE,I18NFacade.getDefault().getActualLocale());
+        assertEquals(3,              I18NFacade.getDefault().getSupportedLocales().size());
+    }
 ```
 
 ### How to use the builder 'I18NBindingBuilder'<a name="HoToUsBiBu" />
@@ -77,42 +113,147 @@ The builder [I18NBindingBuilder] let the developer create a [StringBinding]. The
 StringBinding can created with a function from type [Callable&lt;String&gt;] or 
 with a .properties `key` and optional `arguments`.
 ```java
-/**
- * 1) Starts the binding process.
- * 2) Use the given function to create a StringBinding.
- * 3) Completes the binding process and returns the StringBinding.
- */
-I18NBindingBuilder.bind()          // 1
-       .callable(Callable<String>) // 2
-       .build();                   // 3
+    /**
+     * 1) Starts the binding process.
+     * 2) Use the given function to create a StringBinding.
+     * 3) Completes the binding process and returns the StringBinding.
+     */
+    I18NBindingBuilder.bind()          // 1
+           .callable(Callable<String>) // 2
+           .build();                   // 3
 
-/**
- * 1) Starts the binding process.
- * 2) Defines the key which value will be bind to the StringBinding.
- * 3) Optional arguments for the value from the given key.
- * 4) Completes the binding process and returns the StringBinding.
- */
-I18NBindingBuilder.bind()         // 1
-       .key(String)               // 2
-       .arguments(Object... args) // 3
-       .build();                  // 4
+    @Test
+    public void lastStepCallable() {
+        I18NResourceBundleBuilder.configure()
+                .baseBundleName("com.github.naoghuman.lib.i18n.internal.resourcebundle")
+                .supportedLocales(Locale.ENGLISH, Locale.GERMAN)
+                .defaultLocale(Locale.ENGLISH)
+                .actualLocale(Locale.GERMAN)
+                .build();
+        
+        Optional<StringBinding> result = I18NBindingBuilder.bind()
+                .callable(() -> I18NMessageBuilder.message()
+                        .key("resourcebundle.title")
+                        .build()
+                )
+                .build();
+        assertTrue(result.isPresent());
+        assertEquals("RB: Test Titel", result.get().get());
+        
+        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
+        assertEquals("RB: Test title", result.get().get());
+    }
+
+    /**
+     * 1) Starts the binding process.
+     * 2) Defines the key which value will be bind to the StringBinding.
+     * 3) Optional arguments for the value from the given key.
+     * 4) Completes the binding process and returns the StringBinding.
+     */
+    I18NBindingBuilder.bind()         // 1
+           .key(String)               // 2
+           .arguments(Object... args) // 3
+           .build();                  // 4
+
+    @Test
+    public void lastStepKeyWithoutArguments() {
+        I18NResourceBundleBuilder.configure()
+                .baseBundleName("com.github.naoghuman.lib.i18n.internal.resourcebundle")
+                .supportedLocales(Locale.ENGLISH, Locale.GERMAN)
+                .defaultLocale(Locale.ENGLISH)
+                .actualLocale(Locale.GERMAN)
+                .build();
+        
+        Optional<StringBinding> result = I18NBindingBuilder.bind()
+                .key("resourcebundle.title")
+                .build();
+        assertTrue(result.isPresent());
+        assertEquals("RB: Test Titel", result.get().get());
+        
+        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
+        assertEquals("RB: Test title", result.get().get());
+    }
+    
+    @Test
+    public void lastStepKeyWithArguments() {
+        I18NResourceBundleBuilder.configure()
+                .baseBundleName("com.github.naoghuman.lib.i18n.internal.resourcebundle")
+                .supportedLocales(Locale.ENGLISH, Locale.GERMAN)
+                .defaultLocale(Locale.ENGLISH)
+                .actualLocale(Locale.GERMAN)
+                .build();
+        
+        Optional<StringBinding> result = I18NBindingBuilder.bind()
+                .key("resourcebundle.label.with.parameter")
+                .arguments(123)
+                .build();
+        assertTrue(result.isPresent());
+        assertEquals("RB: Text mit Parameter: 123", result.get().get());
+        
+        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
+        assertEquals("RB: Text with parameter: 123", result.get().get());
+    }
 ```
 
 ### How to use the builder 'I18NMessageBuilder'<a name="HoToUsMeBu" />
 
-To load a .properties `key` with optional `arguments` from the configured [ResourceBundle] 
+To load a .properties `key` with optional `arguments` from the initialized [ResourceBundle] 
 throw the [I18NResourceBundleBuilder] the developer can use the builder [I18NMessageBuilder].
 ```java
-/**
- * 1) Starts the message process.
- * 2) Defines the key which value will be loaded.
- * 3) Optional arguments for the value from the given key.
- * 4) Completes the message process and returns a String.
- */
-I18NMessageBuilder.message()  // 1
-        .key(String)          // 2
-        .arguments(Object...) // 3
-        .build();             // 4
+    /**
+     * 1) Starts the message process.
+     * 2) Defines the key which value will be loaded.
+     * 3) Optional arguments for the value from the given key.
+     * 4) Completes the message process and returns a String.
+     */
+    I18NMessageBuilder.message()  // 1
+            .key(String)          // 2
+            .arguments(Object...) // 3
+            .build();             // 4
+
+    @Test
+    public void lastStepWithoutArguments() {
+        I18NResourceBundleBuilder.configure()
+                .baseBundleName("com.github.naoghuman.lib.i18n.internal.resourcebundle")
+                .supportedLocales(Locale.ENGLISH, Locale.GERMAN)
+                .defaultLocale(Locale.ENGLISH)
+                .actualLocale(Locale.GERMAN)
+                .build();
+        
+        String result = I18NMessageBuilder.message()
+                .key("resourcebundle.title")
+                .build();
+        assertEquals("RB: Test Titel", result);
+        
+        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
+        result = I18NMessageBuilder.message()
+                .key("resourcebundle.title")
+                .build();
+        assertEquals("RB: Test title", result);
+    }
+    
+    @Test
+    public void lastStepWithArguments() {
+        I18NResourceBundleBuilder.configure()
+                .baseBundleName("com.github.naoghuman.lib.i18n.internal.resourcebundle")
+                .supportedLocales(Locale.ENGLISH, Locale.GERMAN)
+                .defaultLocale(Locale.ENGLISH)
+                .actualLocale(Locale.GERMAN)
+                .build();
+        
+        String result = I18NMessageBuilder.message()
+                .key("resourcebundle.label.with.parameter")
+                .arguments(2)
+                .build();
+        assertEquals("RB: Text mit Parameter: 2", result);
+        
+        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
+        result = I18NMessageBuilder.message()
+                .key("resourcebundle.label.with.parameter")
+                .arguments(123)
+                .build();
+        assertEquals("RB: Text with parameter: 123", result);
+    }
 ```
 
 
