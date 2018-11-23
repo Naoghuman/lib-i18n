@@ -8,8 +8,8 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Summary
-* ...
-* ...
+* Add Unittests for all Builders in the core package.
+* Add more examples to the 'How to ...' section in the ReadMe.
 
 
 
