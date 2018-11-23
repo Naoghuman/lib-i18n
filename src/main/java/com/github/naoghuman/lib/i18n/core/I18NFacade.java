@@ -34,21 +34,21 @@ import javafx.collections.ObservableList;
  * <ul>
  * <li>{@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder}: 
  *     Allowed the developer to configure the {@link java.util.ResourceBundle}.</li>
- * <li>{@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleMessageBuilder}: 
- *     Allowed the developer to access the messages from the bundle.</li>
  * <li>{@link com.github.naoghuman.lib.i18n.core.I18NBindingBuilder}: 
  *     Allowed the developer to create a {@link javafx.beans.binding.StringBinding}.</li>
+ * <li>{@link com.github.naoghuman.lib.i18n.core.I18NMessageBuilder}: 
+ *     Allowed the developer to access the messages from the bundle.</li>
  * </ul>
  * is preferred.
  * 
  * @since   0.1.0-PRERELEASE
- * @version 0.5.0
+ * @version 0.6.0
  * @author  Naoghuman
  * @see     com.github.naoghuman.lib.i18n.core.I18NBinding
  * @see     com.github.naoghuman.lib.i18n.core.I18NBindingBuilder
+ * @see     com.github.naoghuman.lib.i18n.core.I18NMessageBuilder
  * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle
  * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder
- * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleMessageBuilder
  * @see     java.util.ResourceBundle
  * @see     javafx.beans.binding.StringBinding
  */
