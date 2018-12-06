@@ -198,7 +198,7 @@ with a .properties `key` and optional `arguments`.
 ### How to use the builder 'I18NMessageBuilder'<a name="HoToUsMeBu" />
 
 To load a .properties `key` with optional `arguments` from the initialized [ResourceBundle] 
-throw the [I18NResourceBundleBuilder] the developer can use the builder [I18NMessageBuilder].
+through the [I18NResourceBundleBuilder] the developer can use the builder [I18NMessageBuilder].
 ```java
     /**
      * 1) Starts the message process.

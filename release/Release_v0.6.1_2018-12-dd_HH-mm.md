@@ -22,6 +22,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Bug
+#49 [doc] Typo in ReadMe (section I18NMessageBuilder) - replace "throw" with "through".
 
 
 
