@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2018 Naoghuman
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!-- 
+    Setting the flag status to "trace" will log the log4j2 debug messages to the
+    console.
+    
+    <Configuration status="trace">
+    <Configuration>
+-->
+<Configuration>
+    <Appenders>
+        <File name="APPLICATION" fileName="log/application.log" append="false">
+            <PatternLayout pattern="%d  %-5p %m     [%c{1}]%n" />
+        </File>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d  %-5p %m     [%c{1}]%n" />
+        </Console>
+        <RollingFile name="ROLLING" fileName="log/application-rolling.log" filePattern="log/application-rolling-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout pattern="%d  %-5p %m     [%c{1}]%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="16 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="APPLICATION" />
+            <AppenderRef ref="ROLLING" />
+            <AppenderRef ref="STDOUT" />
+        </Root>
+    </Loggers>
+</Configuration>
