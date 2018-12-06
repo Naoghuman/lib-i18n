@@ -1312,8 +1312,9 @@ Installation<a name="Installation" />
 Documentation<a name="Documentation" />
 ---
 
-* In section [Api](#Api) you can see the main point(s) to access the functionalities 
-  in this library.
+* In the section [Examples](#Examples) there are different sub-sections `How to 
+  use the builder...` which explained the main points from this library.
+* In the section [Api](#Api) you can see the main functionalities from this library.
 * For additional information see the [JavaDoc] in the library itself.
 
 

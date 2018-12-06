@@ -35,6 +35,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 #### Refactoring
 #47 [doc] Refactore "Examples 'Usage from XY'" to "Specification: Usage of XY".
+#46 [doc] Update section 'Documentation' in the ReadMe.
 
 
 
