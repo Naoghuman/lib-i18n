@@ -23,10 +23,10 @@ import javafx.collections.ObservableList;
 
 
 /**
- * An implementation from different validation methods.
+ * An implementation from different validation methods to check preconditions.
  *
  * @since   0.1.0-PRERELEASE
- * @version 0.6.0
+ * @version 0.6.1
  * @author  Naoghuman
  */
 public final class DefaultI18NValidator {
