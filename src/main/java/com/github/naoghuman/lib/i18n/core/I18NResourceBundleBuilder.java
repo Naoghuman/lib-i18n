@@ -31,7 +31,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
 
 /*
- * Examples 'Usage from I18NResourceBundleBuilder'
+ * Specification: 'Usage of I18NResourceBundleBuilder'
  *
  * 1) Starts the configuration process.
  * 2) Defines the path and name from the .properties file.
@@ -55,7 +55,7 @@ import javafx.collections.ObservableMap;
  * All steps in this fluent builder are mandory so simple follow the way :) .
  *
  * @since   0.1.0-PRERELEASE
- * @version 0.6.0
+ * @version 0.6.1
  * @author  Naoghuman
  * @see     java.util.Locale
  * @see     java.util.ResourceBundle

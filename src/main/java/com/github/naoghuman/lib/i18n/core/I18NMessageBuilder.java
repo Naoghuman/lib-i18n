@@ -27,7 +27,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableMap;
 
 /*
- * Examples 'Usage from I18NMessageBuilder'
+ * Specification: 'Usage of I18NMessageBuilder'
  *
  * 1) Starts the message process.
  * 2) Defines the key which value will be loaded.
@@ -45,7 +45,7 @@ import javafx.collections.ObservableMap;
  * to the {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()}.
  * 
  * @since   0.1.0-PRERELEASE
- * @version 0.6.0
+ * @version 0.6.1
  * @author  Naoghuman
  * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
  * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder

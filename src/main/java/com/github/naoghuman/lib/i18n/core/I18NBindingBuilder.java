@@ -30,7 +30,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableMap;
 
 /*
- * Examples 'Usage from I18NBindingBuilder'
+ * Specification: 'Usage of I18NBindingBuilder'
  * 
  * 1) Starts the binding process.
  * 2) Use the given function to create a StringBinding.
@@ -63,7 +63,7 @@ import javafx.collections.ObservableMap;
  * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder}.
  *
  * @since   0.1.0-PRERELEASE
- * @version 0.6.0
+ * @version 0.6.1
  * @author  Naoghuman
  * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder
  * @see     java.util.Optional
