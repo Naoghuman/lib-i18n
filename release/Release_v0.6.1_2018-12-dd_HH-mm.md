@@ -24,6 +24,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 #### Bug
 #49 [doc] Typo in ReadMe (section I18NMessageBuilder) - replace "throw" with "through".
 #48 [doc] Some @version in JavaDoc shows '0.5.0', should be '0.6.0'.
+#44 [bug] I18NBindingBuilder.java: Some input files use unchecked or unsafe operations.
 
 
 

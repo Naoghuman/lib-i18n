@@ -235,7 +235,6 @@ public final class I18NBindingBuilder {
         private static final String ATTR__FUNCTION  = "function";  // NOI18N
         private static final String ATTR__KEY       = "key";       // NOI18N
         
-        @SuppressWarnings("rawtypes")
         private final ObservableMap<String, Property> properties = FXCollections.observableHashMap();
 
         private Configuration choosenConfiguration;
@@ -249,9 +248,9 @@ public final class I18NBindingBuilder {
             
             choosenConfiguration = Configuration.NO_FUNCTION;
         
-            properties.put(ATTR__FUNCTION,  new SimpleObjectProperty());
+            properties.put(ATTR__FUNCTION,  new SimpleObjectProperty<>());
             properties.put(ATTR__KEY,       new SimpleStringProperty());
-            properties.put(ATTR__ARGUMENTS, new SimpleObjectProperty());
+            properties.put(ATTR__ARGUMENTS, new SimpleObjectProperty<>());
         }
 
         @Override
@@ -261,7 +260,7 @@ public final class I18NBindingBuilder {
             DefaultI18NValidator.requireNonNull(function);
             
             choosenConfiguration = Configuration.CALLABLE;
-            properties.put(ATTR__FUNCTION, new SimpleObjectProperty(function));
+            properties.put(ATTR__FUNCTION, new SimpleObjectProperty<>(function));
             
             return this;
         }
@@ -279,13 +278,13 @@ public final class I18NBindingBuilder {
         }
 
         @Override
-        public LastStep arguments(final Object... argumtents) {
+        public LastStep arguments(final Object... arguments) {
             LoggerFacade.getDefault().debug(this.getClass(), "I18NBindingBuilderImpl.arguments(Object...)"); // NOI18N
             
-            DefaultI18NValidator.requireNonNullAndNotEmpty(argumtents);
+            DefaultI18NValidator.requireNonNullAndNotEmpty(arguments);
             
             choosenConfiguration = Configuration.KEY_WITH_ARGUMENTS;
-            properties.put(ATTR__ARGUMENTS, new SimpleObjectProperty(argumtents));
+            properties.put(ATTR__ARGUMENTS, new SimpleObjectProperty<>(arguments));
             
             return this;
         }
