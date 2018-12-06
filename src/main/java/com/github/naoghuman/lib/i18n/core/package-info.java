@@ -25,7 +25,7 @@
  * for more information) will update automatically all binded {@code key/value} pairs.
  * 
  * @since   0.1.0-PRERELEASE
- * @version 0.5.0
+ * @version 0.6.0
  * @author  Naoghuman
  * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
  * @see     java.util.Locale

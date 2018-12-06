@@ -35,7 +35,7 @@ import javafx.beans.binding.StringBinding;
  * {@link com.github.naoghuman.lib.i18n.core.I18NFacade}.
  *
  * @since   0.1.0-PRERELEASE
- * @version 0.5.0
+ * @version 0.6.0
  * @author  Naoghuman
  * @see     com.github.naoghuman.lib.i18n.core.I18NBindingBuilder
  * @see     com.github.naoghuman.lib.i18n.core.I18NFacade
@@ -57,7 +57,7 @@ public interface I18NBinding {
      * @return  the created {@code StringBinding}.
      * @throws  NullPointerException if {@code function} is NULL.
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     com.github.naoghuman.lib.i18n.core.I18NFacade#actualLocaleProperty()
      * @see     java.util.concurrent.Callable
@@ -80,7 +80,7 @@ public interface I18NBinding {
      * @throws  NullPointerException     if {@code key} is NULL.
      * @throws  IllegalArgumentException if {@code key} is EMPTY.
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     com.github.naoghuman.lib.i18n.core.I18NFacade#actualLocaleProperty()
      * @see     java.util.concurrent.Callable
@@ -104,7 +104,7 @@ public interface I18NBinding {
      * @throws  NullPointerException     if ({@code key} || {@code arguments}) is NULL.
      * @throws  IllegalArgumentException if ({@code key} || {@code arguments}) is EMPTY.
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     com.github.naoghuman.lib.i18n.core.I18NFacade#actualLocaleProperty()
      * @see     java.util.concurrent.Callable

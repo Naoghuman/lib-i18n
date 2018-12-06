@@ -27,10 +27,11 @@ import static org.junit.Assert.*;
  * UnitTests to test the {@code Interface} {@link com.github.naoghuman.lib.i18n.core.I18NValidator}
  * with its default implementation {@link com.github.naoghuman.lib.i18n.internal.DefaultI18NValidator}.
  *
- * @since  0.2.0-PRERELEASE
- * @author Naoghuman
- * @see    com.github.naoghuman.lib.i18n.core.I18NValidator
- * @see    com.github.naoghuman.lib.i18n.internal.DefaultI18NValidator
+ * @since   0.2.0-PRERELEASE
+ * @version 0.2.0-PRERELEASE
+ * @author  Naoghuman
+ * @see     com.github.naoghuman.lib.i18n.core.I18NValidator
+ * @see     com.github.naoghuman.lib.i18n.internal.DefaultI18NValidator
  */
 public class DefaultI18NValidatorTest {
     

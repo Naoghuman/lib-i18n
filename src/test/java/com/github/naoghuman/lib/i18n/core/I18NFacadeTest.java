@@ -28,9 +28,10 @@ import static org.junit.Assert.*;
  * will be test here. All other methods from the interfaces are tested with the 
  * UnitTests in the internal package.
  *
- * @since  0.4.0-PRERELEASE
- * @author Naoghuman
- * @see    com.github.naoghuman.lib.i18n.core.I18NFacade
+ * @since   0.4.0-PRERELEASE
+ * @version 0.4.0-PRERELEASE
+ * @author  Naoghuman
+ * @see     com.github.naoghuman.lib.i18n.core.I18NFacade
  */
 public class I18NFacadeTest {
     

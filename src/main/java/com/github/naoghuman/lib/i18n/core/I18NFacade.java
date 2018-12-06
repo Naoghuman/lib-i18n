@@ -61,7 +61,7 @@ public final class I18NFacade implements I18NBinding, I18NResourceBundle {
      * 
      * @return  a {@code singleton} instance from this facade.
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      */
     public static I18NFacade getDefault() {

@@ -63,7 +63,7 @@ import javafx.collections.ObservableMap;
  * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder}.
  *
  * @since   0.1.0-PRERELEASE
- * @version 0.5.0
+ * @version 0.6.0
  * @author  Naoghuman
  * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder
  * @see     java.util.Optional
@@ -85,7 +85,7 @@ public final class I18NBindingBuilder {
      * 
      * @return  the first step in this fluent builder.
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     java.util.concurrent.Callable
      * @see     javafx.beans.binding.StringBinding
@@ -107,7 +107,7 @@ public final class I18NBindingBuilder {
      * </ul>
      * 
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     java.util.concurrent.Callable
      * @see     javafx.beans.binding.StringBinding
@@ -122,7 +122,7 @@ public final class I18NBindingBuilder {
          * @return  the last step in this fluent builder.
          * @throws  NullPointerException if {@code function} is NULL.
          * @since   0.1.0-PRERELEASE
-         * @version 0.5.0
+         * @version 0.6.0
          * @author  Naoghuman
          * @see     java.util.concurrent.Callable
          * @see     javafx.beans.binding.StringBinding
@@ -143,7 +143,7 @@ public final class I18NBindingBuilder {
          * @throws  NullPointerException     if {@code key} is NULL.
          * @throws  IllegalArgumentException if {@code key} is EMPTY.
          * @since   0.1.0-PRERELEASE
-         * @version 0.5.0
+         * @version 0.6.0
          * @author  Naoghuman
          * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder
          * @see     java.util.ResourceBundle
@@ -167,7 +167,7 @@ public final class I18NBindingBuilder {
      * </ul>
      * 
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     javafx.beans.binding.StringBinding
      */
@@ -179,7 +179,7 @@ public final class I18NBindingBuilder {
          * 
          * @return  the generated {@link javafx.beans.binding.StringBinding}.
          * @since   0.1.0-PRERELEASE
-         * @version 0.5.0
+         * @version 0.6.0
          * @author  Naoghuman
          * @see     javafx.beans.binding.StringBinding
          */
@@ -194,7 +194,7 @@ public final class I18NBindingBuilder {
          * @throws  NullPointerException     if {@code arguments} is NULL.
          * @throws  IllegalArgumentException if {@code arguments} is EMPTY.
          * @since   0.1.0-PRERELEASE
-         * @version 0.5.0
+         * @version 0.6.0
          * @author  Naoghuman
          */
         public LastStep arguments(final Object... arguments);
@@ -208,7 +208,7 @@ public final class I18NBindingBuilder {
      * definition steps and create therewith the {@link javafx.beans.binding.StringBinding}.
      * 
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     javafx.beans.binding.StringBinding
      */
@@ -220,7 +220,7 @@ public final class I18NBindingBuilder {
          * 
          * @return  the generated {@code StringBinding}.
          * @since   0.1.0-PRERELEASE
-         * @version 0.5.0
+         * @version 0.6.0
          * @author  Naoghuman
          * @see     javafx.beans.binding.StringBinding
          */

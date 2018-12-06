@@ -29,10 +29,11 @@ import static org.junit.Assert.*;
  * UnitTests to test the {@code Interface} {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundle}
  * with its default implementation {@link com.github.naoghuman.lib.i18n.internal.DefaultI18NResourceBundle}.
  *
- * @since  0.2.0-PRERELEASE
- * @author Naoghuman
- * @see    com.github.naoghuman.lib.i18n.core.I18NResourceBundle
- * @see    com.github.naoghuman.lib.i18n.internal.DefaultI18NResourceBundle
+ * @since   0.2.0-PRERELEASE
+ * @version 0.2.0-PRERELEASE
+ * @author  Naoghuman
+ * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle
+ * @see     com.github.naoghuman.lib.i18n.internal.DefaultI18NResourceBundle
  */
 public class DefaultI18NResourceBundleTest {
     

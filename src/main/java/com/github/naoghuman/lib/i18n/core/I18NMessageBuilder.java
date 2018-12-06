@@ -45,7 +45,7 @@ import javafx.collections.ObservableMap;
  * to the {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()}.
  * 
  * @since   0.1.0-PRERELEASE
- * @version 0.5.0
+ * @version 0.6.0
  * @author  Naoghuman
  * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
  * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder
@@ -61,7 +61,7 @@ public final class I18NMessageBuilder {
      * 
      * @return  the first step in this fluent builder.
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
      * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder
@@ -80,7 +80,7 @@ public final class I18NMessageBuilder {
      * the {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()}.
      * 
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
      * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder
@@ -98,7 +98,7 @@ public final class I18NMessageBuilder {
          * @throws  NullPointerException     if {@code key} is NULL.
          * @throws  IllegalArgumentException if {@code key} is EMPTY.
          * @since   0.1.0-PRERELEASE
-         * @version 0.5.0
+         * @version 0.6.0
          * @author  Naoghuman
          * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
          * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder
@@ -120,7 +120,7 @@ public final class I18NMessageBuilder {
      * </ul>
      * 
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      */
     public interface SecondStep {
@@ -136,7 +136,7 @@ public final class I18NMessageBuilder {
          * 
          * @return  the loaded {@code value}.
          * @since   0.1.0-PRERELEASE
-         * @version 0.5.0
+         * @version 0.6.0
          * @author  Naoghuman
          * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
          * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder
@@ -152,7 +152,7 @@ public final class I18NMessageBuilder {
          * @throws  NullPointerException     if {@code arguments} is NULL.
          * @throws  IllegalArgumentException if {@code arguments} is EMPTY.
          * @since   0.1.0-PRERELEASE
-         * @version 0.5.0
+         * @version 0.6.0
          * @author  Naoghuman
          */
         public LastStep arguments(final Object... arguments);
@@ -170,7 +170,7 @@ public final class I18NMessageBuilder {
      * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder}.
      * 
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
      * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder
@@ -188,7 +188,7 @@ public final class I18NMessageBuilder {
          * 
          * @return  the loaded {@code value}.
          * @since   0.1.0-PRERELEASE
-         * @version 0.5.0
+         * @version 0.6.0
          * @author  Naoghuman
          * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
          * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder

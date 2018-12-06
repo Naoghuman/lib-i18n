@@ -25,9 +25,10 @@ import static org.junit.Assert.*;
 /**
  * UnitTests to test the fluent builder {@link com.github.naoghuman.lib.i18n.core.I18NMessageBuilder}.
  * 
- * @since  0.6.0
- * @author Naoghuman
- * @see    com.github.naoghuman.lib.i18n.core.I18NMessageBuilder
+ * @since   0.6.0
+ * @version 0.6.0
+ * @author  Naoghuman
+ * @see     com.github.naoghuman.lib.i18n.core.I18NMessageBuilder
  */
 public class I18NMessageBuilderTest {
     

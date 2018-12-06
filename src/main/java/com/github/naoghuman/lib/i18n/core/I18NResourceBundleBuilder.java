@@ -55,7 +55,7 @@ import javafx.collections.ObservableMap;
  * All steps in this fluent builder are mandory so simple follow the way :) .
  *
  * @since   0.1.0-PRERELEASE
- * @version 0.5.0
+ * @version 0.6.0
  * @author  Naoghuman
  * @see     java.util.Locale
  * @see     java.util.ResourceBundle
@@ -68,7 +68,7 @@ public final class I18NResourceBundleBuilder {
      * 
      * @return  the first step in this fluent builder.
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     java.util.Locale
      * @see     java.util.ResourceBundle
@@ -83,7 +83,7 @@ public final class I18NResourceBundleBuilder {
      * First mandory step to configure the {@link java.util.ResourceBundle}.
      * 
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     java.util.ResourceBundle
      */
@@ -106,7 +106,7 @@ public final class I18NResourceBundleBuilder {
          * @throws  NullPointerException     if {@code baseBundleName} is NULL.
          * @throws  IllegalArgumentException if {@code baseBundleName} is EMPTY.
          * @since   0.1.0-PRERELEASE
-         * @version 0.5.0
+         * @version 0.6.0
          * @author  Naoghuman
          * @see     java.util.ResourceBundle
          */
@@ -124,7 +124,7 @@ public final class I18NResourceBundleBuilder {
      * supported language (language_xy.properties) the corresponding {@code Locale}.
      * 
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     java.util.Locale
      * @see     java.util.ResourceBundle
@@ -143,7 +143,7 @@ public final class I18NResourceBundleBuilder {
          * @throws  NullPointerException     if {@code locales} is NULL.
          * @throws  IllegalArgumentException if {@code locales} is EMPTY.
          * @since   0.1.0-PRERELEASE
-         * @version 0.5.0
+         * @version 0.6.0
          * @author  Naoghuman
          * @see     java.util.Locale
          * @see     java.util.ResourceBundle
@@ -162,7 +162,7 @@ public final class I18NResourceBundleBuilder {
          * @throws  NullPointerException     if {@code locales} is NULL.
          * @throws  IllegalArgumentException if {@code locales} is EMPTY.
          * @since   0.1.0-PRERELEASE
-         * @version 0.5.0
+         * @version 0.6.0
          * @author  Naoghuman
          * @see     java.util.Locale
          * @see     java.util.ResourceBundle
@@ -183,7 +183,7 @@ public final class I18NResourceBundleBuilder {
      * {@link java.util.Locale#ENGLISH} will be used instead.
      * 
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#setActualLocale(java.util.Locale) 
      * @see     java.util.Locale
@@ -204,7 +204,7 @@ public final class I18NResourceBundleBuilder {
          * @return  the forth step in this fluent builder.
          * @throws  NullPointerException if {@code locale} is NULL.
          * @since   0.1.0-PRERELEASE
-         * @version 0.5.0
+         * @version 0.6.0
          * @author  Naoghuman
          * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#setActualLocale(java.util.Locale) 
          * @see     java.util.Locale
@@ -226,7 +226,7 @@ public final class I18NResourceBundleBuilder {
      * {@code default} Locale will be used instead.
      * 
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#setDefaultLocale(java.util.Locale) 
      * @see     java.util.Locale
@@ -247,7 +247,7 @@ public final class I18NResourceBundleBuilder {
          * @return  the last step in this fluent builder.
          * @throws  NullPointerException if {@code locale} is NULL.
          * @since   0.1.0-PRERELEASE
-         * @version 0.5.0
+         * @version 0.6.0
          * @author  Naoghuman
          * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#setDefaultLocale(java.util.Locale) 
          * @see     java.util.Locale
@@ -265,7 +265,7 @@ public final class I18NResourceBundleBuilder {
      * different {@link java.util.Locale}s.
      * 
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     java.util.Locale
      * @see     java.util.ResourceBundle
@@ -277,7 +277,7 @@ public final class I18NResourceBundleBuilder {
          * and the different {@link java.util.Locale}s in this fluent builder.
          * 
          * @since   0.1.0-PRERELEASE
-         * @version 0.5.0
+         * @version 0.6.0
          * @author  Naoghuman
          * @see     java.util.Locale
          * @see     java.util.ResourceBundle

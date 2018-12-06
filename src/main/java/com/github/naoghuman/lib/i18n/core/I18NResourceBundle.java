@@ -37,7 +37,7 @@ import javafx.collections.ObservableList;
  * </ul>
  *
  * @since   0.1.0-PRERELEASE
- * @version 0.5.0
+ * @version 0.6.0
  * @author  Naoghuman
  * @see     java.lang.Object
  * @see     java.lang.String
@@ -52,7 +52,7 @@ public interface I18NResourceBundle {
      * 
      * @return  the {@code baseName} from the {@code ResourceBundle}.
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     java.util.ResourceBundle
      */
@@ -78,7 +78,7 @@ public interface I18NResourceBundle {
      * @throws  NullPointerException     if {@code baseBundleName} is NULL.
      * @throws  IllegalArgumentException if {@code baseBundleName} is EMPTY.
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      */
     public void setBaseBundleName(final String baseBundleName);
@@ -92,7 +92,7 @@ public interface I18NResourceBundle {
      * @throws  NullPointerException     if {@code key} is NULL.
      * @throws  IllegalArgumentException if {@code key} is EMPTY.
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
      * @see     java.util.Locale
@@ -112,7 +112,7 @@ public interface I18NResourceBundle {
      * @throws  NullPointerException     if ({@code key} || {@code arguments}) is NULL.
      * @throws  IllegalArgumentException if ({@code key} || {@code arguments}) is EMPTY.
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
      * @see     java.text.MessageFormat#format(java.lang.String, java.lang.Object...)
@@ -125,7 +125,7 @@ public interface I18NResourceBundle {
      * 
      * @return  the {@code default} {@code Locale}.
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     java.util.Locale
      */
@@ -141,7 +141,7 @@ public interface I18NResourceBundle {
      * @throws  NullPointerException     if {@code locale} is NULL.
      * @throws  IllegalArgumentException if {@code locale} is EMPTY.
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#setSupportedLocales(javafx.collections.ObservableList) 
      * @see     java.util.Locale
@@ -154,7 +154,7 @@ public interface I18NResourceBundle {
      * 
      * @return  the {@code actual} {@code Locale}.
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     java.util.Locale
      */
@@ -170,7 +170,7 @@ public interface I18NResourceBundle {
      * @throws  NullPointerException     if {@code locale} is NULL.
      * @throws  IllegalArgumentException if {@code locale} is EMPTY.
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#getDefaultLocale() 
      * @see     java.util.Locale
@@ -185,7 +185,7 @@ public interface I18NResourceBundle {
      * 
      * @return  the {@code actual} Locale as a {@code ObjectProperty}.
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     java.util.Locale
      * @see     javafx.beans.property.ObjectProperty
@@ -197,7 +197,7 @@ public interface I18NResourceBundle {
      * 
      * @return  all {@code supported} {@code Locales} as a {@code observable} list.
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     java.util.Locale
      */
@@ -210,7 +210,7 @@ public interface I18NResourceBundle {
      * @throws  NullPointerException     if {@code locales} is NULL.
      * @throws  IllegalArgumentException if {@code locales} is EMPTY.
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     java.util.Locale
      */
@@ -223,7 +223,7 @@ public interface I18NResourceBundle {
      * @throws  NullPointerException     if {@code locales} is NULL.
      * @throws  IllegalArgumentException if {@code locales} is EMPTY.
      * @since   0.1.0-PRERELEASE
-     * @version 0.5.0
+     * @version 0.6.0
      * @author  Naoghuman
      * @see     java.util.Locale
      */
