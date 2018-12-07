@@ -34,6 +34,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Refactoring
+#50 [doc] Refactore the "How to..." sections in the ReadMe. Split the examples.
 #47 [doc] Refactore "Examples 'Usage from XY'" to "Specification: Usage of XY".
 #45 [doc] Update JavaDoc from the class DefaultI18NValidator.
 #46 [doc] Update section 'Documentation' in the ReadMe.
