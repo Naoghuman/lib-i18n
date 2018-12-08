@@ -8,8 +8,8 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Summary
-* ...
-* ...
+* Update the `How to use the builder...` sections.
+* `JavaDoc` from the library is now online available: http://naoghuman.github.io/lib-i18n/apidocs
 
 
 

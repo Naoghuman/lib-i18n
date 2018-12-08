@@ -279,9 +279,9 @@ _Image:_ JavaDoc Lib-I18N v0.6.1
 Download<a name="Download" />
 ---
 
-Current `version` is `0.6.0`. Main points in this release are:
-* Add 'Unittests' for all Builders in the 'core' package.
-* Add more examples to the 'How to ...' section in the ReadMe.
+Current `version` is `0.6.1`. Main points in this release are:
+* Update the `How to use the builder...` sections.
+* `JavaDoc` from the library is now online available: http://naoghuman.github.io/lib-i18n/apidocs
 
 **Maven coordinates**  
 In context from a [Maven] project you can use following maven coordinates: 
@@ -290,13 +290,13 @@ In context from a [Maven] project you can use following maven coordinates:
     <dependency>
         <groupId>com.github.naoghuman</groupId>
         <artifactId>lib-i18n</artifactId>
-        <version>0.6.0</version>
+        <version>0.6.1</version>
     </dependency>
 </dependencies>
 ```
 
 Download:
-* [Release v0.6.0] (11.23.2018 / MM.dd.yyyy)
+* [Release v0.6.1] (12.08.2018 / MM.dd.yyyy)
 
 An overview about all existings releases can be found here:
 * [Overview] from all releases in `Lib-I18N`.
@@ -388,7 +388,7 @@ You can reach me under <peter.rogge@yahoo.de>.
 [NetBeans]:https://netbeans.org/
 [Overview]:https://github.com/Naoghuman/lib-i18n/releases
 [Pull Request]:https://help.github.com/articles/using-pull-requests
-[Release v0.6.0]:https://github.com/Naoghuman/lib-i18n/releases/tag/v0.6.0
+[Release v0.6.1]:https://github.com/Naoghuman/lib-i18n/releases/tag/v0.6.1
 [ResourceBundle]:https://docs.oracle.com/javase/8/docs/api/java/util/ResourceBundle.html
 [Scene Builder]:https://gluonhq.com/products/scene-builder/
 [StringBinding]:https://docs.oracle.com/javase/8/javafx/api/javafx/beans/binding/StringBinding.html
