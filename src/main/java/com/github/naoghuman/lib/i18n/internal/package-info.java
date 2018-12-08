@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 /**
- * The {@code core} package from the library {@code Lib-I18N} contains on the one side 
+ * The {@code internal} package from the library {@code Lib-I18N} contains on the one side 
  * the {@code default} implementations from the interfaces from the library {@code core} package 
  * and on the other side a default {@code validator} for precondition checks.
  * 
