@@ -15,8 +15,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 /**
+ * The {@code core} package from the library {@code Lib-I18N} contains on the one side 
+ * the {@code default} implementations from the interfaces from the library {@code core} package 
+ * and on the other side a default {@code validator} for precondition checks.
  * 
- * @since  0.1.0-PRERELEASE
- * @author Naoghuman
+ * @since   0.1.0-PRERELEASE
+ * @version 0.6.1
+ * @author  Naoghuman
+ * @see     com.github.naoghuman.lib.i18n.core.I18NBinding
+ * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle
+ * @see     com.github.naoghuman.lib.i18n.internal.DefaultI18NValidator
  */
 package com.github.naoghuman.lib.i18n.internal;

@@ -23,11 +23,19 @@ import javafx.beans.binding.Bindings;
 import javafx.beans.binding.StringBinding;
 
 /**
+ * The {@code default} implementation from the interface 
+ * {@link com.github.naoghuman.lib.i18n.core.I18NBinding}.
+ * <p>
+ * Given {@code attributes} in the methods will be checked by 
+ * {@link com.github.naoghuman.lib.i18n.internal.DefaultI18NValidator}.
  *
- * @since  0.1.0-PRERELEASE
- * @author Naoghuman
+ * @since   0.1.0-PRERELEASE
+ * @version 0.6.1
+ * @author  Naoghuman
+ * @see     com.github.naoghuman.lib.i18n.core.I18NBinding
+ * @see     com.github.naoghuman.lib.i18n.internal.DefaultI18NValidator
  */
-public class DefaultI18NBinding implements I18NBinding {
+public final class DefaultI18NBinding implements I18NBinding {
     
     @Override
     public StringBinding createStringBinding(final String key) {

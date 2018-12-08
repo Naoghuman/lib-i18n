@@ -23,7 +23,8 @@ import javafx.collections.ObservableList;
 
 
 /**
- * An implementation from different validation methods to check preconditions.
+ * An implementation from different {@code validation} methods to check preconditions 
+ * in the topic from this library {@code Lib-I18N}.
  *
  * @since   0.1.0-PRERELEASE
  * @version 0.6.1
@@ -32,34 +33,34 @@ import javafx.collections.ObservableList;
 public final class DefaultI18NValidator {
     
     /**
-     * Delegates to {@link java.util.Objects#isNull(java.lang.Object)}. Returns 
-     * {@code TRUE} if the provided reference is {@code NULL} otherwise {@code FALSE}.
+     * Delegates to {@link java.util.Objects#isNull(java.lang.Object)}.
      * <p>
      * This method exists to be used as a {@link java.util.function.Predicate}, 
      * {@code filter(Objects::isNull)}.
      * 
-     * @param  obj a reference which will be checked against {@code NULL}.
-     * @return {@code TRUE} if the provided reference is {@code NULL} otherwise
-     *         {@code FALSE}.
-     * @since  0.1.0-PRERELEASE
-     * @author Naoghuman
+     * @param   obj a reference which will be checked against {@code NULL}.
+     * @return  {@code TRUE} if the provided reference is {@code NULL} otherwise {@code FALSE}.
+     * @since   0.1.0-PRERELEASE
+     * @version 0.6.1
+     * @author  Naoghuman
+     * @see     java.util.function.Predicate
      */
     public static boolean isNull(final Object obj) {
         return Objects.isNull(obj);
     }
     
     /**
-     * Delegates to {@link java.util.Objects#nonNull(java.lang.Object)}. Returns 
-     * {@code TRUE} if the provided reference is {@code NON-NULL} otherwise {@code FALSE}.
+     * Delegates to {@link java.util.Objects#nonNull(java.lang.Object)}.
      * <p>
      * This method exists to be used as a {@link java.util.function.Predicate},
      * {@code filter(Objects::nonNull)}.
      * 
-     * @param  obj a reference which will be checked against {@code NULL}.
-     * @return {@code TRUE} if the provided reference is {@code NON-NULL} otherwise
-     *         {@code FALSE}.
-     * @since  0.1.0-PRERELEASE
-     * @author Naoghuman
+     * @param   obj a reference which will be checked against {@code NULL}.
+     * @return  {@code TRUE} if the provided reference is {@code NON-NULL} otherwise {@code FALSE}.
+     * @since   0.1.0-PRERELEASE
+     * @version 0.6.1
+     * @author  Naoghuman
+     * @see     java.util.function.Predicate
      */
     public static boolean nonNull(final Object obj) {
         return Objects.nonNull(obj);
@@ -67,67 +68,96 @@ public final class DefaultI18NValidator {
     
     /**
      * Validates if the attribute {@code value} isn't {@code NULL}.
+     * <p>
+     * An additional error message will be added to the error stack:
+     * <ul>
+     * <li>The attribute [value] can't be NULL.</li>
+     * </ul>
      *
-     * @param  value the attribute which should be validated.
-     * @param  <T>   the type of the reference.
-     * @since  0.1.0-PRERELEASE
-     * @author Naoghuman
-     * @throws NullPointerException if {@code (value == NULL)}.
+     * @param   <T>   the type of the reference.
+     * @param   value the attribute which should be validated.
+     * @throws  NullPointerException if {@code (value == NULL)}.
+     * @since   0.1.0-PRERELEASE
+     * @version 0.6.1
+     * @author  Naoghuman
      */
     public static <T> void requireNonNull(final T value) throws NullPointerException {
-        Objects.requireNonNull(value, "The attribute [value] can't be NULL"); // NOI18N
+        Objects.requireNonNull(value, "The attribute [value] can't be NULL."); // NOI18N
     }
     
     /**
      * Validates if the attribute {@code value} isn't {@code NULL} and not {@code EMPTY}.
+     * <p>
+     * Adds following additional error messages depending from the error to the error stack:
+     * <ul>
+     * <li>The attribute [value] can't be NULL.</li>
+     * <li>The attribute [value] can't be EMPTY.</li>
+     * </ul>
      *
-     * @param  value the attribute which should be validated.
-     * @since  0.1.0-PRERELEASE
-     * @author Naoghuman
-     * @throws NullPointerException     if {@code (value        == NULL)}.
-     * @throws IllegalArgumentException if {@code (value.trim() == EMPTY)}.
+     * @param   value the attribute which should be validated.
+     * @throws  NullPointerException     if {@code (value        == NULL)}.
+     * @throws  IllegalArgumentException if {@code (value.trim() == EMPTY)}.
+     * @since   0.1.0-PRERELEASE
+     * @version 0.6.1
+     * @author  Naoghuman
      */
     public static void requireNonNullAndNotEmpty(final String value) throws NullPointerException, IllegalArgumentException {
-        Objects.requireNonNull(value, "The attribute [value] can't be NULL"); // NOI18N
+        Objects.requireNonNull(value, "The attribute [value] can't be NULL."); // NOI18N
         
         if (value.trim().isEmpty()) {
-            throw new IllegalArgumentException("The attribute [value] can't be EMPTY"); // NOI18N
+            throw new IllegalArgumentException("The attribute [value] can't be EMPTY."); // NOI18N
         }
     }
     
     /**
+     * Validates if the attribute {@code elements} isn't {@code NULL} and not {@code EMPTY}.
+     * <p>
+     * Adds following additional error messages depending from the error to the error stack:
+     * <ul>
+     * <li>The attribute [elements] can't be NULL.</li>
+     * <li>The attribute [elements] can't be EMPTY.</li>
+     * </ul>
      * 
-     * @param  elements
-     * @since  0.1.0-PRERELEASE
-     * @author Naoghuman
-     * @throws NullPointerException
-     * @throws IllegalArgumentException 
+     * @param   elements the attribute which should be validated.
+     * @throws  NullPointerException     if {@code (elements == NULL)}.
+     * @throws  IllegalArgumentException if {@code (elements == EMPTY)}.
+     * @since   0.1.0-PRERELEASE
+     * @version 0.6.1
+     * @author  Naoghuman
      */
     public static void requireNonNullAndNotEmpty(final Object... elements) throws NullPointerException, IllegalArgumentException {
-        Objects.requireNonNull(elements, "The attribute [elements] can't be NULL"); // NOI18N
+        Objects.requireNonNull(elements, "The attribute [elements] can't be NULL."); // NOI18N
         
         final ObservableList<Object> elements2 = FXCollections.observableArrayList();
         elements2.addAll(Arrays.asList(elements));
         
         if (elements2.isEmpty()) {
-            throw new IllegalArgumentException("The Object[] shouldn't be EMPTY"); // NOI18N
+            throw new IllegalArgumentException("The attribute [elements] can't be EMPTY."); // NOI18N
         }
     }
     
     /**
+     * Validates if the attribute {@code elements} isn't {@code NULL} and not {@code EMPTY}.
+     * <p>
+     * Adds following additional error messages depending from the error to the error stack:
+     * <ul>
+     * <li>The attribute [elements] can't be NULL.</li>
+     * <li>The attribute [elements] can't be EMPTY.</li>
+     * </ul>
      * 
-     * @param  <T>
-     * @param  elements
-     * @since  0.1.0-PRERELEASE
-     * @author Naoghuman
-     * @throws NullPointerException
-     * @throws IllegalArgumentException 
+     * @param   <T>      the type of the reference.
+     * @param   elements the attribute which should be validated.
+     * @throws  NullPointerException     if {@code (elements == NULL)}.
+     * @throws  IllegalArgumentException if {@code (elements == EMPTY)}.
+     * @since   0.1.0-PRERELEASE
+     * @version 0.6.1
+     * @author  Naoghuman
      */
     public static <T> void requireNonNullAndNotEmpty(final ObservableList<T> elements) throws NullPointerException, IllegalArgumentException {
         Objects.requireNonNull(elements, "The attribute [elements] can't be NULL"); // NOI18N
         
         if (elements.isEmpty()) {
-            throw new IllegalArgumentException("The [ObservableList] shouldn't be EMPTY"); // NOI18N
+            throw new IllegalArgumentException("The attribute [elements] can't be EMPTY"); // NOI18N
         }
     }
     

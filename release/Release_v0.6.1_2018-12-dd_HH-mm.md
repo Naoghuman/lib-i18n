@@ -18,7 +18,6 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Enhancement
-#51 [doc] Move the "api" section to new folder `docs`.
 
 
 
@@ -31,6 +30,8 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Documentation
+#51 [doc] Move the "api" section to new folder `docs`.
+#43 [doc] Add JavaDoc to the classes in the 'internal' package.
 
 
 

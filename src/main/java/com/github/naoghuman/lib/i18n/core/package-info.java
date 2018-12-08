@@ -17,15 +17,15 @@
 /**
  * The {@code core} package from the library {@code Lib-I18N} contains all functionalities 
  * to register a {@link java.util.ResourceBundle}, access the {@code values} from the 
- * bundle over the {@code key} (with optional {@code arguments}) and bind them through 
+ * bundle over the {@code keys} with optional {@code arguments} and bind them through 
  * a {@link javafx.beans.binding.StringBinding} to a {@link javafx.beans.property.StringProperty}.
  * <p>
- * That means switching the {@code actual} {@code Locale} (see 
+ * That means switching the {@code actual} {@link java.util.Locale} (see 
  * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty() } 
- * for more information) will update automatically all binded {@code key/value} pairs.
+ * for more information) will update automatically all binded {@code StringProperties}.
  * 
  * @since   0.1.0-PRERELEASE
- * @version 0.6.0
+ * @version 0.6.1
  * @author  Naoghuman
  * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
  * @see     java.util.Locale

@@ -28,11 +28,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
+ * The {@code default} implementation from the interface 
+ * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundle}.
+ * <p>
+ * Given {@code attributes} in the methods will be checked by 
+ * {@link com.github.naoghuman.lib.i18n.internal.DefaultI18NValidator}.
  *
- * @since  0.1.0-PRERELEASE
- * @author Naoghuman
+ * @since   0.1.0-PRERELEASE
+ * @version 0.6.1
+ * @author  Naoghuman
+ * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle
+ * @see     com.github.naoghuman.lib.i18n.internal.DefaultI18NValidator
  */
-public class DefaultI18NResourceBundle implements I18NResourceBundle {
+public final class DefaultI18NResourceBundle implements I18NResourceBundle {
     
     private ObjectProperty<Locale> actualLocaleProperty;
     private ObservableList<Locale> supportedLocales;
@@ -41,9 +49,11 @@ public class DefaultI18NResourceBundle implements I18NResourceBundle {
     private String baseBundleName;
     
     /**
+     * Default constructor from the is class {@code DefaultI18NResourceBundle}.
      * 
-     * @since  0.1.0-PRERELEASE
-     * @author Naoghuman
+     * @since   0.1.0-PRERELEASE
+     * @version 0.6.1
+     * @author  Naoghuman
      */
     public DefaultI18NResourceBundle() {
         this.init();
