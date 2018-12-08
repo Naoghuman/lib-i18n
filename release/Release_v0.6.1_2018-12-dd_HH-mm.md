@@ -18,6 +18,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Enhancement
+#51 [doc] Move the "api" section to new folder `docs`.
 
 
 
