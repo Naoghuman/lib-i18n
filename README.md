@@ -269,7 +269,10 @@ public void lastStepWithArguments() {
 JavaDoc<a name="JavaDoc" />
 ---
 
-The `JavaDoc` from the library `Lib-I18N` can be explored here: [Lib-I18N JavaDoc]
+The [JavaDoc] from the library `Lib-I18N` can be explored here: [JavaDoc Lib-I18N v0.6.1]
+
+_Image:_ JavaDoc Lib-I18N v0.6.1  
+![Lib-I18N_JavaDoc_v0.6.1_2018-12-08_13-49.png][Lib-I18N_JavaDoc_v0.6.1_2018-12-08_13-49]
 
 
 
@@ -357,6 +360,7 @@ You can reach me under <peter.rogge@yahoo.de>.
 
 
 [//]: # (Images)
+[Lib-I18N_JavaDoc_v0.6.1_2018-12-08_13-49]:https://user-images.githubusercontent.com/8161815/49686122-40bca500-faf0-11e8-866f-f1c76714883b.png
 
 
 
@@ -372,10 +376,10 @@ You can reach me under <peter.rogge@yahoo.de>.
 [IntelliJ IDEA]:http://www.jetbrains.com/idea/
 [Issue]:https://github.com/Naoghuman/lib-i18n/issues
 [JavaDoc]:http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html
+[JavaDoc Lib-I18N v0.6.1]:http://naoghuman.github.io/lib-i18n/apidocs
 [JavaFX]:http://docs.oracle.com/javase/8/javase-clienttechnologies.htm
 [JDK 8]:http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [JRE 8]:http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html
-[Lib-I18N JavaDoc]:http://naoghuman.github.io/lib-i18n/apidocs
 [Lib-Logger]:https://github.com/Naoghuman/lib-logger
 [Locale]:https://docs.oracle.com/javase/8/docs/api/java/util/Locale.html
 [log4j-api-2.10.0.jar]:https://logging.apache.org/log4j/2.0/log4j-web/dependencies.html

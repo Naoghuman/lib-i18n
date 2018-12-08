@@ -30,6 +30,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Documentation
+#54 [doc] Add screenshot from JavaDoc page for v0.6.1 to ReadMe.
 #51 [doc] Move the "api" section to new folder `docs`.
 #43 [doc] Add JavaDoc to the classes in the 'internal' package.
 
