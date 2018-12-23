@@ -92,7 +92,7 @@ public class DefaultI18NResourceBundleTest {
         supportedLocales.addAll(Locale.ENGLISH, Locale.GERMAN);
         rb.setSupportedLocales(supportedLocales);
         
-        rb.setActualLocale(Locale.ENGLISH);
+        rb.setActualLocale(Locale.ENGLISH); // Here the magic happen :)
         
         rb.getMessage("resourcebundle.title");
     }
@@ -106,10 +106,10 @@ public class DefaultI18NResourceBundleTest {
         supportedLocales.addAll(Locale.ENGLISH, Locale.GERMAN);
         rb.setSupportedLocales(supportedLocales);
         
-        rb.setActualLocale(Locale.ENGLISH);
+        rb.setActualLocale(Locale.ENGLISH); // Here the magic happen :)
         assertEquals("RB: Test title", rb.getMessage("resourcebundle.title"));
         
-        rb.setActualLocale(Locale.GERMAN);
+        rb.setActualLocale(Locale.GERMAN); // Here the magic happen :)
         assertEquals("RB: Test Titel", rb.getMessage("resourcebundle.title"));
     }
 
@@ -134,10 +134,10 @@ public class DefaultI18NResourceBundleTest {
         supportedLocales.addAll(Locale.ENGLISH, Locale.GERMAN);
         rb.setSupportedLocales(supportedLocales);
         
-        rb.setActualLocale(Locale.ENGLISH);
+        rb.setActualLocale(Locale.ENGLISH); // Here the magic happen :)
         assertEquals("RB: Text with parameter: 2", rb.getMessage("resourcebundle.label.with.parameter", 2));
         
-        rb.setActualLocale(Locale.GERMAN);
+        rb.setActualLocale(Locale.GERMAN); // Here the magic happen :)
         assertEquals("RB: Text mit Parameter: 5", rb.getMessage("resourcebundle.label.with.parameter", 5));
     }
 
@@ -244,7 +244,7 @@ public class DefaultI18NResourceBundleTest {
     @Test
     public void setGetActualLocaleSetItalyButIsEnglish() {
         I18NResourceBundle rb = new DefaultI18NResourceBundle();
-        rb.setActualLocale(Locale.ITALY);
+        rb.setActualLocale(Locale.ITALY); // Here the magic happen :)
         
         assertEquals(Locale.ENGLISH, rb.getActualLocale());
     }
@@ -256,7 +256,7 @@ public class DefaultI18NResourceBundleTest {
         
         I18NResourceBundle rb = new DefaultI18NResourceBundle();
         rb.setSupportedLocales(supportedLocales);
-        rb.setActualLocale(Locale.ITALY);
+        rb.setActualLocale(Locale.ITALY); // Here the magic happen :)
         
         assertEquals(Locale.ITALY, rb.getActualLocale());
     }

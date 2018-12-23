@@ -154,7 +154,7 @@ public void lastStepCallable() {
     assertTrue(result.isPresent());
     assertEquals("RB: Test Titel", result.get().get());
 
-    I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
+    I18NFacade.getDefault().setActualLocale(Locale.ENGLISH); // Here the magic happen :)
     assertEquals("RB: Test title", result.get().get());
 }
 
@@ -173,7 +173,7 @@ public void lastStepKeyWithoutArguments() {
     assertTrue(result.isPresent());
     assertEquals("RB: Test Titel", result.get().get());
 
-    I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
+    I18NFacade.getDefault().setActualLocale(Locale.ENGLISH); // Here the magic happen :)
     assertEquals("RB: Test title", result.get().get());
 }
 
@@ -193,7 +193,7 @@ public void lastStepKeyWithArguments() {
     assertTrue(result.isPresent());
     assertEquals("RB: Text mit Parameter: 123", result.get().get());
 
-    I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
+    I18NFacade.getDefault().setActualLocale(Locale.ENGLISH); // Here the magic happen :)
     assertEquals("RB: Text with parameter: 123", result.get().get());
 }
 ```
@@ -233,7 +233,7 @@ public void lastStepWithoutArguments() {
             .build();
     assertEquals("RB: Test Titel", result);
 
-    I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
+    I18NFacade.getDefault().setActualLocale(Locale.ENGLISH); // Here the magic happen :)
     result = I18NMessageBuilder.message()
             .key("resourcebundle.title")
             .build();
@@ -255,7 +255,7 @@ public void lastStepWithArguments() {
             .build();
     assertEquals("RB: Text mit Parameter: 2", result);
 
-    I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
+    I18NFacade.getDefault().setActualLocale(Locale.ENGLISH); // Here the magic happen :)
     result = I18NMessageBuilder.message()
             .key("resourcebundle.label.with.parameter")
             .arguments(123)

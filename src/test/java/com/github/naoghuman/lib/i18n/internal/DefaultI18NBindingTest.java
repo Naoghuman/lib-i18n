@@ -24,9 +24,9 @@ import javafx.beans.binding.StringBinding;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.junit.After;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  * UnitTests to test the {@code Interface} {@link com.github.naoghuman.lib.i18n.core.I18NBinding}
@@ -62,12 +62,12 @@ public class DefaultI18NBindingTest {
         I18NFacade.getDefault().setSupportedLocales(supportedLocales);
         
         I18NBinding b = new DefaultI18NBinding();
-        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
+        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH); // Here the magic happen :)
         StringBinding sb = b.createStringBinding("binding.title");
         assertNotNull(sb);
         assertEquals("B: Test title", sb.get());
         
-        I18NFacade.getDefault().setActualLocale(Locale.GERMAN);
+        I18NFacade.getDefault().setActualLocale(Locale.GERMAN); // Here the magic happen :)
         sb = b.createStringBinding("binding.title");
         assertNotNull(sb);
         assertEquals("B: Test Titel", sb.get());
@@ -95,12 +95,12 @@ public class DefaultI18NBindingTest {
         I18NFacade.getDefault().setSupportedLocales(supportedLocales);
         
         I18NBinding b = new DefaultI18NBinding();
-        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
+        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH); // Here the magic happen :)
         StringBinding sb = b.createStringBinding("binding.label.with.parameter", 2);
         assertNotNull(sb);
         assertEquals("B: Text with parameter: 2", sb.get());
         
-        I18NFacade.getDefault().setActualLocale(Locale.GERMAN);
+        I18NFacade.getDefault().setActualLocale(Locale.GERMAN); // Here the magic happen :)
         sb = b.createStringBinding("binding.label.with.parameter", 5);
         assertNotNull(sb);
         assertEquals("B: Text mit Parameter: 5", sb.get());
@@ -134,12 +134,12 @@ public class DefaultI18NBindingTest {
         I18NFacade.getDefault().setSupportedLocales(supportedLocales);
         
         I18NBinding b = new DefaultI18NBinding();
-        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
+        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH); // Here the magic happen :)
         StringBinding sb = b.createStringBinding(() -> I18NFacade.getDefault().getMessage("binding.label.with.parameter", 1));
         assertNotNull(sb);
         assertEquals("B: Text with parameter: 1", sb.get());
         
-        I18NFacade.getDefault().setActualLocale(Locale.GERMAN);
+        I18NFacade.getDefault().setActualLocale(Locale.GERMAN); // Here the magic happen :)
         sb = b.createStringBinding(() -> I18NFacade.getDefault().getMessage("binding.label.with.parameter", 3));
         assertNotNull(sb);
         assertEquals("B: Text mit Parameter: 3", sb.get());

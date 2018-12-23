@@ -18,9 +18,9 @@ package com.github.naoghuman.lib.i18n.core;
 
 import java.util.Locale;
 import org.junit.After;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  * UnitTests to test the fluent builder {@link com.github.naoghuman.lib.i18n.core.I18NMessageBuilder}.
@@ -89,7 +89,7 @@ public class I18NMessageBuilderTest {
                 .build();
         assertEquals("RB: Test Titel", result);
         
-        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
+        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH); // Here the magic happen :)
         result = I18NMessageBuilder.message()
                 .key("resourcebundle.title")
                 .build();
@@ -111,7 +111,7 @@ public class I18NMessageBuilderTest {
                 .build();
         assertEquals("RB: Text mit Parameter: 2", result);
         
-        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
+        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH); // Here the magic happen :)
         result = I18NMessageBuilder.message()
                 .key("resourcebundle.label.with.parameter")
                 .arguments(123)

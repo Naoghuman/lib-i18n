@@ -20,9 +20,9 @@ import java.util.Locale;
 import java.util.Optional;
 import javafx.beans.binding.StringBinding;
 import org.junit.After;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  * UnitTests to test the fluent builder {@link com.github.naoghuman.lib.i18n.core.I18NBindingBuilder}.
@@ -102,7 +102,7 @@ public class I18NBindingBuilderTest {
         assertTrue(result.isPresent());
         assertEquals("RB: Test Titel", result.get().get());
         
-        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
+        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH); // Here the magic happen :)
         assertEquals("RB: Test title", result.get().get());
     }
     
@@ -121,7 +121,7 @@ public class I18NBindingBuilderTest {
         assertTrue(result.isPresent());
         assertEquals("RB: Test Titel", result.get().get());
         
-        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
+        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH); // Here the magic happen :)
         assertEquals("RB: Test title", result.get().get());
     }
     
@@ -141,7 +141,7 @@ public class I18NBindingBuilderTest {
         assertTrue(result.isPresent());
         assertEquals("RB: Text mit Parameter: 123", result.get().get());
         
-        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH);
+        I18NFacade.getDefault().setActualLocale(Locale.ENGLISH); // Here the magic happen :)
         assertEquals("RB: Text with parameter: 123", result.get().get());
     }
     
