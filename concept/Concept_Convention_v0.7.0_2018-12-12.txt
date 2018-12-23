@@ -1,0 +1,102 @@
+--------------------------------------------------------------------------------
+CONCEPT New section 'Convention' in the ReadMe.
+--------------------------------------------------------------------------------
+INTENTION
+In this paper I want describe the concept for the new section 'Convention' in the 
+ReadMe.
+
+This new section should be added after the section 'Examples'.
+
+--------------------------------------------------------------------------------
+SPECIFICATION
+Convention: Base bundle name (ResourceBundle)
+ - Description
+    - If the ResourceBundle with the defined 'baseBundleName' can't be found a 
+      MissingResourceException will be thrown.
+ - Where
+    - com.github.naoghuman.lib.i18n.core.I18NResourceBundle#getMessage(String): String
+    - com.github.naoghuman.lib.i18n.core.I18NResourceBundle#getMessage(String, Object...): String
+    - com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder#build()
+
+Convention: 'Key not found'
+ - Description
+    - If a key can't found in the defined ResourceBundle then no 'MissingResourceException'
+      will be thrown. Instead the hint '<key.name>' will returned.
+    - This convention guaranteed that the application don't interrupts unexpected 
+      if a 'key' wasn't found.
+ - Where
+    - com.github.naoghuman.lib.i18n.core.I18NResourceBundle#getMessage(String): String
+    - com.github.naoghuman.lib.i18n.core.I18NResourceBundle#getMessage(String, Object...): String
+
+Convention: Supported Locales, default Locale and actual Local.
+ - Description
+    - Supported Locales
+       - 
+    - Default Locale
+       - 
+    - Actual Locale
+       - 
+ - Where
+
+Convention: Basic validation
+ - Description
+    - Every attribute in the builders and in all setters will be check against minimal 
+      preconditions with DefaultI18NValidator.
+    - Getters attributs will only checked if they are initial only instantiate and 
+      not declarated.
+    - For example a String will be validate if it's not NULL and not EMPTY.
+ - Where
+    - com.github.naoghuman.lib.i18n.internal.DefaultI18NValidator
+
+--------------------------------------------------------------------------------
+LINKS
+ - ...
+
+--------------------------------------------------------------------------------
+EXTRAS
+ - Convention: Supported Locales, default Locale and actual Local.
+    - How to verify that the supported (default, actual) locales are supported 
+      from the ResourceBundles?
+    - What happen if a ResourceBundle with not existing Locale should be loaded?
+       - actualLocale will be defaultLocale if the actualLocale isn't supported.
+       - what happen if the defaultLocale isn't supported and not a ResourceBundle
+         exists for this case?
+
+        The PropertiesDemo sample program ships with three properties files:
+            LabelsBundle.properties    <--- Locale.ENGLISH 
+            // what happen if not exists?
+            // and Locale.ITALIAN is called?
+
+            LabelsBundle_de.properties <--- Locale.GERMAN
+            LabelsBundle_fr.properties <--- Locale.FRENCH
+
+        Locale[] supportedLocales = {
+            Locale.FRENCH,
+            Locale.GERMAN,
+            Locale.ENGLISH
+        };
+
+    @Override
+    public void setActualLocale(final Locale locale) {
+        DefaultI18NValidator.requireNonNull(locale);
+        
+        actualLocaleProperty.set(this.getSupportedLocales().contains(locale) ? locale : defaultLocale);
+    }
+
+    @Override
+    public void setDefaultLocale(final Locale locale) {
+        DefaultI18NValidator.requireNonNull(locale);
+        
+        defaultLocale = this.getSupportedLocales().contains(locale) ? locale : Locale.ENGLISH;
+    }
+
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+

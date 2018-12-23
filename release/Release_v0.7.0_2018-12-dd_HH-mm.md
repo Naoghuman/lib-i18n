@@ -27,6 +27,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 #### Documentation
 #56 [doc] Add template for a concept paper to the folder 'concept'.
+#55 [doc] Write new concept for new section 'Convention' in the ReadMe.
 
 
 
