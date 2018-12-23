@@ -86,16 +86,23 @@ public interface I18NResourceBundle {
     /**
      * Returns the associated {@code value} from the given {@code key} depending 
      * from the {@code actual} {@link java.util.Locale}.
+     * <p>
+     * Before the access to the value will be performed an internal check will be done if 
+     * a {@link java.util.ResourceBundle} with the acutal parameters {@code baseBundleName} 
+     * and {@code actualLocale} can be loaded.<br>
+     * If not a {@link java.util.MissingResourceException} will be thrown.
      * 
      * @param   key which {@code value} should be loaded.
      * @return  the associated {@code value}.
-     * @throws  NullPointerException     if {@code key} is NULL.
      * @throws  IllegalArgumentException if {@code key} is EMPTY.
+     * @throws  NullPointerException     if {@code key} is NULL.
      * @since   0.1.0-PRERELEASE
-     * @version 0.6.0
+     * @version 0.7.0
      * @author  Naoghuman
      * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
      * @see     java.util.Locale
+     * @see     java.util.MissingResourceException
+     * @see     java.util.ResourceBundle
      */
     public String getMessage(final String key);
     
@@ -103,20 +110,27 @@ public interface I18NResourceBundle {
      * Returns the associated {@code value} (with the injected {@code arguments}) 
      * from the given {@code key} depending from the {@code actual} {@link java.util.Locale}.
      * <p>
-     * Internal {@link java.text.MessageFormat#format(java.lang.String, java.lang.Object...) } 
-     * will be used to format the {@code message}.
+     * Before the access to the value will be performed an internal check will be done if 
+     * a {@link java.util.ResourceBundle} with the acutal parameters {@code baseBundleName} 
+     * and {@code actualLocale} can be loaded.<br>
+     * If not a {@link java.util.MissingResourceException} will be thrown.
+     * <p>
+     * Also {@link java.text.MessageFormat#format(java.lang.String, java.lang.Object...) } 
+     * will be used to format the returned {@code message}.
      * 
      * @param   key which {@code value} should be loaded.
      * @param   arguments  which should be injected into the associated {@code value}.
      * @return  the associated {@code value}.
-     * @throws  NullPointerException     if ({@code key} || {@code arguments}) is NULL.
      * @throws  IllegalArgumentException if ({@code key} || {@code arguments}) is EMPTY.
+     * @throws  NullPointerException     if ({@code key} || {@code arguments}) is NULL.
      * @since   0.1.0-PRERELEASE
-     * @version 0.6.0
+     * @version 0.7.0
      * @author  Naoghuman
      * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
      * @see     java.text.MessageFormat#format(java.lang.String, java.lang.Object...)
      * @see     java.util.Locale
+     * @see     java.util.MissingResourceException
+     * @see     java.util.ResourceBundle
      */
     public String getMessage(final String key, final Object... arguments);
     

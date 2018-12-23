@@ -17,7 +17,9 @@
 package com.github.naoghuman.lib.i18n.internal;
 
 import java.util.Arrays;
+import java.util.Locale;
 import java.util.Objects;
+import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -159,6 +161,27 @@ public final class DefaultI18NValidator {
         if (elements.isEmpty()) {
             throw new IllegalArgumentException("The attribute [elements] can't be EMPTY"); // NOI18N
         }
+    }
+    
+    /**
+     * Checks if a {@link java.util.ResourceBundle} with the given parameters can be loaded.
+     * <p>
+     * If the {@code ResourceBundle} can't be found a {@link java.util.MissingResourceException} 
+     * will be thrown.
+     * 
+     * @param   baseBundleName which should be used to load the {@code ResourceBundle}.
+     * @param   actualLocale which should be used to load the {@code ResourceBundle}.
+     * @since   0.7.0
+     * @version 0.7.0
+     * @author  Naoghuman
+     * @see     java.util.MissingResourceException
+     * @see     java.util.ResourceBundle
+     */
+    public static void requireResourceBundleExists(final String baseBundleName, final Locale actualLocale) {
+        DefaultI18NValidator.requireNonNullAndNotEmpty(baseBundleName);
+        DefaultI18NValidator.requireNonNull(actualLocale);
+        
+        ResourceBundle.getBundle(baseBundleName, actualLocale);
     }
     
 }

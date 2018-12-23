@@ -82,6 +82,7 @@ public final class DefaultI18NResourceBundle implements I18NResourceBundle {
     @Override
     public String getMessage(final String key) {
         DefaultI18NValidator.requireNonNullAndNotEmpty(key);
+        DefaultI18NValidator.requireResourceBundleExists(this.getBaseBundleName(), this.getActualLocale());
         
         final ResourceBundle bundle = ResourceBundle.getBundle(this.getBaseBundleName(), this.getActualLocale());
         
@@ -92,6 +93,7 @@ public final class DefaultI18NResourceBundle implements I18NResourceBundle {
     public String getMessage(final String key, final Object... arguments) {
         DefaultI18NValidator.requireNonNullAndNotEmpty(key);
         DefaultI18NValidator.requireNonNullAndNotEmpty(arguments);
+        DefaultI18NValidator.requireResourceBundleExists(this.getBaseBundleName(), this.getActualLocale());
         
         final ResourceBundle bundle = ResourceBundle.getBundle(this.getBaseBundleName(), this.getActualLocale());
         

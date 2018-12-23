@@ -275,11 +275,17 @@ public final class I18NResourceBundleBuilder {
         /**
          * Completes the previous configuration steps from the {@link java.util.ResourceBundle} 
          * and the different {@link java.util.Locale}s in this fluent builder.
+         * <p>
+         * At last it will be checked if a {@link java.util.ResourceBundle} with 
+         * the predefined parameters {@code baseBundleName} and {@code actualLocale} 
+         * can be loaded.<br>
+         * If not a {@link java.util.MissingResourceException} will be thrown.
          * 
          * @since   0.1.0-PRERELEASE
-         * @version 0.6.0
+         * @version 0.7.0
          * @author  Naoghuman
          * @see     java.util.Locale
+         * @see     java.util.MissingResourceException
          * @see     java.util.ResourceBundle
          */
         public void build();
@@ -374,6 +380,9 @@ public final class I18NResourceBundleBuilder {
             final ObjectProperty supportedLocales = (ObjectProperty) properties.get(ATTR__SUPPORTED_LOCALES);
             final ObjectProperty defaultLocale    = (ObjectProperty) properties.get(ATTR__DEFAULT_LOCALE);
             final ObjectProperty actualLocale     = (ObjectProperty) properties.get(ATTR__ACTUAL_LOCALE);
+            
+            // Last check
+            DefaultI18NValidator.requireResourceBundleExists(baseBundleName.getValue(), (Locale) actualLocale.getValue());
             
             // Configure
             I18NFacade.getDefault().setBaseBundleName(baseBundleName.getValue());

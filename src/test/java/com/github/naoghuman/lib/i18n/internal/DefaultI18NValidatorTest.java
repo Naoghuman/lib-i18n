@@ -16,12 +16,14 @@
  */
 package com.github.naoghuman.lib.i18n.internal;
 
+import java.util.Locale;
+import java.util.MissingResourceException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.junit.After;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  * UnitTests to test the {@code Interface} {@link com.github.naoghuman.lib.i18n.core.I18NValidator}
@@ -122,6 +124,15 @@ public class DefaultI18NValidatorTest {
     public void requireNonNullAndNotEmptyObservableListThrowsIllegalArgumentException() {
         ObservableList<String> list = FXCollections.observableArrayList();
         DefaultI18NValidator.requireNonNullAndNotEmpty(list);
+    }
+    
+    @Test(expected = MissingResourceException.class)
+    public void requireResourceBundleExistsThrowsMissingResourceException() {
+        
+        String notExistingBaseBundleName = "com.github.naoghuman.lib.i18n.internal.not-existing-resourcebundle"; // NOI18N
+        Locale actualLocale = Locale.ENGLISH;
+        
+        DefaultI18NValidator.requireResourceBundleExists(notExistingBaseBundleName, actualLocale);
     }
     
 }
