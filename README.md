@@ -60,7 +60,7 @@ with the specific value from the corresponding language `.properties` file.
  * 7) Completes the configuration process.
  */
 I18NResourceBundleBuilder.configure() // 1
-        .baseName(String)             // 2
+        .baseBundleName(String)       // 2
         .supportedLocales(Locale...)  // 3
         .supportedLocales(ObservableList<Locale>) // 4
         .defaultLocale(Locale)        // 5
