@@ -18,12 +18,13 @@ package com.github.naoghuman.lib.i18n.internal;
 
 import com.github.naoghuman.lib.i18n.core.I18NResourceBundle;
 import java.util.Locale;
+import java.util.MissingResourceException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.junit.After;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  * UnitTests to test the {@code Interface} {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundle}
@@ -80,6 +81,20 @@ public class DefaultI18NResourceBundleTest {
     public void setBaseBundleNameThrowsIllegalArgumentException() {
         I18NResourceBundle rb = new DefaultI18NResourceBundle();
         rb.setBaseBundleName("");
+    }
+    
+    @Test(expected = MissingResourceException.class)
+    public void getMessageThrowsMissingResourceException() {
+        I18NResourceBundle rb = new DefaultI18NResourceBundle();
+        rb.setBaseBundleName("com.github.naoghuman.lib.i18n.internal.not-existing-resourcebundle"); // NOI18N
+        
+        ObservableList<Locale> supportedLocales = FXCollections.observableArrayList();
+        supportedLocales.addAll(Locale.ENGLISH, Locale.GERMAN);
+        rb.setSupportedLocales(supportedLocales);
+        
+        rb.setActualLocale(Locale.ENGLISH);
+        
+        rb.getMessage("resourcebundle.title");
     }
 
     @Test
