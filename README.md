@@ -292,6 +292,13 @@ In context from a [Maven] project you can use following maven coordinates:
         <artifactId>lib-i18n</artifactId>
         <version>0.6.1</version>
     </dependency>
+
+    <!-- optional -->
+    <dependency>
+        <groupId>com.github.naoghuman</groupId>
+        <artifactId>lib-logger</artifactId>
+        <version>0.6.0</version>
+    </dependency>
 </dependencies>
 ```
 
