@@ -20,6 +20,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 #### Enhancement
 #66 [internal] Add new method 'requireResourceBundleExists(...)' to DefaultI18NValidator.
 #62 [test] Add Unittests for no ResourceBundle in DefaultI18NResourceBundle.
+#53 [doc] Check possibility to update `docs` folder if in pom.xml a `release` will done.
 
 
 
