@@ -86,7 +86,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].</description>
                     <additionalparam>-Xdoclint:none</additionalparam>
                     <destDir>docs/apidocs</destDir>
                 </configuration>
-                <!-- for RELEASE -->
+                <!-- for RELEASE 
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -94,7 +94,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].</description>
                             <goal>jar</goal>
                         </goals>
                     </execution>
-                </executions><!-- -->
+                </executions>-->
             </plugin>
             <!-- for RELEASE 
             <plugin>
