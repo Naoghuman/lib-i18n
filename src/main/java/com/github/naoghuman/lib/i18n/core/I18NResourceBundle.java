@@ -89,8 +89,12 @@ public interface I18NResourceBundle {
      * <p>
      * Before the access to the value will be performed an internal check will be done if 
      * a {@link java.util.ResourceBundle} with the acutal parameters {@code baseBundleName} 
-     * and {@code actualLocale} can be loaded.<br>
-     * If not a {@link java.util.MissingResourceException} will be thrown.
+     * and {@code actualLocale} can be loaded. If not a {@link java.util.MissingResourceException} 
+     * will be thrown.
+     * <p>
+     * Hint:<br>
+     * If the {@code key} can't be found in the existing {@code ResourceBundle} then 
+     * the pattern '&lt;key&gt;' will be returned.
      * 
      * @param   key which {@code value} should be loaded.
      * @return  the associated {@code value}.
@@ -112,11 +116,16 @@ public interface I18NResourceBundle {
      * <p>
      * Before the access to the value will be performed an internal check will be done if 
      * a {@link java.util.ResourceBundle} with the acutal parameters {@code baseBundleName} 
-     * and {@code actualLocale} can be loaded.<br>
-     * If not a {@link java.util.MissingResourceException} will be thrown.
+     * and {@code actualLocale} can be loaded. If not a {@link java.util.MissingResourceException} 
+     * will be thrown.
      * <p>
-     * Also {@link java.text.MessageFormat#format(java.lang.String, java.lang.Object...) } 
+     * For the injecting from the {@code arguments} into the {@code value} from the 
+     * {@code ResourceBundle} the class {@link java.text.MessageFormat#format(java.lang.String, java.lang.Object...) } 
      * will be used to format the returned {@code message}.
+     * <p>
+     * Hint:<br>
+     * If the {@code key} can't be found in the existing {@code ResourceBundle} then 
+     * the pattern '&lt;key&gt;' will be returned.
      * 
      * @param   key which {@code value} should be loaded.
      * @param   arguments  which should be injected into the associated {@code value}.

@@ -382,7 +382,7 @@ public final class I18NResourceBundleBuilder {
             final ObjectProperty actualLocale     = (ObjectProperty) properties.get(ATTR__ACTUAL_LOCALE);
             
             // Last check
-            DefaultI18NValidator.requireResourceBundleExists(baseBundleName.getValue(), (Locale) actualLocale.getValue());
+            DefaultI18NValidator.requireResourceBundleExist(baseBundleName.getValue(), (Locale) actualLocale.getValue());
             
             // Configure
             I18NFacade.getDefault().setBaseBundleName(baseBundleName.getValue());

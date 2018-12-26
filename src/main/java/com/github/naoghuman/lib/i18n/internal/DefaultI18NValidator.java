@@ -177,7 +177,7 @@ public final class DefaultI18NValidator {
      * @see     java.util.MissingResourceException
      * @see     java.util.ResourceBundle
      */
-    public static void requireResourceBundleExists(final String baseBundleName, final Locale actualLocale) {
+    public static void requireResourceBundleExist(final String baseBundleName, final Locale actualLocale) {
         DefaultI18NValidator.requireNonNullAndNotEmpty(baseBundleName);
         DefaultI18NValidator.requireNonNull(actualLocale);
         

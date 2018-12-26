@@ -127,12 +127,12 @@ public class DefaultI18NValidatorTest {
     }
     
     @Test(expected = MissingResourceException.class)
-    public void requireResourceBundleExistsThrowsMissingResourceException() {
+    public void requireResourceBundleExistThrowsMissingResourceException() {
         
         String notExistingBaseBundleName = "com.github.naoghuman.lib.i18n.internal.not-existing-resourcebundle"; // NOI18N
         Locale actualLocale = Locale.ENGLISH;
         
-        DefaultI18NValidator.requireResourceBundleExists(notExistingBaseBundleName, actualLocale);
+        DefaultI18NValidator.requireResourceBundleExist(notExistingBaseBundleName, actualLocale);
     }
     
 }

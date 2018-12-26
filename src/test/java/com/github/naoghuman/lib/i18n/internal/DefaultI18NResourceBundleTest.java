@@ -84,7 +84,7 @@ public class DefaultI18NResourceBundleTest {
     }
     
     @Test(expected = MissingResourceException.class)
-    public void getMessageThrowsMissingResourceException() {
+    public void getMessageWithoutResourceBundleThrowsMissingResourceException() {
         I18NResourceBundle rb = new DefaultI18NResourceBundle();
         rb.setBaseBundleName("com.github.naoghuman.lib.i18n.internal.not-existing-resourcebundle"); // NOI18N
         
@@ -95,6 +95,19 @@ public class DefaultI18NResourceBundleTest {
         rb.setActualLocale(Locale.ENGLISH); // Here the magic happen :)
         
         rb.getMessage("resourcebundle.title");
+    }
+    
+    @Test
+    public void getMessageWithResourceBundleThrowsMissingResourceException() {
+        I18NResourceBundle rb = new DefaultI18NResourceBundle();
+        rb.setBaseBundleName(RESOURCE_BUNDLE);
+        
+        ObservableList<Locale> supportedLocales = FXCollections.observableArrayList();
+        supportedLocales.addAll(Locale.ENGLISH, Locale.GERMAN);
+        rb.setSupportedLocales(supportedLocales);
+        
+        rb.setActualLocale(Locale.ENGLISH); // Here the magic happen :)
+        assertEquals("<not.existing.key.in.existing.resourcebundle>", rb.getMessage("not.existing.key.in.existing.resourcebundle"));
     }
 
     @Test

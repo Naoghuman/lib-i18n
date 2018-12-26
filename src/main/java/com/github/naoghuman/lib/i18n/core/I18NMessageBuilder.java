@@ -92,13 +92,17 @@ public final class I18NMessageBuilder {
          * Setter for the {@code key} which {@code value} will be loaded from the previous configure 
          * {@link java.util.ResourceBundle} in {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder} 
          * in dependency from the {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()}.
+         * <p>
+         * Hint:<br>
+         * If the {@code key} can't be found in the existing {@code ResourceBundle} then 
+         * the pattern '&lt;key&gt;' will be returned.
          * 
          * @param   key which {@code value} should be loaded.
          * @return  the second step in this fluent builder.
          * @throws  NullPointerException     if {@code key} is NULL.
          * @throws  IllegalArgumentException if {@code key} is EMPTY.
          * @since   0.1.0-PRERELEASE
-         * @version 0.6.0
+         * @version 0.7.0
          * @author  Naoghuman
          * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
          * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder
@@ -129,31 +133,41 @@ public final class I18NMessageBuilder {
          * Completes the previous configuration steps and returned the corresponding {@code value}.
          * <p>
          * Hint:<br>
-         * The {@code value} will be loaded in dependency from the 
-         * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()}
-         * from the previous configure {@link java.util.ResourceBundle} in 
-         * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder}.
+         * Before the access to the value will be performed an internal check will be done if 
+         * the {@link java.util.ResourceBundle} (configured in 
+         * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder})
+         * with the acutal parameters {@code baseBundleName} and {@code actualLocale} can be 
+         * loaded. If not a {@link java.util.MissingResourceException} will be thrown.
          * 
          * @return  the loaded {@code value}.
          * @since   0.1.0-PRERELEASE
-         * @version 0.6.0
+         * @version 0.7.0
          * @author  Naoghuman
          * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
          * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder
+         * @see     java.util.MissingResourceException
+         * @see     java.util.ResourceBundle
          */
         public String build();
         
         /**
          * Setter for additional {@code arguments} which will injected into the 
-         * {@code value} from the previous definet {@code key}.
+         * {@code value} from the previous defined {@code key}.
+         * <p>
+         * For the injecting from the {@code arguments} into the {@code value} from the 
+         * {@link java.util.ResourceBundle} the class 
+         * {@link java.text.MessageFormat#format(java.lang.String, java.lang.Object...) } 
+         * will be used to format the returned {@code message}.
          * 
          * @param   arguments which should be injected into the {@code value}.
          * @return  The last step in this fluent builder.
          * @throws  NullPointerException     if {@code arguments} is NULL.
          * @throws  IllegalArgumentException if {@code arguments} is EMPTY.
          * @since   0.1.0-PRERELEASE
-         * @version 0.6.0
+         * @version 0.7.0
          * @author  Naoghuman
+         * @see     java.text.MessageFormat#format(java.lang.String, java.lang.Object...)
+         * @see     java.util.ResourceBundle
          */
         public LastStep arguments(final Object... arguments);
         
@@ -164,16 +178,19 @@ public final class I18NMessageBuilder {
      * steps and returned the corresponding {@code value}.
      * <p>
      * Hint:<br>
-     * The {@code value} will be loaded in dependency from the 
-     * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()}
-     * from the previous configure {@link java.util.ResourceBundle} in 
-     * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder}.
+     * Before the access to the value will be performed an internal check will be done if 
+     * the {@link java.util.ResourceBundle} (configured in 
+     * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder})
+     * with the acutal parameters {@code baseBundleName} and {@code actualLocale} can be 
+     * loaded. If not a {@link java.util.MissingResourceException} will be thrown.
      * 
      * @since   0.1.0-PRERELEASE
-     * @version 0.6.0
+     * @version 0.7.0
      * @author  Naoghuman
      * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
      * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder
+     * @see     java.util.MissingResourceException
+     * @see     java.util.ResourceBundle
      */
     public interface LastStep {
         
@@ -181,17 +198,20 @@ public final class I18NMessageBuilder {
          * Completes the previous configuration steps and returned the corresponding {@code value}.
          * <p>
          * Hint:<br>
-         * The {@code value} will be loaded in dependency from the 
-         * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()}
-         * from the previous configure {@link java.util.ResourceBundle} in 
-         * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder}.
+         * Before the access to the value will be performed an internal check will be done if 
+         * the {@link java.util.ResourceBundle} (configured in 
+         * {@link com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder})
+         * with the acutal parameters {@code baseBundleName} and {@code actualLocale} can be 
+         * loaded. If not a {@link java.util.MissingResourceException} will be thrown.
          * 
          * @return  the loaded {@code value}.
          * @since   0.1.0-PRERELEASE
-         * @version 0.6.0
+         * @version 0.7.0
          * @author  Naoghuman
          * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundle#actualLocaleProperty()
          * @see     com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder
+         * @see     java.util.MissingResourceException
+         * @see     java.util.ResourceBundle
          */
         public String build();
         

@@ -21,6 +21,7 @@ import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -41,6 +42,8 @@ import javafx.collections.ObservableList;
  * @see     com.github.naoghuman.lib.i18n.internal.DefaultI18NValidator
  */
 public final class DefaultI18NResourceBundle implements I18NResourceBundle {
+    
+    private static final String PATTERN_KEY_NAME = "<{0}>"; // NO18N
     
     private ObjectProperty<Locale> actualLocaleProperty;
     private ObservableList<Locale> supportedLocales;
@@ -82,22 +85,35 @@ public final class DefaultI18NResourceBundle implements I18NResourceBundle {
     @Override
     public String getMessage(final String key) {
         DefaultI18NValidator.requireNonNullAndNotEmpty(key);
-        DefaultI18NValidator.requireResourceBundleExists(this.getBaseBundleName(), this.getActualLocale());
+        DefaultI18NValidator.requireResourceBundleExist(this.getBaseBundleName(), this.getActualLocale());
         
         final ResourceBundle bundle = ResourceBundle.getBundle(this.getBaseBundleName(), this.getActualLocale());
         
-        return bundle.getString(key);
+        String value = MessageFormat.format(PATTERN_KEY_NAME, key);
+        try {
+            value = bundle.getString(key);
+        } catch (MissingResourceException e) {
+        }
+        
+        return value;
     }
     
     @Override
     public String getMessage(final String key, final Object... arguments) {
         DefaultI18NValidator.requireNonNullAndNotEmpty(key);
         DefaultI18NValidator.requireNonNullAndNotEmpty(arguments);
-        DefaultI18NValidator.requireResourceBundleExists(this.getBaseBundleName(), this.getActualLocale());
+        DefaultI18NValidator.requireResourceBundleExist(this.getBaseBundleName(), this.getActualLocale());
         
         final ResourceBundle bundle = ResourceBundle.getBundle(this.getBaseBundleName(), this.getActualLocale());
         
-        return MessageFormat.format(bundle.getString(key), arguments);
+        String value = MessageFormat.format(PATTERN_KEY_NAME, key);
+        try {
+            value = MessageFormat.format(bundle.getString(key), arguments);
+            
+        } catch (MissingResourceException e) {
+        }
+        
+        return value;
     }
     
     @Override
