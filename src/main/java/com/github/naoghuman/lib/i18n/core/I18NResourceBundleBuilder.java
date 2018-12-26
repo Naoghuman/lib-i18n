@@ -90,7 +90,7 @@ public final class I18NResourceBundleBuilder {
     public interface FirstStep {
         
         /**
-         * Setter for the {@code path} and {@code base} name from the {@link java.util.ResourceBundle}.
+         * Setter for the {@code path} and {@code baseBundleName} from the {@link java.util.ResourceBundle}.
          * <p>
          * The format from {@code baseBundleName} is the package name and the base 
          * name from the bundle {@code point} ('.') separated.<br>

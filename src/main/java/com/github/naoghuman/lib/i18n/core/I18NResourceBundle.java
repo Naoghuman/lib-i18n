@@ -50,9 +50,9 @@ public interface I18NResourceBundle {
     /**
      * Returns the {@code baseBundleName} from the associated {@link java.util.ResourceBundle}.
      * 
-     * @return  the {@code baseName} from the {@code ResourceBundle}.
+     * @return  the {@code baseBundleName} from the {@code ResourceBundle}.
      * @since   0.1.0-PRERELEASE
-     * @version 0.6.0
+     * @version 0.7.0
      * @author  Naoghuman
      * @see     java.util.ResourceBundle
      */
