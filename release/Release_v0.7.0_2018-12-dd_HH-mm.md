@@ -22,6 +22,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 #62 [test] Add Unittests for no ResourceBundle in DefaultI18NResourceBundle.
 #60 [internal] Update the class DefaultI18NResourceBundle for 'key-not-found'.
 #53 [doc] Check possibility to update `docs` folder if in pom.xml a `release` will done.
+#42 [test] Add Unittests for 'key-not-found' in DefaultI18NResourceBundle.
 
 
 
