@@ -54,41 +54,6 @@ LINKS
 
 --------------------------------------------------------------------------------
 EXTRAS
- - Convention: Supported Locales, default Locale and actual Local.
-    - How to verify that the supported (default, actual) locales are supported 
-      from the ResourceBundles?
-    - What happen if a ResourceBundle with not existing Locale should be loaded?
-       - actualLocale will be defaultLocale if the actualLocale isn't supported.
-       - what happen if the defaultLocale isn't supported and not a ResourceBundle
-         exists for this case?
-
-        The PropertiesDemo sample program ships with three properties files:
-            LabelsBundle.properties    <--- Locale.ENGLISH 
-            // what happen if not exists?
-            // and Locale.ITALIAN is called?
-
-            LabelsBundle_de.properties <--- Locale.GERMAN
-            LabelsBundle_fr.properties <--- Locale.FRENCH
-
-        Locale[] supportedLocales = {
-            Locale.FRENCH,
-            Locale.GERMAN,
-            Locale.ENGLISH
-        };
-
-    @Override
-    public void setActualLocale(final Locale locale) {
-        DefaultI18NValidator.requireNonNull(locale);
-        
-        actualLocaleProperty.set(this.getSupportedLocales().contains(locale) ? locale : defaultLocale);
-    }
-
-    @Override
-    public void setDefaultLocale(final Locale locale) {
-        DefaultI18NValidator.requireNonNull(locale);
-        
-        defaultLocale = this.getSupportedLocales().contains(locale) ? locale : Locale.ENGLISH;
-    }
 
 --------------------------------------------------------------------------------
 

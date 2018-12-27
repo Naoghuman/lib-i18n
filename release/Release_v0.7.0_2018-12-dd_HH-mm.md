@@ -18,6 +18,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Enhancement
+#67 [test] Add Unittests for 'defaultLocale' not exists in DefaultI18NResourceBundleTest.
 #66 [internal] Add new method 'requireResourceBundleExists(...)' to DefaultI18NValidator.
 #62 [test] Add Unittests for no ResourceBundle in DefaultI18NResourceBundle.
 #60 [internal] Update the class DefaultI18NResourceBundle for 'key-not-found'.
