@@ -1,0 +1,74 @@
+--------------------------------------------------------------------------------
+CONCEPT <Features>
+--------------------------------------------------------------------------------
+INTENTION
+This new concept should describe the new section 'Features' in the ReadMe.
+
+Basicly the new section is a list from statements which describes the key points 
+from this library.
+
+--------------------------------------------------------------------------------
+SPECIFICATION
+
+Content
+* [Features](#Features)
+* [JavaDoc](#JavaDoc)
+* [Download](#Download)
+
+
+
+Features<a name="Features" />
+---
+
+In this section I want list the many features from the library `Lib-I18N`:
+
+1. The library `Lib-I18N` allowed the developer to bind a `.properties` pair (key 
+   / value) to a [StringBinding].
+2. Due to the conventions in this library (see previous section) the handling with 
+   the different main functionalities is very easy.
+3. With the builder [I18NResourceBundleBuilder] the developer can configure the 
+   [ResourceBundle] which contains the `key - value` pairs which will then be bind 
+   to a [Locale].
+4. The builder [I18NBindingBuilder] let the developer create a [StringBinding]. The 
+   StringBinding can created with a function from type [Callable&lt;String&gt;] or 
+   with a .properties `key` and optional `arguments`.
+5. To load a .properties `key` with optional `arguments` from the initialized 
+   [ResourceBundle] through the [I18NResourceBundleBuilder] the developer can use 
+   the builder [I18NMessageBuilder].
+6. Every `parameter` in all functionalities will be verified against minimal 
+   conditions with the internal validator [DefaultI18NValidator]. For example a 
+   `String` can't be `NULL` or `EMPTY`.
+7. All functionalities from the classes in the `core` and `internal` packages are 
+   tested with `Unittests`.
+8. The documentation is done very well with an extended `ReadMe` and well written 
+   [JavaDoc] commentaries.
+9. The library is `open source` and licensed under [General Public License 3.0].
+10. `Lib-I18N` is a [JavaFX] 8 library.
+11. The library is programmed with the IDE [NetBeans] as a [Maven] library.
+12. The library can easily integrated in a foreign project over [Maven Central].
+13. During the connection from the project with `Travis CI` automatically a build 
+    is performed with every commit.
+14. During the integration from different `badges` from `img.shield.io` the 
+    interested reader can easily inform himself about the `build` state, current 
+    release and which license is used for this library.
+
+[DefaultI18NValidator]:https://github.com/Naoghuman/lib-i18n/blob/master/src/main/java/com/github/naoghuman/lib/i18n/internal/DefaultI18NValidator.java
+
+--------------------------------------------------------------------------------
+LINKS
+ - ...
+
+--------------------------------------------------------------------------------
+EXTRAS
+ - ...
+
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+

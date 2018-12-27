@@ -36,6 +36,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 #64 [doc] Update JavaDoc for 'baseBundleName' in I18NResourceBundle and I18NResourceBundleBuilder.
 #63 [doc] Update the specification in I18NResourceBundleBuilder.
 #59 [doc] Update the section 'Intention' in the ReadMe.
+#58 [doc] Write new concept for new section 'Features' in the ReadMe.
 #57 [doc] Add maven coordinates for Lib-Logger in the ReadMe.
 #56 [doc] Add template for a concept paper to the folder 'concept'.
 #55 [doc] Write new concept for new section 'Convention' in the ReadMe.
