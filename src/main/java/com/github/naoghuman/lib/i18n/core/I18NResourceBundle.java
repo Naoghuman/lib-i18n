@@ -157,8 +157,8 @@ public interface I18NResourceBundle {
     /**
      * Sets the {@code default} {@link java.util.Locale}.
      * <p>
-     * If the {@code supported} Locales doesn't contained the {@code Locale} then 
-     * {@link java.util.Locale#ENGLISH} will be used instead.
+     * If the {@code supported} Locales doesn't contained the {@code default} Locale 
+     * then the {@link java.util.Locale#ENGLISH} will be used instead.
      * 
      * @param   locale the new {@code default} {@code Locale}.
      * @throws  NullPointerException     if {@code locale} is NULL.
@@ -186,8 +186,8 @@ public interface I18NResourceBundle {
     /**
      * Sets the {@code actual} {@link java.util.Locale}.
      * <p>
-     * If the {@code supported} Locales doesn't contained the {@code Locale} then 
-     * {@code default} {@code Locale} will be used instead.
+     * If the {@code supported} Locales doesn't contained the {@code actual} Locale
+     * then the {@code default} Locale will be used instead.
      * 
      * @param   locale the new {@code actual} {@code Locale}.
      * @throws  NullPointerException     if {@code locale} is NULL.

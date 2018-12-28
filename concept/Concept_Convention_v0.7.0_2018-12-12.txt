@@ -9,44 +9,30 @@ This new section should be added after the section 'Examples'.
 
 --------------------------------------------------------------------------------
 SPECIFICATION
-Convention: Base bundle name (ResourceBundle)
- - Description
-    - If the ResourceBundle with the defined 'baseBundleName' can't be found a 
-      MissingResourceException will be thrown.
- - Where
-    - com.github.naoghuman.lib.i18n.core.I18NResourceBundle#getMessage(String): String
-    - com.github.naoghuman.lib.i18n.core.I18NResourceBundle#getMessage(String, Object...): String
-    - com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder#build()
+__Convention__: 'baseBundleName' from ResourceBundle
+* If a ResourceBundle with the defined 'baseBundleName' can't be found a 
+  MissingResourceException will be thrown.
 
-Convention: 'Key not found'
- - Description
-    - If a key can't found in the defined ResourceBundle then no 'MissingResourceException'
-      will be thrown. Instead the hint '<key.name>' will returned.
-    - This convention guaranteed that the application don't interrupts unexpected 
-      if a 'key' wasn't found.
- - Where
-    - com.github.naoghuman.lib.i18n.core.I18NResourceBundle#getMessage(String): String
-    - com.github.naoghuman.lib.i18n.core.I18NResourceBundle#getMessage(String, Object...): String
+__Convention__: 'Key not found' in ResourceBundle
+* If a key can't be found in the defined ResourceBundle then no 'MissingResourceException'
+  will be thrown. Instead the String pattern '&lt;key&gt;' will returned.
 
-Convention: Supported Locales, default Locale and actual Local.
- - Description
-    - Supported Locales
-       - 
-    - Default Locale
-       - 
-    - Actual Locale
-       - 
- - Where
+__Convention__: Defined supported Locales, default and actual Locale.
+* Supported Locales  
+  Defines all supported Locales in the momentary session.
+* Default Locale  
+  If the supported Locales doesn't contained the default Locale then the Locale#ENGLISH
+  will be used instead.
+* Actual Locale  
+  If the upported Locales doesn't contained the actual Locale then the default Locale 
+  will be used instead.
 
-Convention: Basic validation
- - Description
-    - Every attribute in the builders and in all setters will be check against minimal 
-      preconditions with DefaultI18NValidator.
-    - Getters attributs will only checked if they are initial only instantiate and 
-      not declarated.
-    - For example a String will be validate if it's not NULL and not EMPTY.
- - Where
-    - com.github.naoghuman.lib.i18n.internal.DefaultI18NValidator
+__Convention__: Basic validation
+* Every attributes in the builders and in all setters will be check against minimal 
+  preconditions with [DefaultI18NValidator].
+* Getters attributs will only checked if they are initial only instantiate and not 
+  declarated.
+* For example a String will be validate if it's not NULL and not EMPTY.
 
 --------------------------------------------------------------------------------
 LINKS

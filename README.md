@@ -27,6 +27,7 @@ Content
     - [How to use the builder I18NResourceBundleBuilder](#HoToUsReBuBu)
     - [How to use the builder I18NBindingBuilder](#HoToUsBiBu)
     - [How to use the builder I18NMessageBuilder](#HoToUsMeBu)
+* [Conventions](#Conventions)
 * [JavaDoc](#JavaDoc)
 * [Download](#Download)
 * [Requirements](#Requirements)
@@ -266,6 +267,39 @@ public void lastStepWithArguments() {
 
 
 
+Conventions<a name="Conventions" />
+---
+
+In this chapter, the interested developer can find out all about the conventions 
+in the library `Lib-I18N`:
+
+__Convention__: 'baseBundleName' from ResourceBundle
+* If a [ResourceBundle] with the defined 'baseBundleName' can't be found a 
+  MissingResourceException will be thrown.
+
+__Convention__: 'Key not found' in ResourceBundle
+* If a key can't be found in the defined ResourceBundle then no 'MissingResourceException'
+  will be thrown. Instead the String pattern '&lt;key&gt;' will returned.
+
+__Convention__: Defined supported Locales, default and actual Locale.
+* Supported Locales  
+  Defines all supported [Locale]s in the momentary session.
+* Default Locale  
+  If the supported Locales doesn't contained the default Locale then the Locale#ENGLISH
+  will be used instead.
+* Actual Locale  
+  If the upported Locales doesn't contained the actual Locale then the default Locale 
+  will be used instead.
+
+__Convention__: Basic validation
+* Every attributes in the builders and in all setters will be check against minimal 
+  preconditions with [DefaultI18NValidator].
+* Getters attributs will only checked if they are initial only instantiate and not 
+  declarated.
+* For example a String will be validate if it's not NULL and not EMPTY.
+
+
+
 JavaDoc<a name="JavaDoc" />
 ---
 
@@ -396,6 +430,7 @@ You can reach me under <peter.rogge@yahoo.de>.
 [Overview]:https://github.com/Naoghuman/lib-i18n/releases
 [Pull Request]:https://help.github.com/articles/using-pull-requests
 [Release v0.6.1]:https://github.com/Naoghuman/lib-i18n/releases/tag/v0.6.1
+[MissingResourceException]:https://docs.oracle.com/javase/8/docs/api/java/util/MissingResourceException.html
 [ResourceBundle]:https://docs.oracle.com/javase/8/docs/api/java/util/ResourceBundle.html
 [Scene Builder]:https://gluonhq.com/products/scene-builder/
 [StringBinding]:https://docs.oracle.com/javase/8/javafx/api/javafx/beans/binding/StringBinding.html
