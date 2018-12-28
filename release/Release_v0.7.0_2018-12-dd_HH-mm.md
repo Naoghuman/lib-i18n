@@ -1,8 +1,8 @@
 Welcome to `Lib-I18n` with the new release `0.7.0`.
 
-The library `Lib-I18N` allowed the developer to bind a `.properties` pair (key / value) 
-to a [StringBinding]. This means that changing the language during runtime in a 
-[JavaFX] application is no longer a problem.  
+The library `Lib-I18N` allows a developer to bind a key-value pair of a`.properties` 
+file to a [StringBinding]. This makes it very easy to change the language during 
+runtime in a [JavaFX] application.  
 Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
@@ -31,6 +31,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Documentation
+#71 [doc] Update the library description in ReadMe and GitHub.
 #69 [doc] Write new section 'Conventions' in the ReadMe.
 #65 [doc] Update commentary for setActualLocale in Unittests.
 #64 [doc] Update JavaDoc for 'baseBundleName' in I18NResourceBundle and I18NResourceBundleBuilder.
