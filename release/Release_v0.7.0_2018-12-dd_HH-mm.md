@@ -31,6 +31,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Documentation
+#72 [doc] Show screenshots from 'App-Yin-Yang' in the section 'Intention' from the ReadMe.
 #71 [doc] Update the library description in ReadMe and GitHub.
 #70 [doc] Write new section 'Features' in the ReadMe.
 #69 [doc] Write new section 'Conventions' in the ReadMe.

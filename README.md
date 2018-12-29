@@ -15,9 +15,9 @@ file to a [StringBinding]. This makes it very easy to change the language during
 runtime in a [JavaFX] application.  
 Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
-A demo application which shows the features from this library can be found under 
-[App-I18N-Demo] (which is currently under development).
-* TODO Add screenshoot.
+_Image:_ Example integration [App-Yin-Yang]  
+![Integration_App-Yin-Yang_v0.7.0_2018-12-29_20-54.png][Integration_App-Yin-Yang_v0.7.0_2018-12-29_20-54]
+
 
 
 Content
@@ -439,12 +439,14 @@ You can reach me under <peter.rogge@yahoo.de>.
 
 
 [//]: # (Images)
+[Integration_App-Yin-Yang_v0.7.0_2018-12-29_20-54]:https://user-images.githubusercontent.com/8161815/50541765-ab6f7680-0bac-11e9-9a55-6111ffa1c70b.png
 [Lib-I18N_JavaDoc_v0.7.0_2018-12-29_18-16]:https://user-images.githubusercontent.com/8161815/50540648-faf67800-0b95-11e9-8d68-19d96f704309.png
 
 
 
 [//]: # (Links)
 [App-I18N-Demo]:https://github.com/Naoghuman/app-i18n-demo
+[App-Yin-Yang]:https://github.com/Naoghuman/app-yin-yang
 [Callable&lt;String&gt;]:https://docs.oracle.com/javase/8/docs/api/index.html?java/util/concurrent/Callable.html
 [DefaultI18NValidator]:https://github.com/Naoghuman/lib-i18n/blob/master/src/main/java/com/github/naoghuman/lib/i18n/internal/DefaultI18NValidator.java
 [Eclipse]:https://www.eclipse.org/
