@@ -28,6 +28,7 @@ Content
     - [How to use the builder I18NBindingBuilder](#HoToUsBiBu)
     - [How to use the builder I18NMessageBuilder](#HoToUsMeBu)
 * [Conventions](#Conventions)
+* [Features](#Features)
 * [JavaDoc](#JavaDoc)
 * [Download](#Download)
 * [Requirements](#Requirements)
@@ -300,6 +301,43 @@ __Convention__: Basic validation
 
 
 
+Features<a name="Features" />
+---
+
+In this section I would like to list the many functions from the library `Lib-I18N`:
+
+1. The library `Lib-I18N` allows a developer to bind a key-value pair of a `.properties` 
+   file to a [StringBinding].
+2. Due to the conventions in this library (see previous section) the handling with 
+   the different main functionalities is very easy.
+3. With the builder [I18NResourceBundleBuilder] the developer can configure the 
+   [ResourceBundle] which contains the `key - value` pairs which will then be bind 
+   to a [Locale].
+4. The builder [I18NBindingBuilder] let the developer create a [StringBinding]. The 
+   StringBinding can created with a function from type [Callable&lt;String&gt;] or 
+   with a .properties `key` and optional `arguments`.
+5. To load a .properties `key` with optional `arguments` from the initialized 
+   [ResourceBundle] through the [I18NResourceBundleBuilder] the developer can use 
+   the builder [I18NMessageBuilder].
+6. Every `parameter` in all functionalities will be verified against minimal 
+   conditions with the internal validator [DefaultI18NValidator]. For example a 
+   `String` can't be `NULL` or `EMPTY`.
+7. All functionalities from the classes in the `core` and `internal` packages are 
+   tested with `Unittests`.
+8. The documentation is done very well with an extended `ReadMe` and well written 
+   [JavaDoc] commentaries.
+9. The library is `open source` and licensed under [General Public License 3.0].
+10. `Lib-I18N` is a [JavaFX] 8 library.
+11. The library is programmed with the IDE [NetBeans] as a [Maven] library.
+12. The library can easily integrated in a foreign project over [Maven Central].
+13. During the connection from the project with `Travis CI` automatically a build 
+    is performed with every commit.
+14. During the integration from different `badges` from `img.shield.io` the 
+    interested reader can easily inform himself about the `build` state, current 
+    release and which license is used for this library.
+
+
+
 JavaDoc<a name="JavaDoc" />
 ---
 
@@ -408,6 +446,7 @@ You can reach me under <peter.rogge@yahoo.de>.
 [//]: # (Links)
 [App-I18N-Demo]:https://github.com/Naoghuman/app-i18n-demo
 [Callable&lt;String&gt;]:https://docs.oracle.com/javase/8/docs/api/index.html?java/util/concurrent/Callable.html
+[DefaultI18NValidator]:https://github.com/Naoghuman/lib-i18n/blob/master/src/main/java/com/github/naoghuman/lib/i18n/internal/DefaultI18NValidator.java
 [Eclipse]:https://www.eclipse.org/
 [FXML]:http://docs.oracle.com/javafx/2/fxml_get_started/jfxpub-fxml_get_started.htm
 [General Public License 3.0]:http://www.gnu.org/licenses/gpl-3.0.en.html
@@ -426,6 +465,7 @@ You can reach me under <peter.rogge@yahoo.de>.
 [log4j-api-2.10.0.jar]:https://logging.apache.org/log4j/2.0/log4j-web/dependencies.html
 [log4j-core-2.10.0.jar]:https://logging.apache.org/log4j/2.0/log4j-web/dependencies.html
 [Maven]:http://maven.apache.org/
+[Maven Central]:https://search.maven.org/
 [NetBeans]:https://netbeans.org/
 [Overview]:https://github.com/Naoghuman/lib-i18n/releases
 [Pull Request]:https://help.github.com/articles/using-pull-requests
