@@ -8,8 +8,8 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Summary
-* ...
-* ...
+* Additional unit tests were added to increase the stability of the library.
+* Extend and update the documentation. Add new sections 'Conventions' and 'Features'.
 
 
 
