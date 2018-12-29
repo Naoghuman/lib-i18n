@@ -341,10 +341,10 @@ In this section I would like to list the many functions from the library `Lib-I1
 JavaDoc<a name="JavaDoc" />
 ---
 
-The [JavaDoc] from the library `Lib-I18N` can be explored here: [JavaDoc Lib-I18N v0.6.1]
+The [JavaDoc] from the library `Lib-I18N` can be explored here: [JavaDoc Lib-I18N]
 
-_Image:_ JavaDoc Lib-I18N v0.6.1  
-![Lib-I18N_JavaDoc_v0.6.1_2018-12-08_13-49.png][Lib-I18N_JavaDoc_v0.6.1_2018-12-08_13-49]
+_Image:_ JavaDoc Lib-I18N v0.7.0  
+![Lib-I18N_JavaDoc_v0.7.0_2018-12-29_18-16.png][Lib-I18N_JavaDoc_v0.7.0_2018-12-29_18-16]
 
 
 
@@ -439,7 +439,7 @@ You can reach me under <peter.rogge@yahoo.de>.
 
 
 [//]: # (Images)
-[Lib-I18N_JavaDoc_v0.6.1_2018-12-08_13-49]:https://user-images.githubusercontent.com/8161815/49686122-40bca500-faf0-11e8-866f-f1c76714883b.png
+[Lib-I18N_JavaDoc_v0.7.0_2018-12-29_18-16]:https://user-images.githubusercontent.com/8161815/50540648-faf67800-0b95-11e9-8d68-19d96f704309.png
 
 
 
@@ -456,7 +456,7 @@ You can reach me under <peter.rogge@yahoo.de>.
 [IntelliJ IDEA]:http://www.jetbrains.com/idea/
 [Issue]:https://github.com/Naoghuman/lib-i18n/issues
 [JavaDoc]:http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html
-[JavaDoc Lib-I18N v0.6.1]:http://naoghuman.github.io/lib-i18n/apidocs
+[JavaDoc Lib-I18N]:http://naoghuman.github.io/lib-i18n/apidocs
 [JavaFX]:http://docs.oracle.com/javase/8/javase-clienttechnologies.htm
 [JDK 8]:http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [JRE 8]:http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html

@@ -34,6 +34,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 #71 [doc] Update the library description in ReadMe and GitHub.
 #70 [doc] Write new section 'Features' in the ReadMe.
 #69 [doc] Write new section 'Conventions' in the ReadMe.
+#68 [doc] Update JavaDoc in 'docs/apidocs'.
 #65 [doc] Update commentary for setActualLocale in Unittests.
 #64 [doc] Update JavaDoc for 'baseBundleName' in I18NResourceBundle and I18NResourceBundleBuilder.
 #63 [doc] Update the specification in I18NResourceBundleBuilder.
