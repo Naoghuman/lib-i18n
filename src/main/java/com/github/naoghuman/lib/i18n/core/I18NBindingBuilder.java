@@ -57,6 +57,7 @@ import javafx.collections.ObservableMap;
  * <li>First with the usage from a function from type {@link java.util.concurrent.Callable}&lt;String&gt;,</li>
  * <li>second with the usage from a {@code key} with optional {@code arguments}.</li>
  * </ul>
+ * <p>
  * Hint:<br>
  * The {@code value} from the given {@code key} will be loaded from the previous 
  * configured {@link java.util.ResourceBundle} through the fluent builder 

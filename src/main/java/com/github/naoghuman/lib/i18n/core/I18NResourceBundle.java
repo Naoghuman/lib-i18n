@@ -29,6 +29,7 @@ import javafx.collections.ObservableList;
  * <li>Setting the {@code default} {@code Locale}.</li>
  * <li>and last setting the {@code actual} {@code Locale}.</li>
  * </ul>
+ * <p>
  * Access to the {@code ResourceBundle}:
  * <ul>
  * <li>Return directly the {@code value} from a given {@code key} as {@link java.lang.String}.</li>
@@ -67,6 +68,7 @@ public interface I18NResourceBundle {
      * <li>Package name to the bundle,  '.' (point) separated.</li>
      * <li>Base name from the bundles.</li>
      * </ul>
+     * <p>
      * Example:
      * <ul>
      * <li>Package: com.github.naoghuman.app.i18n.demo</li>

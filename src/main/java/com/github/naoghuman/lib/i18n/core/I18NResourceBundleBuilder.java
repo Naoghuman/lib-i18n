@@ -98,6 +98,7 @@ public final class I18NResourceBundleBuilder {
          * <ul>
          * <li>com.github.naoghuman.app.i18n.demo.message</li>
          * </ul>
+         * <p>
          * where {@code com.github.naoghuman.app.i18n.demo} is the package and 
          * {@code message} the base bundle name.
          * 

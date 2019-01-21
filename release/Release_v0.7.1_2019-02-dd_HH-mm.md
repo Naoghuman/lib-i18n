@@ -26,6 +26,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Documentation
+#77 [doc] Add tag 'p' after all lists in JavaDoc.
 #76 [doc] Update JavaDoc in I18NBinding.
 
 

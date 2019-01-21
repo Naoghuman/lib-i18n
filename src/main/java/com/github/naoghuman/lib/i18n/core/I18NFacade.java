@@ -18,11 +18,11 @@ package com.github.naoghuman.lib.i18n.core;
 
 import com.github.naoghuman.lib.i18n.internal.DefaultI18NBinding;
 import com.github.naoghuman.lib.i18n.internal.DefaultI18NResourceBundle;
-import javafx.beans.binding.StringBinding;
-import javafx.beans.property.ObjectProperty;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.concurrent.Callable;
+import javafx.beans.binding.StringBinding;
+import javafx.beans.property.ObjectProperty;
 import javafx.collections.ObservableList;
 
 /**
@@ -39,6 +39,7 @@ import javafx.collections.ObservableList;
  * <li>{@link com.github.naoghuman.lib.i18n.core.I18NMessageBuilder}: 
  *     Allowed the developer to access the messages from the bundle.</li>
  * </ul>
+ * <p>
  * is preferred.
  * 
  * @since   0.1.0-PRERELEASE
