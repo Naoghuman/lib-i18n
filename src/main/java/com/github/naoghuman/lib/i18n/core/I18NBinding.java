@@ -22,7 +22,7 @@ import javafx.beans.binding.StringBinding;
 /**
  * This {@code Interface} gives the developer the possibilities to create a 
  * {@link javafx.beans.binding.StringBinding} which is associated with a 
- * {@code key} / value} pair from a {@link java.util.ResourceBundle}.
+ * {@code key / value} pair from a {@link java.util.ResourceBundle}.
  * <p>
  * To associated a {@code key} with a {@code StringBinding} the developer can use 
  * on the one side the methods which will expected directly a {@code key} (with 
