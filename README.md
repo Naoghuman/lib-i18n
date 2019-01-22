@@ -279,8 +279,9 @@ __Convention__: 'baseBundleName' from ResourceBundle
   MissingResourceException will be thrown.
 
 __Convention__: 'Key not found' in ResourceBundle
-* If a key can't be found in the defined ResourceBundle then no 'MissingResourceException'
-  will be thrown. Instead the String pattern '&lt;key&gt;' will returned.
+* If a key can't be found in the defined ResourceBundle then
+    * the String pattern '&lt;key&gt;' will returned instead and
+    * the 'warning' message will be logged: "Can't find key(%s) in resourcebundle. Return: %s"
 
 __Convention__: Defined supported Locales, default and actual Locale.
 * Supported Locales  

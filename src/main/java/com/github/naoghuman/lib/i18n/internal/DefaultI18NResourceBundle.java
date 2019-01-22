@@ -17,6 +17,7 @@
 package com.github.naoghuman.lib.i18n.internal;
 
 import com.github.naoghuman.lib.i18n.core.I18NResourceBundle;
+import com.github.naoghuman.lib.logger.core.LoggerFacade;
 import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.List;
@@ -92,7 +93,10 @@ public final class DefaultI18NResourceBundle implements I18NResourceBundle {
         String value = MessageFormat.format(PATTERN_KEY_NAME, key);
         try {
             value = bundle.getString(key);
-        } catch (MissingResourceException e) {
+        } catch (MissingResourceException mre) {
+            LoggerFacade.getDefault().warn(this.getClass(), 
+                    String.format("Can't find key(%s) in resourcebundle. Return: %s", key, value), 
+                    mre);
         }
         
         return value;
@@ -109,8 +113,10 @@ public final class DefaultI18NResourceBundle implements I18NResourceBundle {
         String value = MessageFormat.format(PATTERN_KEY_NAME, key);
         try {
             value = MessageFormat.format(bundle.getString(key), arguments);
-            
-        } catch (MissingResourceException e) {
+        } catch (MissingResourceException mre) {
+            LoggerFacade.getDefault().warn(this.getClass(), 
+                    String.format("Can't find key(%s) in resourcebundle. Return: %s", key, value), 
+                    mre);
         }
         
         return value;
