@@ -88,17 +88,15 @@ public final class DefaultI18NResourceBundle implements I18NResourceBundle {
         DefaultI18NValidator.requireNonNullAndNotEmpty(key);
         DefaultI18NValidator.requireResourceBundleExist(this.getBaseBundleName(), this.getActualLocale());
         
-        final ResourceBundle bundle = getResourceBundle();
-        String value = MessageFormat.format(PATTERN_KEY_NAME, key);
+        final ResourceBundle bundle = ResourceBundle.getBundle(this.getBaseBundleName(), this.getActualLocale());
         
-        if (bundle != null) {
-            try {
-                value = bundle.getString(key);
-            } catch (MissingResourceException mre) {
-                LoggerFacade.getDefault().warn(this.getClass(), 
-                        String.format("Can't find key(%s) in resourcebundle. Return: %s", key, value), 
-                        mre);
-            }
+        String value = MessageFormat.format(PATTERN_KEY_NAME, key);
+        try {
+            value = bundle.getString(key);
+        } catch (MissingResourceException mre) {
+            LoggerFacade.getDefault().warn(this.getClass(), 
+                    String.format("Can't find key(%s) in resourcebundle. Return: %s", key, value), 
+                    mre);
         }
         
         return value;
@@ -110,34 +108,18 @@ public final class DefaultI18NResourceBundle implements I18NResourceBundle {
         DefaultI18NValidator.requireNonNullAndNotEmpty(arguments);
         DefaultI18NValidator.requireResourceBundleExist(this.getBaseBundleName(), this.getActualLocale());
         
-        final ResourceBundle bundle = getResourceBundle();
+        final ResourceBundle bundle = ResourceBundle.getBundle(this.getBaseBundleName(), this.getActualLocale());
+        
         String value = MessageFormat.format(PATTERN_KEY_NAME, key);
-        
-        if (bundle != null) {
-            try {
-                value = MessageFormat.format(bundle.getString(key), arguments);
-            } catch (MissingResourceException mre) {
-                LoggerFacade.getDefault().warn(this.getClass(), 
-                        String.format("Can't find key(%s) in resourcebundle. Return: %s", key, value), 
-                        mre);
-            }
-        }
-        
-        return value;
-    }
-    
-    private ResourceBundle getResourceBundle() {
-        ResourceBundle bundle = null;
         try {
-            bundle = ResourceBundle.getBundle(this.getBaseBundleName(), this.getActualLocale());
+            value = MessageFormat.format(bundle.getString(key), arguments);
         } catch (MissingResourceException mre) {
-            LoggerFacade.getDefault().error(this.getClass(), 
-                    String.format("Can't access the ResourceBundle[path=%s, actual-locale=%s]", 
-                            this.getBaseBundleName(), this.getActualLocale().getDisplayLanguage()), 
+            LoggerFacade.getDefault().warn(this.getClass(), 
+                    String.format("Can't find key(%s) in resourcebundle. Return: %s", key, value), 
                     mre);
         }
         
-        return bundle;
+        return value;
     }
     
     @Override

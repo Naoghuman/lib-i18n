@@ -22,7 +22,6 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Bug
-#79 [bug] If the ResourceBundle doesn't exist then a spezific MissingResourceException will thrown.
 
 
 
@@ -47,7 +46,6 @@ Naoghuman
 
 
 [//]: # (Issues which will be integrated in this release)
-#74 [doc] Update every sub-section from 'Conventions'. Add examples to them.
 
 
 

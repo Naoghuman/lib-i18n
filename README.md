@@ -28,10 +28,6 @@ Content
     - [How to use the builder I18NBindingBuilder](#HoToUsBiBu)
     - [How to use the builder I18NMessageBuilder](#HoToUsMeBu)
 * [Conventions](#Conventions)
-    - [Convention: 'baseBundleName' from ResourceBundle](#CoBaFrRe)
-    - [Convention: 'Key not found' in ResourceBundle](#CoKeInReBu)
-    - [Convention: Defined supported Locales, default and actual Locale](#CoDeSuDeAcLo)
-    - [Convention: Basic validation](#CoBaVa)
 * [Features](#Features)
 * [JavaDoc](#JavaDoc)
 * [Download](#Download)
@@ -245,7 +241,7 @@ public void lastStepWithoutArguments() {
             .build();
     assertEquals("RB: Test title", result);
 }
-
+    
 @Test
 public void lastStepWithArguments() {
     I18NResourceBundleBuilder.configure()
@@ -276,242 +272,33 @@ Conventions<a name="Conventions" />
 ---
 
 In this chapter, the interested developer can find out all about the conventions 
-from the library `Lib-I18N`:
+in the library `Lib-I18N`:
 
-### Convention: 'baseBundleName' from ResourceBundle<a name="CoBaFrRe" />
+__Convention__: 'baseBundleName' from ResourceBundle
+* If a [ResourceBundle] with the defined 'baseBundleName' can't be found a 
+  MissingResourceException will be thrown.
 
-If a [ResourceBundle] with the defined 'baseBundleName' can't be found a spezific 
-MissingResourceException will be thrown.
+__Convention__: 'Key not found' in ResourceBundle
+* If a key can't be found in the defined ResourceBundle then
+    * the String pattern '&lt;key&gt;' will returned instead and
+    * the 'warning' message will be logged: "Can't find key(%s) in resourcebundle. Return: %s"
 
-```java
-public final class DefaultI18NResourceBundle implements I18NResourceBundle {
-    ...
-    private ResourceBundle getResourceBundle() {
-        ResourceBundle bundle = null;
-        try {
-            bundle = ResourceBundle.getBundle(this.getBaseBundleName(), this.getActualLocale());
-        } catch (MissingResourceException mre) {
-            LoggerFacade.getDefault().error(this.getClass(), 
-                    String.format("Can't access the ResourceBundle[path=%s, actual-locale=%s]", 
-                            this.getBaseBundleName(), this.getActualLocale().getDisplayLanguage()), 
-                    mre);
-        }
-        
-        return bundle;
-    }
-    ...
-}
-```
-
-### Convention: 'Key not found' in ResourceBundle<a name="CoKeInReBu" />
-
-If a key can't be found in the defined ResourceBundle then
-* the String pattern '&lt;key&gt;' will returned instead and
-* the 'warning' message will be logged: "Can't find key(%s) in resourcebundle. Return: %s"
-
-```java
-public final class DefaultI18NResourceBundle implements I18NResourceBundle {
-    ...
-    @Override
-    public String getMessage(final String key, final Object... arguments) {
-        DefaultI18NValidator.requireNonNullAndNotEmpty(key);
-        DefaultI18NValidator.requireNonNullAndNotEmpty(arguments);
-        DefaultI18NValidator.requireResourceBundleExist(this.getBaseBundleName(), this.getActualLocale());
-        
-        final ResourceBundle bundle = getResourceBundle();
-        String value = MessageFormat.format(PATTERN_KEY_NAME, key);
-        
-        if (bundle != null) {
-            try {
-                value = MessageFormat.format(bundle.getString(key), arguments);
-            } catch (MissingResourceException mre) {
-                LoggerFacade.getDefault().warn(this.getClass(), 
-                        String.format("Can't find key(%s) in resourcebundle. Return: %s", key, value), 
-                        mre);
-            }
-        }
-        
-        return value;
-    }
-    ...
-}
-```
-
-
-### Convention: Defined supported Locales, default and actual Locale<a name="CoDeSuDeAcLo" />
-
-_Supported Locales_
-* Defines all supported [Locale]s in the momentary session.
-
-```java
-public final class I18NResourceBundleBuilder {
-    ...
-    private static final class I18NResourceBundleBuilderImpl implements
-            FirstStep,  ForthStep, LastStep, SecondStep, ThirdStep
-    {
-        ...
-        @Override
-        public ThirdStep supportedLocales(final Locale... locales) {
-            LoggerFacade.getDefault().debug(this.getClass(), "I18NResourceBundleBuilderImpl.supportedLocales(Locale...)"); // NOI18N
-            
-            final List<Locale> list = Arrays.asList(locales);
-            DefaultI18NValidator.requireNonNullAndNotEmpty(list);
-            
-            final ObservableList<Locale> observableList = FXCollections.observableArrayList();
-            observableList.addAll(list);
-            properties.put(ATTR__SUPPORTED_LOCALES, new SimpleObjectProperty(observableList));
-            
-            return this;
-        }
-
-        @Override
-        public ThirdStep supportedLocales(final ObservableList<Locale> locales) {
-            LoggerFacade.getDefault().debug(this.getClass(), "I18NResourceBundleBuilderImpl.supportedLocales(ObservableList<Locale>)"); // NOI18N
-            
-            DefaultI18NValidator.requireNonNullAndNotEmpty(locales);
-            properties.put(ATTR__SUPPORTED_LOCALES, new SimpleObjectProperty(locales));
-            
-            return this;
-        }
-        ...
-    }
-}
-```
-
-```java
-public final class I18NFacade implements I18NBinding, I18NResourceBundle {
-    ...
-    @Override
-    public ObservableList<Locale> getSupportedLocales() {
-        return i18NResourceBundle.getSupportedLocales();
-    }
-
-    @Override
-    public void setSupportedLocales(final ObservableList<Locale> locales) {
-        i18NResourceBundle.setSupportedLocales(locales);
-    }
-
-    @Override
-    public void setSupportedLocales(final Locale... locales) {
-        i18NResourceBundle.setSupportedLocales(locales);
-    }
-    ...
-}
-```
-
-```java
-public final class DefaultI18NResourceBundle implements I18NResourceBundle {
-    ...
-    @Override
-    public ObservableList<Locale> getSupportedLocales() {
-        DefaultI18NValidator.requireNonNull(supportedLocales);
-        
-        return supportedLocales;
-    }
-
-    @Override
-    public void setSupportedLocales(final ObservableList<Locale> locales) {
-        DefaultI18NValidator.requireNonNullAndNotEmpty(locales);
-        
-        supportedLocales.clear();
-        supportedLocales.addAll(locales);
-    }
-
-    @Override
-    public void setSupportedLocales(final Locale... locales) {
-        final List<Locale> list = Arrays.asList(locales);
-        DefaultI18NValidator.requireNonNullAndNotEmpty(list);
-        
-        supportedLocales.clear();
-        supportedLocales.addAll(list);
-    }
-    ...
-}
-```
-
-_Default Locale_
-* If the supported Locales doesn't contained the default Locale then the Locale#ENGLISH
+__Convention__: Defined supported Locales, default and actual Locale.
+* Supported Locales  
+  Defines all supported [Locale]s in the momentary session.
+* Default Locale  
+  If the supported Locales doesn't contained the default Locale then the Locale#ENGLISH
+  will be used instead.
+* Actual Locale  
+  If the upported Locales doesn't contained the actual Locale then the default Locale 
   will be used instead.
 
-```java
-```
-
-```java
-```
-
-```java
-```
-
-_Actual Locale_
-* If the upported Locales doesn't contained the actual Locale then the default Locale 
-  will be used instead.
-
-```java
-```
-
-
-### Convention: Basic validation<a name="CoBaVa" />
-
-* Every `functionality` in the builders and in the default implementations will checked 
-  against minimal preconditions with the validator [DefaultI18NValidator].
-* `Getters` and `Setters` functionalities are only checked if they are initial only 
-  instantiate and not declarated.
+__Convention__: Basic validation
+* Every attributes in the builders and in all setters will be check against minimal 
+  preconditions with [DefaultI18NValidator].
+* Getters attributs will only checked if they are initial only instantiate and not 
+  declarated.
 * For example a String will be validate if it's not NULL and not EMPTY.
-
-```java
-public final class I18NResourceBundleBuilder {
-    ...
-    private static final class I18NResourceBundleBuilderImpl implements
-            FirstStep,  ForthStep, LastStep, SecondStep, ThirdStep
-    {
-        ...
-        @Override
-        public SecondStep baseBundleName(final String baseBundleName) {
-            LoggerFacade.getDefault().debug(this.getClass(), "I18NResourceBundleBuilderImpl.baseBundleName(String)"); // NOI18N
-            
-            DefaultI18NValidator.requireNonNullAndNotEmpty(baseBundleName);
-            properties.put(ATTR__BASE_BUNDLE_NAME, new SimpleStringProperty(baseBundleName));
-            
-            return this;
-        }
-        ...
-    }
-}
-```
-
-```java
-public final class DefaultI18NResourceBundle implements I18NResourceBundle {
-    ...
-    @Override
-    public String getBaseBundleName() {
-        DefaultI18NValidator.requireNonNullAndNotEmpty(baseBundleName);
-        
-        return baseBundleName;
-    }
-
-    @Override
-    public void setBaseBundleName(final String baseBundleName) {
-        DefaultI18NValidator.requireNonNullAndNotEmpty(baseBundleName);
-        
-        this.baseBundleName = baseBundleName;
-    }
-    ...
-}
-```
-
-```java
-public final class DefaultI18NBinding implements I18NBinding {
-    ...
-    @Override
-    public StringBinding createStringBinding(final String key, Object... arguments) {
-        DefaultI18NValidator.requireNonNullAndNotEmpty(key);
-        DefaultI18NValidator.requireNonNullAndNotEmpty(arguments);
-        
-        return Bindings.createStringBinding(() -> I18NFacade.getDefault().getMessage(key, arguments), I18NFacade.getDefault().actualLocaleProperty());
-    }
-    ...
-}
-```
 
 
 
