@@ -29,6 +29,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 #### Documentation
 #77 [doc] Add tag 'p' after all lists in JavaDoc.
 #76 [doc] Update JavaDoc in I18NBinding.
+#74 [doc] Update every sub-section from 'Conventions'. Add examples to them.
 #73 [doc] Update section 'Conventions', sub-section 'key-not-found'.
 
 
@@ -47,7 +48,6 @@ Naoghuman
 
 
 [//]: # (Issues which will be integrated in this release)
-#74 [doc] Update every sub-section from 'Conventions'. Add examples to them.
 
 
 
