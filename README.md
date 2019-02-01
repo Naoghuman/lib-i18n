@@ -450,7 +450,7 @@ public final class DefaultI18NResourceBundle implements I18NResourceBundle {
 ```
 
 _Actual Locale_
-* If the upported Locales doesn't contained the actual Locale then the `default` Locale instead 
+* If the supported Locales doesn't contained the actual Locale then the `default` Locale instead 
   will be return.
 
 ```java
