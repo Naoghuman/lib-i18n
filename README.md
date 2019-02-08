@@ -34,6 +34,8 @@ Content
     - [Convention: Defined supported Locales, default and actual Locale](#CoDeSuDeAcLo)
     - [Convention: Basic validation](#CoBaVa)
 * [Features](#Features)
+    - [Main library featureas](#MaLiFe)
+    - [General library features](#GeLiFe)
 * [JavaDoc](#JavaDoc)
 * [Download](#Download)
 * [Requirements](#Requirements)
@@ -536,37 +538,43 @@ public final class DefaultI18NBinding implements I18NBinding {
 Features<a name="Features" />
 ---
 
-In this section I would like to list the many functions from the library `Lib-I18N`:
+### Main library featureas<a name="MaLiFe" />
 
-1. The library `Lib-I18N` allows a developer to bind a key-value pair of a `.properties` 
-   file to a [StringBinding].
-2. Due to the conventions in this library (see previous section) the handling with 
-   the different main functionalities is very easy.
-3. With the builder [I18NResourceBundleBuilder] the developer can configure the 
+In this sub-section all main features from the library 'Lib-I18N' are listed:
+
+1. The library `Lib-I18N` allows a developer to bind a key with its associated value
+   of a `.properties` file to a [StringBinding].
+2. With the builder [I18NResourceBundleBuilder] the developer can configure the 
    [ResourceBundle] which contains the `key - value` pairs which will then be bind 
-   to a [Locale].
-4. The builder [I18NBindingBuilder] let the developer create a [StringBinding]. The 
+   to a `actual` [Locale].
+3. The builder [I18NBindingBuilder] let the developer create a [StringBinding]. The 
    StringBinding can created with a function from type [Callable&lt;String&gt;] or 
    with a .properties `key` and optional `arguments`.
-5. To load a .properties `key` with optional `arguments` from the initialized 
+4. To load a .properties `key` with optional `arguments` from the initialized 
    [ResourceBundle] through the [I18NResourceBundleBuilder] the developer can use 
    the builder [I18NMessageBuilder].
-6. Every `parameter` in all functionalities will be verified against minimal 
-   conditions with the internal validator [DefaultI18NValidator]. For example a 
-   `String` can't be `NULL` or `EMPTY`.
+
+
+### General library features<a name="GeLiFe" />
+
+This sub-section list all general features from the library 'Lib-I18N':
+
+1. The library `Lib-I18N` is `open source` and licensed under [General Public License 3.0].
+2. The library is written in `Java` and [JavaFX].
+3. The library is programmed with the IDE [NetBeans] as a [Maven] library.
+4. The library can easily integrated into a foreign project over [Maven Central].
+5. Due to the connection of the project with [Travis CI], a build is automatically 
+   executed at each commit.
+6. By integrating various "badges" from "img.shield.io", interested readers can 
+   easily find out about the "build" state, the current version and the license 
+   used for this library.
 7. All functionalities from the classes in the `core` and `internal` packages are 
    tested with `Unittests`.
-8. The documentation is done very well with an extended `ReadMe` and well written 
-   [JavaDoc] commentaries.
-9. The library is `open source` and licensed under [General Public License 3.0].
-10. `Lib-I18N` is a [JavaFX] 8 library.
-11. The library is programmed with the IDE [NetBeans] as a [Maven] library.
-12. The library can easily integrated in a foreign project over [Maven Central].
-13. During the connection from the project with `Travis CI` automatically a build 
-    is performed with every commit.
-14. During the integration from different `badges` from `img.shield.io` the 
-    interested reader can easily inform himself about the `build` state, current 
-    release and which license is used for this library.
+8. Every `parameter` in all functionalities will be verified against minimal 
+   conditions with the internal validator [DefaultI18NValidator]. For example a 
+   `String` can't be `NULL` or `EMPTY`.
+9. The documentation from the library is available with an extended `ReadMe` and 
+   well-described [JavaDoc] comments.
 
 
 
@@ -708,4 +716,5 @@ You can reach me under <peter.rogge@yahoo.de>.
 [ResourceBundle]:https://docs.oracle.com/javase/8/docs/api/java/util/ResourceBundle.html
 [Scene Builder]:https://gluonhq.com/products/scene-builder/
 [StringBinding]:https://docs.oracle.com/javase/8/javafx/api/javafx/beans/binding/StringBinding.html
+[Travis CI]:https://travis-ci.org/
 [UML]:https://en.wikipedia.org/wiki/Unified_Modeling_Language
