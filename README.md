@@ -583,8 +583,8 @@ JavaDoc<a name="JavaDoc" />
 
 The [JavaDoc] from the library `Lib-I18N` can be explored here: [JavaDoc Lib-I18N]
 
-_Image:_ JavaDoc Lib-I18N v0.7.0  
-![Lib-I18N_JavaDoc_v0.7.0_2018-12-29_18-16.png][Lib-I18N_JavaDoc_v0.7.0_2018-12-29_18-16]
+_Image:_ JavaDoc Lib-I18N v0.7.1  
+![Lib-I18N_JavaDoc_v0.7.1_2019-02-10_19-19.png][Lib-I18N_JavaDoc_v0.7.1_2019-02-10_19-19]
 
 
 
@@ -680,7 +680,7 @@ You can reach me under <peter.rogge@yahoo.de>.
 
 [//]: # (Images)
 [Integration_App-Yin-Yang_v0.7.0_2018-12-29_20-54]:https://user-images.githubusercontent.com/8161815/50541765-ab6f7680-0bac-11e9-9a55-6111ffa1c70b.png
-[Lib-I18N_JavaDoc_v0.7.0_2018-12-29_18-16]:https://user-images.githubusercontent.com/8161815/50540648-faf67800-0b95-11e9-8d68-19d96f704309.png
+[Lib-I18N_JavaDoc_v0.7.1_2019-02-10_19-19]:https://user-images.githubusercontent.com/8161815/52537614-fa422b80-2d68-11e9-808a-a02ee5bf4154.png
 
 
 
