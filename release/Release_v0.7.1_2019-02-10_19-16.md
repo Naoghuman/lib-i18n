@@ -8,8 +8,8 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Summary
-* ...
-* ...
+* Update the section 'Conventions'. Add for every convention an example.
+* Restructure the section 'Features'. Split it into 'generall' and 'main' features.
 
 
 
