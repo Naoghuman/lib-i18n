@@ -313,6 +313,17 @@ If a `key` can't be found in the defined ResourceBundle then
 * the following 'warning' message will be logged: `"Can't find key(%s) in resourcebundle. Return: %s"`
 
 ```java
+2019-04-19 22:36:34,708  WARN  Can't find key(not.existing.key.in.existing.resourcebundle) in resourcebundle. Return: <not.existing.key.in.existing.resourcebundle>     [DefaultI18NResourceBundle]
+java.util.MissingResourceException: Can't find resource for bundle java.util.PropertyResourceBundle, key not.existing.key.in.existing.resourcebundle
+	at java.util.ResourceBundle.getObject(ResourceBundle.java:450) ~[?:1.8.0_201]
+	at java.util.ResourceBundle.getString(ResourceBundle.java:407) ~[?:1.8.0_201]
+	at com.github.naoghuman.lib.i18n.internal.DefaultI18NResourceBundle.getMessage(DefaultI18NResourceBundle.java:96) [classes/:?]
+	at com.github.naoghuman.lib.i18n.internal.DefaultI18NResourceBundleTest.getMessageWithResourceBundleThrowsMissingResourceException(DefaultI18NResourceBundleTest.java:110) [test-classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+        ...
+```
+
+```java
 public final class DefaultI18NResourceBundle implements I18NResourceBundle {
 
     private static final String PATTERN_KEY_NAME = "<{0}>"; // NO18N

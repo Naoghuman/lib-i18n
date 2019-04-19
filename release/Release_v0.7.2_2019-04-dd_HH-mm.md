@@ -14,14 +14,10 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Bug
-#83 [doc] Typo in first section in 'Examples'.
-#82 [doc] Typo in section 'Convention: Key not found'.
-#80 [doc] Typo in sub-section from 'Features'.
 
 
 
 #### Feature
-
 
 
 #### Enhancement
@@ -33,6 +29,10 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Documentation
+#84 [doc] Extend the example in the convention 'Key not found'.
+#83 [doc] Typo in first section in 'Examples'.
+#82 [doc] Typo in section 'Convention: Key not found'.
+#80 [doc] Typo in sub-section from 'Features'.
 
 
 
