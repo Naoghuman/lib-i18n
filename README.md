@@ -308,10 +308,9 @@ public final class DefaultI18NResourceBundle implements I18NResourceBundle {
 
 ### Convention: 'Key not found' in ResourceBundle<a name="CoKeInReBu" />
 
-If a `key` can't be found in the defined ResourceBundle then
-    * the String pattern '&lt;key&gt;' will returned and
-    * the following 'warning' message will be logged:  
-      `"Can't find key(%s) in resourcebundle. Return: %s"`
+If a `key` can't be found in the defined ResourceBundle then  
+* the String pattern '&lt;key&gt;' will returned and
+* the following 'warning' message will be logged: `"Can't find key(%s) in resourcebundle. Return: %s"`
 
 ```java
 public final class DefaultI18NResourceBundle implements I18NResourceBundle {
@@ -630,8 +629,8 @@ Requirements<a name="Requirements" />
 
 In the library are following libraries registered as dependencies:
 * The library [lib-logger-0.6.0.jar](#Installation).
-  * Included in `Lib-Logger` is the library [log4j-api-2.10.0.jar].
-  * Included is `Lib-Logger` is the library [log4j-core-2.10.0.jar].
+    - Included in `Lib-Logger` is the library [log4j-api-2.10.0.jar].
+    - Included is `Lib-Logger` is the library [log4j-core-2.10.0.jar].
 
 
 
