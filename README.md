@@ -34,7 +34,7 @@ Content
     - [Convention: Defined supported Locales, default and actual Locale](#CoDeSuDeAcLo)
     - [Convention: Basic validation](#CoBaVa)
 * [Features](#Features)
-    - [Main library featureas](#MaLiFe)
+    - [Main library features](#MaLiFe)
     - [General library features](#GeLiFe)
 * [JavaDoc](#JavaDoc)
 * [Download](#Download)
@@ -538,7 +538,7 @@ public final class DefaultI18NBinding implements I18NBinding {
 Features<a name="Features" />
 ---
 
-### Main library featureas<a name="MaLiFe" />
+### Main library features<a name="MaLiFe" />
 
 In this sub-section all main features from the library 'Lib-I18N' are listed:
 
