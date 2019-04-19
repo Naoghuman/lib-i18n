@@ -1,4 +1,4 @@
-Welcome to `Lib-I18n` with the new release `x.y.z`.
+Welcome to `Lib-I18n` with the new release `0.7.2`.
 
 The library `Lib-I18N` allows a developer to bind a key-value pair of a`.properties` 
 file to a [StringBinding]. This makes it very easy to change the language during 
