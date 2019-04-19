@@ -55,7 +55,7 @@ Examples<a name="Examples" />
 With the builder [I18NResourceBundleBuilder] the developer can configure the 
 [ResourceBundle] which contains the `key - value` terms which will then be bind 
 to a [Locale]. That means switching the `actual` Locale update all binded textes 
-with the specific value from the corresponding language `.properties` file.
+with the specific values from the corresponding language `.properties` file.
 
 #### Specification: _Usage of I18NResourceBundleBuilder_
 ```java

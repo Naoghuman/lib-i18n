@@ -14,6 +14,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Bug
+#83 [doc] Typo in first section in 'Examples'.
 
 
 
