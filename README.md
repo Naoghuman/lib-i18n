@@ -314,6 +314,8 @@ If a `key` can't be found in the defined ResourceBundle then
 
 ```java
 public final class DefaultI18NResourceBundle implements I18NResourceBundle {
+
+    private static final String PATTERN_KEY_NAME = "<{0}>"; // NO18N
     ...
     @Override
     public String getMessage(final String key, final Object... arguments) {
