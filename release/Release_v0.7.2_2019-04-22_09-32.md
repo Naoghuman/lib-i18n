@@ -8,8 +8,8 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Summary
-* ...
-* ...
+* This is a minor release.
+* Some typos in the ReadMe are fixed.
 
 
 
