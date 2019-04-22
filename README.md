@@ -595,17 +595,17 @@ JavaDoc<a name="JavaDoc" />
 
 The [JavaDoc] from the library `Lib-I18N` can be explored here: [JavaDoc Lib-I18N]
 
-_Image:_ JavaDoc Lib-I18N v0.7.1  
-![Lib-I18N_JavaDoc_v0.7.1_2019-02-10_19-19.png][Lib-I18N_JavaDoc_v0.7.1_2019-02-10_19-19]
+_Image:_ JavaDoc Lib-I18N v0.7.2  
+![Lib-I18N_JavaDoc_v0.7.2_2019-04-22_09-39.png][Lib-I18N_JavaDoc_v0.7.2_2019-04-22_09-39]
 
 
 
 Download<a name="Download" />
 ---
 
-Current `version` is `0.7.1`. Main points in this release are:
-* Update the section 'Conventions'. Add for every convention an example.
-* Restructure the section 'Features'. Split it into 'generall' and 'main' features.
+Current `version` is `0.7.2`. Main points in this release are:
+* This is a minor release.
+* Some typos in the ReadMe are fixed.
 
 **Maven coordinates**  
 In context from a [Maven] project you can use following maven coordinates: 
@@ -614,7 +614,7 @@ In context from a [Maven] project you can use following maven coordinates:
     <dependency>
         <groupId>com.github.naoghuman</groupId>
         <artifactId>lib-i18n</artifactId>
-        <version>0.7.1</version>
+        <version>0.7.2</version>
     </dependency>
 
     <!-- optional -->
@@ -627,7 +627,7 @@ In context from a [Maven] project you can use following maven coordinates:
 ```
 
 Download:
-* [Release v0.7.1] (02.10.2019 / MM.dd.yyyy)
+* [Release v0.7.2] (04.22.2019 / MM.dd.yyyy)
 
 An overview about all existings releases can be found here:
 * [Overview] from all releases in `Lib-I18N`.
@@ -638,7 +638,7 @@ Requirements<a name="Requirements" />
 ---
 
 * On your system you need [JRE 8] or [JDK 8] installed.
-* The library [lib-i18n-0.6.0.jar](#Installation).
+* The library [lib-i18n-0.7.2.jar](#Installation).
 
 In the library are following libraries registered as dependencies:
 * The library [lib-logger-0.6.0.jar](#Installation).
@@ -692,7 +692,7 @@ You can reach me under <peter.rogge@yahoo.de>.
 
 [//]: # (Images)
 [Integration_App-Yin-Yang_v0.7.0_2018-12-29_20-54]:https://user-images.githubusercontent.com/8161815/50541765-ab6f7680-0bac-11e9-9a55-6111ffa1c70b.png
-[Lib-I18N_JavaDoc_v0.7.1_2019-02-10_19-19]:https://user-images.githubusercontent.com/8161815/52537614-fa422b80-2d68-11e9-808a-a02ee5bf4154.png
+[Lib-I18N_JavaDoc_v0.7.2_2019-04-22_09-39]:https://user-images.githubusercontent.com/8161815/56489671-beeb7800-64e2-11e9-8553-803fc8d15dc8.png
 
 
 
@@ -723,7 +723,7 @@ You can reach me under <peter.rogge@yahoo.de>.
 [NetBeans]:https://netbeans.org/
 [Overview]:https://github.com/Naoghuman/lib-i18n/releases
 [Pull Request]:https://help.github.com/articles/using-pull-requests
-[Release v0.7.1]:https://github.com/Naoghuman/lib-i18n/releases/tag/v0.7.1
+[Release v0.7.2]:https://github.com/Naoghuman/lib-i18n/releases/tag/v0.7.2
 [MissingResourceException]:https://docs.oracle.com/javase/8/docs/api/java/util/MissingResourceException.html
 [ResourceBundle]:https://docs.oracle.com/javase/8/docs/api/java/util/ResourceBundle.html
 [Scene Builder]:https://gluonhq.com/products/scene-builder/
