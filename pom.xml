@@ -57,6 +57,21 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].</description>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.1</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/com/github/naoghuman/lib/i18n/*.java</exclude>
+                        <exclude>**/com/github/naoghuman/lib/i18n/*.fxml</exclude>
+                        <exclude>**/com/github/naoghuman/lib/i18n/*.css</exclude>
+                        <exclude>**/com/github/naoghuman/lib/i18n/*.properties</exclude>
+                        <exclude>**/com/github/naoghuman/lib/i18n/*.png</exclude>
+                        <exclude>**/com/github/naoghuman/lib/i18n/*.txt</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
                 <configuration>
@@ -118,17 +133,15 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].</description>
                  - Add here the suffixes from the files with should be included 
                    into the jar file.
             -->
-            <resource>
-                <directory>src/main/java</directory>
+           <resource>
+                <directory>src/test/resources</directory>
                 <includes>
+                    <include>**/*.fxml</include>
+                    <include>**/*.css</include>
+                    <include>**/*.png</include>
                     <include>**/*.properties</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>**/*.properties</include>
+                    <include>**/*.txt</include>
+                    <include>**/*.xml</include>
                 </includes>
             </resource>
         </resources>
@@ -139,6 +152,14 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].</description>
             <groupId>com.github.naoghuman</groupId>
             <artifactId>lib-logger</artifactId>
             <version>0.6.0</version>
+            <type>jar</type>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.github.naoghuman</groupId>
+            <artifactId>lib-fxml</artifactId>
+            <version>0.3.0-PRERELEASE</version>
+            <scope>test</scope>
             <type>jar</type>
         </dependency>
         

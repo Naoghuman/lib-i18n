@@ -18,6 +18,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Feature
+#86 [test] Create basic demo application structure.
 
 
 

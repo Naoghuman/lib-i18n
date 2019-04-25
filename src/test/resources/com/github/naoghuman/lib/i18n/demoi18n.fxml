@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane id="AnchorPane" prefHeight="540.0" prefWidth="960.0" styleClass="anchor-pane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <VBox layoutX="14.0" layoutY="14.0" spacing="7.0" styleClass="vbox-navigation" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Button fx:id="bGermany" contentDisplay="TOP" mnemonicParsing="false" text="German">
+                    <graphic>
+                        <ImageView fitHeight="64.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@Deutschland.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <padding>
+                        <Insets bottom="5.0" left="21.0" right="21.0" top="9.0" />
+                    </padding>
+                </Button>
+                <Button fx:id="bFrance" contentDisplay="TOP" mnemonicParsing="false" text="French">
+                    <graphic>
+                        <ImageView fitHeight="64.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@Frankreich.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <padding>
+                        <Insets bottom="5.0" left="21.0" right="21.0" top="9.0" />
+                    </padding>
+                </Button>
+                <Button fx:id="bItaly" contentDisplay="TOP" mnemonicParsing="false" text="Italian">
+                    <graphic>
+                        <ImageView fitHeight="64.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@Italien.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <padding>
+                        <Insets bottom="5.0" left="21.0" right="21.0" top="9.0" />
+                    </padding>
+                </Button>
+                <Button fx:id="bUnitedKingdom" contentDisplay="TOP" mnemonicParsing="false" text="English">
+                    <graphic>
+                        <ImageView fitHeight="64.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@Vereinigtes-Koenigreich.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <padding>
+                        <Insets bottom="5.0" left="21.0" right="21.0" top="9.0" />
+                    </padding>
+                </Button>
+            </children>
+            <padding>
+                <Insets bottom="14.0" left="28.0" right="28.0" top="14.0" />
+            </padding>
+        </VBox>
+        <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="194.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Text fx:id="tHello" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="hello">
+                    <font>
+                        <Font size="36.0" />
+                    </font>
+                </Text>
+                <TextFlow textAlignment="CENTER">
+                    <children>
+                        <Text fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Java">
+                            <font>
+                                <Font size="64.0" />
+                            </font>
+                        </Text>
+                        <Text fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="FX">
+                            <font>
+                                <Font name="System Italic" size="64.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </TextFlow>
+                <Text fx:id="tFrom" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="from">
+                    <font>
+                        <Font size="36.0" />
+                    </font>
+                </Text>
+                <Text fx:id="tLand" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="land">
+                    <font>
+                        <Font size="48.0" />
+                    </font>
+                </Text>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
