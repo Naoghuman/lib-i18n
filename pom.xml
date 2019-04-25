@@ -67,6 +67,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].</description>
                         <exclude>**/com/github/naoghuman/lib/i18n/*.properties</exclude>
                         <exclude>**/com/github/naoghuman/lib/i18n/*.png</exclude>
                         <exclude>**/com/github/naoghuman/lib/i18n/*.txt</exclude>
+                        <exclude>**/com/github/naoghuman/lib/i18n/internal/*.properties</exclude>
                     </excludes>
                 </configuration>
             </plugin>

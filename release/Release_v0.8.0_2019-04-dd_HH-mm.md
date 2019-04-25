@@ -14,6 +14,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Bug
+#88 [bug] Test .properties files are copied in the jar file.
 
 
 
@@ -49,6 +50,7 @@ Naoghuman
 
 
 [//]: # (Issues which will be integrated in this release)
+#90 [test] Implement functionalities in the demo to switch the language during runtime. // feature
 
 
 
