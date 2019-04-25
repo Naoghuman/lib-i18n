@@ -20,6 +20,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Feature
+#90 [test] Implement functionalities in the demo to switch the language during runtime.
 #86 [test] Create basic demo application structure.
 
 
@@ -51,7 +52,6 @@ Naoghuman
 
 
 [//]: # (Issues which will be integrated in this release)
-#90 [test] Implement functionalities in the demo to switch the language during runtime. // feature
 
 
 

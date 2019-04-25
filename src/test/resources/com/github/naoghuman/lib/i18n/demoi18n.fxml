@@ -14,7 +14,7 @@
     <children>
         <VBox layoutX="14.0" layoutY="14.0" spacing="7.0" styleClass="vbox-navigation" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Button fx:id="bGermany" contentDisplay="TOP" mnemonicParsing="false" text="German">
+                <Button fx:id="bGerman" contentDisplay="TOP" mnemonicParsing="false" onAction="#onActionSwitchToLanguageGerman" text="German">
                     <graphic>
                         <ImageView fitHeight="64.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -26,7 +26,7 @@
                         <Insets bottom="5.0" left="21.0" right="21.0" top="9.0" />
                     </padding>
                 </Button>
-                <Button fx:id="bFrance" contentDisplay="TOP" mnemonicParsing="false" text="French">
+                <Button fx:id="bFrench" contentDisplay="TOP" mnemonicParsing="false" onAction="#onActionSwitchToLanguageFrench" text="French">
                     <graphic>
                         <ImageView fitHeight="64.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -38,7 +38,7 @@
                         <Insets bottom="5.0" left="21.0" right="21.0" top="9.0" />
                     </padding>
                 </Button>
-                <Button fx:id="bItaly" contentDisplay="TOP" mnemonicParsing="false" text="Italian">
+                <Button fx:id="bItalian" contentDisplay="TOP" mnemonicParsing="false" onAction="#onActionSwitchToLanguageItalian" text="Italian">
                     <graphic>
                         <ImageView fitHeight="64.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -50,7 +50,7 @@
                         <Insets bottom="5.0" left="21.0" right="21.0" top="9.0" />
                     </padding>
                 </Button>
-                <Button fx:id="bUnitedKingdom" contentDisplay="TOP" mnemonicParsing="false" text="English">
+                <Button fx:id="bEnglish" contentDisplay="TOP" mnemonicParsing="false" onAction="#onActionSwitchToLanguageEnglish" text="English">
                     <graphic>
                         <ImageView fitHeight="64.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                             <image>

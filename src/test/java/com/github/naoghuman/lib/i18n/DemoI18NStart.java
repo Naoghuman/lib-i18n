@@ -16,9 +16,10 @@
  */
 package com.github.naoghuman.lib.i18n;
 
-import com.github.naoghuman.lib.fxml.core.FXMLRegisterable;
 import com.github.naoghuman.lib.fxml.core.FXMLView;
+import com.github.naoghuman.lib.i18n.core.I18NResourceBundleBuilder;
 import com.github.naoghuman.lib.logger.core.LoggerFacade;
+import java.util.Locale;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -30,7 +31,7 @@ import javafx.stage.Stage;
  * @version 0.8.0
  * @author  Naoghuman
  */
-public final class DemoI18NStart extends Application implements FXMLRegisterable {
+public final class DemoI18NStart extends Application {
     
     /**
      * 
@@ -49,7 +50,12 @@ public final class DemoI18NStart extends Application implements FXMLRegisterable
         
         LoggerFacade.getDefault().info(this.getClass(), "DemoI18NStart#init()"); // NOI18N
         
-        this.register();
+        I18NResourceBundleBuilder.configure()
+                .baseBundleName("com.github.naoghuman.lib.i18n.demo_i18n") // NOI18N
+                .supportedLocales(Locale.ENGLISH, Locale.FRENCH, Locale.GERMAN, Locale.ITALIAN)
+                .defaultLocale(Locale.ENGLISH)
+                .actualLocale(Locale.ENGLISH)
+                .build();
     }
     
     @Override
@@ -63,13 +69,6 @@ public final class DemoI18NStart extends Application implements FXMLRegisterable
         primaryStage.setScene(scene);
         
         primaryStage.show();
-    }
-
-    @Override
-    public void register() {
-        LoggerFacade.getDefault().info(this.getClass(), "DemoI18NStart#register()"); // NOI18N
-        
-        
     }
     
 }
