@@ -14,6 +14,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Bug
+#89 [bug] Test log4j2.xml is copied into the jar file.
 #88 [bug] Test .properties files are copied in the jar file.
 
 
