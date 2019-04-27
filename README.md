@@ -606,6 +606,11 @@ The demo applications shows how to integrate the library `Lib-I18N` in four simp
 _Image:_ Demo application
 ![Lib-I18N_Demo-English_v0.8.0_2019-04-27_16-14.png][Lib-I18N_Demo-English_v0.8.0_2019-04-27_16-14]
 
+__Hint:__  
+To run the demo local the library `Lib-FMXL v0.3.0-PRERELEASE` is needed which isn't 
+momentary available in `Maven Central`. The library can be downloaded manually here: 
+https://github.com/Naoghuman/lib-fxml
+
 ### Step one: Prepare your application<a name="DePrYoAp" />
 
 First inject the library 'Lib-I18N' into your project.  
