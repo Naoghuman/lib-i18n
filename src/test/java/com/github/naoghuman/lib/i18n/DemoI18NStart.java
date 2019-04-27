@@ -36,8 +36,8 @@ public final class DemoI18NStart extends Application {
     /**
      * 
      * @param   args 
-     * @since   0.3.0-PRERELEASE
-     * @version 0.3.0-PRERELEASE
+     * @since   0.8.0
+     * @version 0.8.0
      * @author  Naoghuman
      */
     public static void main(String[] args) {
@@ -50,6 +50,18 @@ public final class DemoI18NStart extends Application {
         
         LoggerFacade.getDefault().info(this.getClass(), "DemoI18NStart#init()"); // NOI18N
         
+        /**
+         * Step one:
+         *  - Inject the library 'Lib-I18N' into your project.
+         *  - Create for every supported language a .properties file.
+         */
+        
+        /**
+         * Step two:
+         *  - Register the ResourceBundle
+         *  - where 'supportedLocales' are corresponding to every .properties file
+         *  - and 'actualLocale' is the language which will shown first.
+         */
         I18NResourceBundleBuilder.configure()
                 .baseBundleName("com.github.naoghuman.lib.i18n.demo_i18n") // NOI18N
                 .supportedLocales(Locale.ENGLISH, Locale.FRENCH, Locale.GERMAN, Locale.ITALIAN)

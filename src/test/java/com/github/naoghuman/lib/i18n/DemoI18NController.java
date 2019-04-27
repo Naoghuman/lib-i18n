@@ -53,7 +53,11 @@ public final class DemoI18NController extends FXMLController implements Initiali
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         LoggerFacade.getDefault().info(this.getClass(), "DemoI18NController#initialize(URL, ResourceBundle)"); // NOI18N
-    
+        
+        /**
+         * Step three:
+         *  - Bind the text components to the depending key from the ResourceBundle.
+         */
         // Menu
         this.bind(lLanguages.textProperty(), "demo.i18n.languages");        // NOI18N
         this.bind(bFrench.textProperty(),    "demo.i18n.language.french");  // NOI18N
@@ -78,11 +82,16 @@ public final class DemoI18NController extends FXMLController implements Initiali
         });
     }
     
+    /**
+     * Step four:
+     *  - Change the 'actualLocale' depending from the user chooses...
+     *  - which will do then the magic :) .
+     */
     public void onActionSwitchToLanguageFrench() {
         LoggerFacade.getDefault().debug(this.getClass(), "DemoI18NController#onActionSwitchToLanguageFrench()"); // NOI18N
         
         if (I18NFacade.getDefault().getActualLocale().equals(Locale.FRENCH)) {
-            LoggerFacade.getDefault().debug(this.getClass(), "Shows already Locale.FRENCH - do nothing."); // NOI18N
+            LoggerFacade.getDefault().debug(this.getClass(), "Shows already the Locale.FRENCH - do nothing."); // NOI18N
             return;
         }
         
@@ -93,7 +102,7 @@ public final class DemoI18NController extends FXMLController implements Initiali
         LoggerFacade.getDefault().debug(this.getClass(), "DemoI18NController#onActionSwitchToLanguageGerman()"); // NOI18N
         
         if (I18NFacade.getDefault().getActualLocale().equals(Locale.GERMAN)) {
-            LoggerFacade.getDefault().debug(this.getClass(), "Shows already Locale.GERMAN - do nothing."); // NOI18N
+            LoggerFacade.getDefault().debug(this.getClass(), "Shows already the Locale.GERMAN - do nothing."); // NOI18N
             return;
         }
         
@@ -104,7 +113,7 @@ public final class DemoI18NController extends FXMLController implements Initiali
         LoggerFacade.getDefault().debug(this.getClass(), "DemoI18NController#onActionSwitchToLanguageItalian()"); // NOI18N
         
         if (I18NFacade.getDefault().getActualLocale().equals(Locale.ITALIAN)) {
-            LoggerFacade.getDefault().debug(this.getClass(), "Shows already Locale.ITALIAN - do nothing."); // NOI18N
+            LoggerFacade.getDefault().debug(this.getClass(), "Shows already the Locale.ITALIAN - do nothing."); // NOI18N
             return;
         }
         
@@ -115,7 +124,7 @@ public final class DemoI18NController extends FXMLController implements Initiali
         LoggerFacade.getDefault().debug(this.getClass(), "DemoI18NController#onActionSwitchToLanguageEnglish()"); // NOI18N
         
         if (I18NFacade.getDefault().getActualLocale().equals(Locale.ENGLISH)) {
-            LoggerFacade.getDefault().debug(this.getClass(), "Shows already Locale.ENGLISH - do nothing."); // NOI18N
+            LoggerFacade.getDefault().debug(this.getClass(), "Shows already the Locale.ENGLISH - do nothing."); // NOI18N
             return;
         }
         

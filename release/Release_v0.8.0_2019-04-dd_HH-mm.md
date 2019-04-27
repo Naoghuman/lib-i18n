@@ -35,6 +35,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Documentation
+#87 [doc] Add new section 'Demo'.
 #85 [doc] Switch the two sections 'Examples' and 'Features.
 
 

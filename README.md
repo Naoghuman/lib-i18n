@@ -16,8 +16,11 @@ file to a [StringBinding]. This makes it very easy to change the language during
 runtime in a [JavaFX] application.  
 Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
-_Image:_ Example integration [App-Yin-Yang]  
-![Integration_App-Yin-Yang_v0.7.0_2018-12-29_20-54.png][Integration_App-Yin-Yang_v0.7.0_2018-12-29_20-54]
+_Image:_ Demo integration from Lib-I18N  
+![Lib-I18N_Demo_v0.8.0_2019-04-27_16-24.png][Lib-I18N_Demo_v0.8.0_2019-04-27_16-24]
+
+The demo shows how easy an application becomes multilingual in four steps :smile: .  
+Plz see the section `Demo` for more informations.
 
 
 
@@ -36,6 +39,11 @@ Content
     - [How to use the builder I18NResourceBundleBuilder](#HoToUsReBuBu)
     - [How to use the builder I18NBindingBuilder](#HoToUsBiBu)
     - [How to use the builder I18NMessageBuilder](#HoToUsMeBu)
+* [Demo](#Demo)
+    - [Step one: Prepare your application](#DePrYoAp)
+    - [Step two: Register the ResourceBundle](#DeStTw)
+    - [Step three: Bind the text components](#DeStTh)
+    - [Step four: Switch the language during runtime](#DeStFo)
 * [JavaDoc](#JavaDoc)
 * [Download](#Download)
 * [Requirements](#Requirements)
@@ -590,6 +598,125 @@ public void lastStepWithArguments() {
 
 
 
+Demo<a name="Demo" />
+---
+
+The demo applications shows how to integrate the library `Lib-I18N` in four simple steps.
+
+_Image:_ Demo application
+![Lib-I18N_Demo-English_v0.8.0_2019-04-27_16-14.png][Lib-I18N_Demo-English_v0.8.0_2019-04-27_16-14]
+
+### Step one: Prepare your application<a name="DePrYoAp" />
+
+First inject the library 'Lib-I18N' into your project.  
+Then create for every supported language a .properties file.
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>com.github.naoghuman</groupId>
+        <artifactId>lib-i18n</artifactId>
+        <version>0.8.0</version>
+    </dependency>
+</dependencies>
+```
+
+_Image:_ Demo .properties files 
+![Lib-I18N_Demo-properties-files_v0.8.0_2019-04-27_17-33.png][Lib-I18N_Demo-properties-files_v0.8.0_2019-04-27_17-33]
+
+
+### Step two: Register the ResourceBundle<a name="DeStTw" />
+
+Next register the ResourceBundle where `supportedLocales` are corresponding to every existing .properties file and `actualLocale` is the language which will shown first.
+
+```java
+public final class DemoI18NStart extends Application {
+
+    @Override
+    public void init() throws Exception {
+        I18NResourceBundleBuilder.configure()
+                .baseBundleName("com.github.naoghuman.lib.i18n.demo_i18n") // NOI18N
+                .supportedLocales(Locale.ENGLISH, Locale.FRENCH, Locale.GERMAN, Locale.ITALIAN)
+                .defaultLocale(Locale.ENGLISH)
+                .actualLocale(Locale.ENGLISH)
+                .build();
+    }
+}
+```
+
+### Step three: Bind the text components<a name="DeStTh" />
+
+In the third step the text components will be bind to the depending key from the ResourceBundle.
+
+```java
+public final class DemoI18NController extends FXMLController implements Initializable {
+
+    @FXML private Button bFrench;
+    @FXML private Button bGerman;
+    @FXML private Button bItalian;
+    @FXML private Button bEnglish;
+    @FXML private Label lLanguages;
+    @FXML private Text tAbout;
+    @FXML private Text tFrom;
+    @FXML private Text tHello;
+    @FXML private Text tLand;
+
+    @Override
+    public void initialize(final URL location, final ResourceBundle resources) {
+        // Menu
+        this.bind(lLanguages.textProperty(), "demo.i18n.languages");        // NOI18N
+        this.bind(bFrench.textProperty(),    "demo.i18n.language.french");  // NOI18N
+        this.bind(bGerman.textProperty(),    "demo.i18n.language.german");  // NOI18N
+        this.bind(bItalian.textProperty(),   "demo.i18n.language.italian"); // NOI18N
+        this.bind(bEnglish.textProperty(),   "demo.i18n.language.english"); // NOI18N
+        
+        // Message
+        this.bind(tHello.textProperty(), "demo.i18n.greetings"); // NOI18N
+        this.bind(tFrom.textProperty(),  "demo.i18n.from");      // NOI18N
+        this.bind(tLand.textProperty(),  "demo.i18n.land");      // NOI18N
+        this.bind(tAbout.textProperty(), "demo.i18n.about");     // NOI18N
+    }
+
+    private void bind(final StringProperty stringProperty, final String key) {
+        final Optional<StringBinding> optionalStringBinding = I18NBindingBuilder.bind().key(key).build();
+        optionalStringBinding.ifPresent(stringBinding -> {
+            stringProperty.bind(stringBinding);
+        });
+    }
+}
+```
+
+### Step four: Switch the language during runtime<a name="DeStFo" />
+
+And in the last step the user will change the language in the runing application which leads to a change from the `actualLocale` which performs then the language update in the gui.
+
+```java
+public final class DemoI18NController extends FXMLController implements Initializable {
+
+    public void onActionSwitchToLanguageFrench() {
+        if (I18NFacade.getDefault().getActualLocale().equals(Locale.FRENCH)) {
+            LoggerFacade.getDefault().debug(this.getClass(), "Shows already the Locale.FRENCH - do nothing."); // NOI18N
+            return;
+        }
+        
+        I18NFacade.getDefault().setActualLocale(Locale.FRENCH);
+    }
+    
+    public void onActionSwitchToLanguageGerman() {
+        if (I18NFacade.getDefault().getActualLocale().equals(Locale.GERMAN)) {
+            LoggerFacade.getDefault().debug(this.getClass(), "Shows already the Locale.GERMAN - do nothing."); // NOI18N
+            return;
+        }
+        
+        I18NFacade.getDefault().setActualLocale(Locale.GERMAN);
+    }
+    
+    ...
+}
+```
+
+
+
 JavaDoc<a name="JavaDoc" />
 ---
 
@@ -691,7 +818,9 @@ You can reach me under <peter.rogge@yahoo.de>.
 
 
 [//]: # (Images)
-[Integration_App-Yin-Yang_v0.7.0_2018-12-29_20-54]:https://user-images.githubusercontent.com/8161815/50541765-ab6f7680-0bac-11e9-9a55-6111ffa1c70b.png
+[Lib-I18N_Demo_v0.8.0_2019-04-27_16-24]:https://user-images.githubusercontent.com/8161815/56850906-1a659d80-6909-11e9-93f2-a1b099875c2f.png
+[Lib-I18N_Demo-English_v0.8.0_2019-04-27_16-14]:https://user-images.githubusercontent.com/8161815/56850913-29e4e680-6909-11e9-9a87-f519c9b9bf71.png
+[Lib-I18N_Demo-properties-files_v0.8.0_2019-04-27_17-33]:https://user-images.githubusercontent.com/8161815/56851721-b1832300-6912-11e9-9638-bc95ca416c60.png
 [Lib-I18N_JavaDoc_v0.7.2_2019-04-22_09-39]:https://user-images.githubusercontent.com/8161815/56489671-beeb7800-64e2-11e9-8553-803fc8d15dc8.png
 
 
