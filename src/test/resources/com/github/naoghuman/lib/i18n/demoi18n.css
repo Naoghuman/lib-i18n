@@ -20,24 +20,30 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     Version    : 0.8.0
     Author     : Naoghuman
 */
-/* AnchorPane */
 .anchor-pane {
     -fx-background-color:#A7FFEB;
 }
 
 .button {
-    -fx-background-color:derive(#A7FFEB, -5%);
+    -fx-background-color:#A7FFEB;
     -fx-background-radius:0;
+    -fx-background-insets: 0;
+    -fx-text-fill:BLACK;
 }
 .button:hover {
-    -fx-background-color:derive(#A7FFEB, 17.5%);
+    -fx-background-color:rgba(0, 0, 0, 0.20);
 }
 .button:pressed {
-    -fx-background-color:derive(#A7FFEB, 35%);
+    -fx-background-color:rgba(0, 0, 0, 0.35);
+    -fx-text-fill:WHITE;
+}
+
+.label {
+    -fx-background-color:#1DE9B6, rgba(0, 0, 0, 0.20);
 }
 
 .image-view {
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 12, 0, 0, 0);
 }
 
 .vbox-navigation {

@@ -20,6 +20,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Feature
+#92 [test] Implement 'about' into the demo application.
 #90 [test] Implement functionalities in the demo to switch the language during runtime.
 #86 [test] Create basic demo application structure.
 
