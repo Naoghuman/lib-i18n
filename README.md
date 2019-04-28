@@ -735,9 +735,11 @@ _Image:_ JavaDoc Lib-I18N v0.7.2
 Download<a name="Download" />
 ---
 
-Current `version` is `0.7.2`. Main points in this release are:
-* This is a minor release.
-* Some typos in the ReadMe are fixed.
+Current `version` is `0.8.0`. Main points in this release are:
+* Implement a demo which shows how easy an application becomes multilingual in 
+  four steps :smile: .  
+* Extend the ReadMe with a new chapter 'Demo'.
+* Fix some minor bugs (test files are copied into the .jar file).
 
 **Maven coordinates**  
 In context from a [Maven] project you can use following maven coordinates: 
@@ -746,7 +748,7 @@ In context from a [Maven] project you can use following maven coordinates:
     <dependency>
         <groupId>com.github.naoghuman</groupId>
         <artifactId>lib-i18n</artifactId>
-        <version>0.7.2</version>
+        <version>0.8.0</version>
     </dependency>
 
     <!-- optional -->
@@ -759,7 +761,7 @@ In context from a [Maven] project you can use following maven coordinates:
 ```
 
 Download:
-* [Release v0.7.2] (04.22.2019 / MM.dd.yyyy)
+* [Release v0.8.0] (04.28.2019 / MM.dd.yyyy)
 
 An overview about all existings releases can be found here:
 * [Overview] from all releases in `Lib-I18N`.
@@ -770,7 +772,7 @@ Requirements<a name="Requirements" />
 ---
 
 * On your system you need [JRE 8] or [JDK 8] installed.
-* The library [lib-i18n-0.7.2.jar](#Installation).
+* The library [lib-i18n-0.8.0.jar](#Installation).
 
 In the library are following libraries registered as dependencies:
 * The library [lib-logger-0.6.0.jar](#Installation).
@@ -832,7 +834,6 @@ You can reach me under <peter.rogge@yahoo.de>.
 
 [//]: # (Links)
 [App-I18N-Demo]:https://github.com/Naoghuman/app-i18n-demo
-[App-Yin-Yang]:https://github.com/Naoghuman/app-yin-yang
 [Callable&lt;String&gt;]:https://docs.oracle.com/javase/8/docs/api/index.html?java/util/concurrent/Callable.html
 [DefaultI18NValidator]:https://github.com/Naoghuman/lib-i18n/blob/master/src/main/java/com/github/naoghuman/lib/i18n/internal/DefaultI18NValidator.java
 [Eclipse]:https://www.eclipse.org/
@@ -857,7 +858,7 @@ You can reach me under <peter.rogge@yahoo.de>.
 [NetBeans]:https://netbeans.org/
 [Overview]:https://github.com/Naoghuman/lib-i18n/releases
 [Pull Request]:https://help.github.com/articles/using-pull-requests
-[Release v0.7.2]:https://github.com/Naoghuman/lib-i18n/releases/tag/v0.7.2
+[Release v0.8.0]:https://github.com/Naoghuman/lib-i18n/releases/tag/v0.8.0
 [MissingResourceException]:https://docs.oracle.com/javase/8/docs/api/java/util/MissingResourceException.html
 [ResourceBundle]:https://docs.oracle.com/javase/8/docs/api/java/util/ResourceBundle.html
 [Scene Builder]:https://gluonhq.com/products/scene-builder/

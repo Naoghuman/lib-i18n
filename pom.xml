@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.naoghuman</groupId>
     <artifactId>lib-i18n</artifactId>
-    <version>0.8.0-SNAPSHOT</version> <!-- -PRERELEASE -SNAPSHOT -->
+    <version>0.8.0</version> <!-- -PRERELEASE -SNAPSHOT -->
     <packaging>jar</packaging>
     <name>Lib-I18N</name>
     <inceptionYear>2018</inceptionYear>
@@ -81,7 +81,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].</description>
                     <target>1.8</target>
                 </configuration>
             </plugin>
-            <!-- for RELEASE 
+            <!-- for RELEASE  -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -94,7 +94,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].</description>
                         </goals>
                     </execution>
                 </executions>
-            </plugin> -->
+            </plugin> <!-- -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -103,7 +103,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].</description>
                     <additionalparam>-Xdoclint:none</additionalparam>
                     <destDir>docs/apidocs</destDir>
                 </configuration>
-                <!-- for RELEASE 
+                <!-- for RELEASE -->
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -111,7 +111,7 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].</description>
                             <goal>jar</goal>
                         </goals>
                     </execution>
-                </executions> -->
+                </executions> <!-- -->
             </plugin>
             <!-- for RELEASE 
             <plugin>
@@ -164,7 +164,6 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].</description>
             <scope>test</scope>
             <type>jar</type>
         </dependency>
-        
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

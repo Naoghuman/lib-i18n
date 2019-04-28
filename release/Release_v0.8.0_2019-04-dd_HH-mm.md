@@ -8,8 +8,10 @@ Lib-I18N is written in JavaFX, [Maven] and [NetBeans].
 
 
 #### Summary
-* ...
-* ...
+* Implement a demo which shows how easy an application becomes multilingual in 
+  four steps :smile: .  
+* Extend the ReadMe with a new chapter 'Demo'.
+* Fix some minor bugs (test files are copied into the .jar file).
 
 
 
